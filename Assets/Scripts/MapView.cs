@@ -214,26 +214,26 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
             var currentPoint = mapManager.CurrentMap.path[mapManager.CurrentMap.path.Count - 1]; // 현재경로의 마지막 포인트를 currentPoint 변수에 준다.
             var currentNode = mapManager.CurrentMap.GetNode(currentPoint);
 
-            foreach (var point in currentNode.outgoing)
+            foreach (var point in currentNode.outgoing) // 방문한 노드 색칠
             {
                 var lineConnection = lineConnections.FirstOrDefault(conn => conn.from.Node == currentNode &&
                                                                             conn.to.Node.point.Equals(point));
                 lineConnection?.SetColor(lineVisitedColor);
             }
 
-            if (mapManager.CurrentMap.path.Count <= 1) return;
+            if (mapManager.CurrentMap.path.Count <= 1) return;  // 플레이어가 이동한 경로가 1이하일경우(한번도 안움직였다면..)메소드를 종료한다.
 
-            for (var i = 0; i < mapManager.CurrentMap.path.Count - 1; i++)
+            for (var i = 0; i < mapManager.CurrentMap.path.Count - 1; i++) //이동한 경로까지 반복실행
             {
-                var current = mapManager.CurrentMap.path[i];
-                var next = mapManager.CurrentMap.path[i + 1];
+                var current = mapManager.CurrentMap.path[i];//
+                var next = mapManager.CurrentMap.path[i + 1]; //이동할 다음 경로
                 var lineConnection = lineConnections.FirstOrDefault(conn => conn.@from.Node.point.Equals(current) &&
                                                                             conn.to.Node.point.Equals(next));
-                lineConnection?.SetColor(lineVisitedColor);
+                lineConnection?.SetColor(lineVisitedColor); // null이 아닌 경우에만 해당 라인의 색상을 변경. 라인이 존재하지 않는다면 아무런 작업도 수행하지 않고 넘어가기 위함
             }
         }
 
-        protected virtual void SetOrientation()
+        protected virtual void SetOrientation() //메소드는 주로 게임 개발에서 방향을 조정하거나 회전시키는 데 사용
         {
             var scrollNonUi = mapParent.GetComponent<ScrollNonUI>();
             var span = mapManager.CurrentMap.DistanceBetweenFirstAndLastLayers();
@@ -289,12 +289,12 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
             }
         }
 
-        private void DrawLines()
+        private void DrawLines() // 노드를 연결하는 메소드
         {
-            foreach (var node in MapNodes)
+            foreach (var node in MapNodes) // 현재 맵의 모든 노드 반복
             {
-                foreach (var connection in node.Node.outgoing)
-                    AddLineConnection(node, GetNode(connection));
+                foreach (var connection in node.Node.outgoing) // 현재 노드에서 나갈 수 있는 모든 노드
+                    AddLineConnection(node, GetNode(connection)); // 각 연결(선)에 대해 해당하는 다른 노드를 가져와서,AddLineConnection() 메소드를 호출 노드 간의 연결을 표시
             }
         }
 
