@@ -212,7 +212,7 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
 
             // 어떤 경우에도, 최종 노드에서 나가는 연결을 보이는/도달 가능한 색으로 표시합니다.
             var currentPoint = mapManager.CurrentMap.path[mapManager.CurrentMap.path.Count - 1]; // 현재경로의 마지막 포인트를 currentPoint 변수에 준다.
-            var currentNode = mapManager.CurrentMap.GetNode(currentPoint);
+            var currentNode = mapManager.CurrentMap.GetNode(currentPoint); // 내마지막 노드 currentNode
 
             foreach (var point in currentNode.outgoing)
             {
@@ -233,7 +233,7 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
             }
         }
 
-        protected virtual void SetOrientation()
+        protected virtual void SetOrientation() // 이 메서드는 지도의 방향을 설정하는 역할
         {
             var scrollNonUi = mapParent.GetComponent<ScrollNonUI>();
             var span = mapManager.CurrentMap.DistanceBetweenFirstAndLastLayers();
@@ -289,7 +289,7 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
             }
         }
 
-        private void DrawLines()
+        private void DrawLines() // 연결된 선을 그리는 메소드
         {
             foreach (var node in MapNodes)
             {
@@ -298,26 +298,26 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
             }
         }
 
-        private void ResetNodesRotation()
+        private void ResetNodesRotation() //각 노드의 회전을 초기화하는 역할을 함, 호출 될시 초기화디어 동일한 방향으로 정렬
         {
             foreach (var node in MapNodes)
                 node.transform.rotation = Quaternion.identity;
         }
 
-        protected virtual void AddLineConnection(MapNode from, MapNode to)
+        protected virtual void AddLineConnection(MapNode from, MapNode to) // 맵 노드간에 선을 연결을 생성한다.
         {
-            if (linePrefab == null) return;
+            if (linePrefab == null) return; // 라인 프리펩이 설정되지않았다면 메소드 실행중지
 
-            var lineObject = Instantiate(linePrefab, mapParent.transform);
-            var lineRenderer = lineObject.GetComponent<LineRenderer>();
-            var fromPoint = from.transform.position +
+            var lineObject = Instantiate(linePrefab, mapParent.transform); // 라인 프리팹을 복제하여 선 오브젝트 생성
+            var lineRenderer = lineObject.GetComponent<LineRenderer>(); // 생성된 선 오브젝트에서 라인 컴포넌트를 가져옴
+            var fromPoint = from.transform.position + //시작점과 끝점 간의 중간점을 계산
                             (to.transform.position - from.transform.position).normalized * offsetFromNodes;
 
-            var toPoint = to.transform.position +
+            var toPoint = to.transform.position + //끝점에서 시작점으로의 중간점 계산
                           (from.transform.position - to.transform.position).normalized * offsetFromNodes;
-
-            // drawing lines in local space:
-            lineObject.transform.position = fromPoint;
+           
+            // 로컬 공간에 선 그리기
+            lineObject.transform.position = fromPoint; // 선 오브젝트의 위치를 시작점으로 계산
             lineRenderer.useWorldSpace = false;
 
             // line renderer with 2 points only does not handle transparency properly:
@@ -334,17 +334,17 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
             lineConnections.Add(new LineConnection(lineRenderer, null, from, to));
         }
 
-        protected MapNode GetNode(Point p)
+        protected MapNode GetNode(Point p) //. 이 메서드는 Point 객체를 인자로 받아서 해당하는 MapNode를 반환
         {
             return MapNodes.FirstOrDefault(n => n.Node.point.Equals(p));
         }
 
-        protected MapConfig GetConfig(string configName)
+        protected MapConfig GetConfig(string configName) // 이 메서드는 주어진 configName과 일치하는 MapConfig를 반환한다.
         {
             return allMapConfigs.FirstOrDefault(c => c.name == configName);
         }
 
-        protected NodeBlueprint GetBlueprint(NodeType type)
+        protected NodeBlueprint GetBlueprint(NodeType type) //특정 NodeType에 해당하는 노드 블루프린트를 반환
         {
             var config = GetConfig(mapManager.CurrentMap.configName);
             return config.nodeBlueprints.FirstOrDefault(n => n.nodeType == type);

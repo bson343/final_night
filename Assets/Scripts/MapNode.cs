@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 namespace Map
 {
-    public enum NodeStates
+    public enum NodeStates //odeStates 열거형은 노드의 상태를 정의
     {
-        Locked,
-        Visited,
-        Attainable
+        Locked,// 잠김
+        Visited, // 방문함
+        Attainable // 도달 가능 (갈 수 있음)
     }
 }
 
