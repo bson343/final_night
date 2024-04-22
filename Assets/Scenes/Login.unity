@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &46717410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 46717411}
+  - component: {fileID: 46717412}
+  m_Layer: 0
+  m_Name: ScaneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &46717411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46717410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 762.61444, y: 287.0923, z: -5.4960737}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46717412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46717410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6dab5d87400cb4a96b9ff0b9e7aea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventScenes:
+  - EventScene1
+  - EventScene2
 --- !u!1 &101923184
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +948,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 747228043}
         m_TargetAssemblyTypeName: login, Assembly-CSharp
-        m_MethodName: SceneChange
+        m_MethodName: LoginSceneChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1709,6 +1756,7 @@ GameObject:
   - component: {fileID: 1546046236}
   - component: {fileID: 1546046235}
   - component: {fileID: 1546046234}
+  - component: {fileID: 1546046237}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1766,6 +1814,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1546046237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546046233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9355525418d1ce64a94f60ba643f8809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557518205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,3 +2413,4 @@ SceneRoots:
   - {fileID: 1692133486}
   - {fileID: 1546046236}
   - {fileID: 101923188}
+  - {fileID: 46717411}

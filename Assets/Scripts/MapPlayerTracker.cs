@@ -68,26 +68,26 @@ namespace Map
             // GUI가 표시되는 특정 상황에서 Locked 속성을 false로 설정하여 플레이어에게 이동 및 상호작용의 자유를 제공해야 한다는 것을 개발자에게 상기
             switch (mapNode.Node.nodeType)
             {
-                case NodeType.MinorEnemy:
+                case NodeType.MinorEnemy: //일반몹
 
                     break;
-                case NodeType.EliteEnemy:
+                case NodeType.EliteEnemy: // 엘리트 몹
 
                     break;
-                case NodeType.RestSite:
+                case NodeType.RestSite: // 회복?
+                    NightSceneManager.Instance.GameLoadScene("shop");
+                    break;
+                case NodeType.Treasure: // 마찬가지
 
                     break;
-                case NodeType.Treasure:
-
+                case NodeType.Store: // 상점
+                    NightSceneManager.Instance.GameLoadScene("shop");
                     break;
-                case NodeType.Store:
-
-                    break;
-                case NodeType.Boss:
+                case NodeType.Boss: // 보스
 
                     break;
                 case NodeType.Mystery: // 이벤트 씬
-
+                    NightSceneManager.Instance.LoadRandomScene();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -10,8 +10,8 @@ public class login : MonoBehaviour
     
 
     // Update is called once per frame
-    public void SceneChange()
+    public void LoginSceneChange() // 버튼에 연결
     {
-        SceneManager.LoadScene("Main");
+        NightSceneManager.Instance.LoadScene("Main");
     }
 }
