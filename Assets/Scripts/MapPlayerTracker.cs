@@ -69,18 +69,25 @@ namespace Map
             switch (mapNode.Node.nodeType)
             {
                 case NodeType.MinorEnemy:
+
                     break;
                 case NodeType.EliteEnemy:
+
                     break;
                 case NodeType.RestSite:
+
                     break;
                 case NodeType.Treasure:
+
                     break;
                 case NodeType.Store:
+
                     break;
                 case NodeType.Boss:
+
                     break;
-                case NodeType.Mystery:
+                case NodeType.Mystery: // 이벤트 씬
+
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
