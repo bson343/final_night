@@ -4,14 +4,14 @@ using UnityEngine.UI.Extensions;
 namespace Map
 {
     [System.Serializable]
-    public class LineConnection
+    public class LineConnection //LineConnection 클래스를 정의
     {
         public LineRenderer lr;
         public UILineRenderer uilr; 
         public MapNode from;
         public MapNode to;
 
-        public LineConnection(LineRenderer lr, UILineRenderer uilr, MapNode from, MapNode to)
+        public LineConnection(LineRenderer lr, UILineRenderer uilr, MapNode from, MapNode to) // 생성자
         {
             this.lr = lr;
             this.uilr = uilr;
@@ -19,7 +19,7 @@ namespace Map
             this.to = to;
         }
 
-        public void SetColor(Color color)
+        public void SetColor(Color color) // 선의 색상 변경
         {
             if (lr != null)
             {
