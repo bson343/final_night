@@ -233,7 +233,7 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
             }
         }
 
-        protected virtual void SetOrientation() // 이 메서드는 지도의 방향을 설정하는 역할
+        protected virtual void SetOrientation() 
         {
             var scrollNonUi = mapParent.GetComponent<ScrollNonUI>();
             var span = mapManager.CurrentMap.DistanceBetweenFirstAndLastLayers();
@@ -304,7 +304,7 @@ namespace Map // map에 성격을 가지고있는것들을 모아둔 네임스�
                 node.transform.rotation = Quaternion.identity;
         }
 
-        protected virtual void AddLineConnection(MapNode from, MapNode to) // 맵 노드간에 선을 연결을 생성한다.
+        protected virtual void AddLineConnection(MapNode from, MapNode to) 
         {
             if (linePrefab == null) return; // 라인 프리펩이 설정되지않았다면 메소드 실행중지
 
