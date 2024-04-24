@@ -4,5 +4,38 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/EventScene1.unity
+    guid: 1854813e63d62794ca33c22374136190
+  - enabled: 1
+    path: Assets/Scenes/EventScene2.unity
+    guid: c74bc30ec087ef14aa272a833287f37d
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: eb73a5fdc13fa08489b1e4a5782d235a
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 7b31970d79dc75746bf9b086982ea903
+  - enabled: 1
+    path: Assets/Scenes/MainPage.unity
+    guid: 9f5ff3e59200af140bbf2f841b5fac7e
+  - enabled: 1
+    path: Assets/Scenes/NodeMap1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/NodeMapExScane.unity
+    guid: dbd57c3eef92746398b20e2c20501a83
+  - enabled: 1
+    path: Assets/Scenes/shop.unity
+    guid: 4419f41c24edaa64a9f8fbc400e6b8b2
+  - enabled: 1
+    path: Assets/Scenes/EventScene3.unity
+    guid: 06fece30e0dcae949a4f3a086364edfc
+  - enabled: 1
+    path: Assets/Scenes/EventScene4.unity
+    guid: a77af513a7c3d974a8db67af4a0a8f49
+  - enabled: 1
+    path: Assets/Scenes/EventScene5.unity
+    guid: 4d50a0adaaf6b6b4980e9801dd0daba9
   m_configObjects: {}
