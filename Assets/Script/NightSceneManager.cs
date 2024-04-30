@@ -10,7 +10,11 @@ public class NightSceneManager : MonoBehaviour
 
     public List<string> eventScenes = new List<string>() { // 이벤트 씬 랜덤 리스트
         "EventScene1",
-        "EventScene2"
+        "EventScene2",
+        "EventScene3",
+        "EventScene4",
+        "EventScene5"
+
     };
 
     private void Awake() // 싱클톤 패턴 , 게임 오브젝트가 다음 씬에 가서도 안사라지게 설정

@@ -170,6 +170,9 @@ MonoBehaviour:
   eventScenes:
   - EventScene1
   - EventScene2
+  - EventScene3
+  - EventScene4
+  - EventScene5
 --- !u!1 &101923184
 GameObject:
   m_ObjectHideFlags: 0
