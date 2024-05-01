@@ -12,6 +12,6 @@ public class card : MonoBehaviour
     // Update is called once per frame
     public void SceneChange()
     {
-        NightSceneManager.Instance.LoadScene("deck_check");
+        NightSceneManager.Instance.GameLoadScene("deck_check");
     }
 }
