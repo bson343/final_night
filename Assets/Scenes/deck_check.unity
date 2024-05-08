@@ -877,6 +877,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8693630998673270218, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.7899556
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693630998673270218, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -88
+      objectReference: {fileID: 0}
     - target: {fileID: 9213177269786320185, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
       propertyPath: m_Name
       value: deck_check

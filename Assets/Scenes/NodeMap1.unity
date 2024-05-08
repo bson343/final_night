@@ -254,6 +254,18 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1956591274077693521, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956591274077693521, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956591274077693521, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2106163242993144298, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -350,12 +362,28 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 8c148aa6a373ba34882454df27ec16ed, type: 3}
+    - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15905.353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 356343.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489171550410472659, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4601318462218157168, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4601318462218157168, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682358913709003735, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5010234273528828828, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
@@ -790,7 +818,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
