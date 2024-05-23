@@ -14,7 +14,7 @@ public class MariaDBTest : MonoBehaviour
     public bool ConnectionTest()
     {
         string conStr = string.Format("Server={0};Database={1};Uid ={2};Pwd={3};",
-            "127.0.0.1", "testdb", "root", "root");
+            "127.0.0.1", "finalnightdb", "root", "root");
         try
         {
             using (MySqlConnection conn = new MySqlConnection(conStr))
