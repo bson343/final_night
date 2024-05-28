@@ -30,7 +30,7 @@ public class LoginManager : MonoBehaviour
         if (www.result != UnityWebRequest.Result.Success)
         {
             loginpopup.SetActive(true);
-            resultText.text = "Error: 서버와 연결되어있지않습니다." + www.error;
+            resultText.text = "Error: 로그인의 실패하셨습니다. " + www.error;
         }
         else
         {
@@ -38,7 +38,9 @@ public class LoginManager : MonoBehaviour
             LoginResponse loginResponse = JsonUtility.FromJson<LoginResponse>(response);
             if (loginResponse.success)
             {
-                NightSceneManager.Instance.LoadScene("Main");
+                Debug.Log("로그인 성공! UserNum: " + loginResponse.userNum);
+                UserManager.Instance.SetUserNum(loginResponse.userNum); // UserManager를 통해 userNum 설정
+                NightSceneManager.Instance.LoadScene("Main DBTest");
             }
             else
             {
@@ -53,5 +55,6 @@ public class LoginManager : MonoBehaviour
     {
         public bool success;
         public string message;
+        public long userNum;
     }
 }
