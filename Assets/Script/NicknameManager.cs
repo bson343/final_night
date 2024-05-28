@@ -35,7 +35,7 @@ public class NicknameManager : MonoBehaviour
             NicknameResponse nicknameResponse = JsonUtility.FromJson<NicknameResponse>(response);
             if (nicknameResponse.success)
             {
-                UserManager.Instance.SetUserNickname(nicknameResponse.nickname); // UserManager를 통해 userNum 설정
+                UserManager.Instance.SetUserNickname(nicknameResponse.nickname); // UserManager를 통해 userNickname 설정
                 nicknameText.text = nicknameResponse.nickname;
             }
             else
