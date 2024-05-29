@@ -658,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eab54e2684acdb4281e9f27090b3442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nicknameText: {fileID: 0}
 --- !u!114 &1086410847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,6 +830,7 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1.000001
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 4965234883337962426, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -841,6 +843,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 66294ac5a9de9a2408009b79763171b1, type: 3}
+=======
+    - target: {fileID: 5452948832011037273, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9314c60c5ec5cbc41bce686dabd33ccb, type: 3}
+>>>>>>> Stashed changes
     - target: {fileID: 5891239934068552664, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -77
