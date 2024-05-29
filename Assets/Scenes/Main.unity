@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3087531}
   - component: {fileID: 3087530}
   m_Layer: 0
-  m_Name: "\uD14C\uB450\uB9AC"
+  m_Name: xpenfl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 238102465}
   - component: {fileID: 238102466}
   m_Layer: 5
-  m_Name: "\uC74C\uD5A5 \uC2AC\uB77C\uC774\uB354"
+  m_Name: volume_slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 381397187}
   - component: {fileID: 381397186}
   m_Layer: 0
-  m_Name: "\uB4A4\uB85C\uAC00\uAE30"
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 620272076}
   - component: {fileID: 620272075}
   m_Layer: 0
-  m_Name: "\uBC30\uACBD"
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 645839434}
   - component: {fileID: 645839433}
   m_Layer: 5
-  m_Name: "\uC124\uC815 \uBC84\uD2BC"
+  m_Name: optionbt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1604,7 +1604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738305277}
   m_Layer: 0
-  m_Name: "\uD14D\uC2A4\uD2B8"
+  m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 747228041}
   - component: {fileID: 747228040}
   m_Layer: 5
-  m_Name: "\uAC8C\uC784\uC2DC\uC791 \uBC84\uD2BC"
+  m_Name: Startbt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1773,7 +1773,7 @@ GameObject:
   - component: {fileID: 769306919}
   - component: {fileID: 769306918}
   m_Layer: 0
-  m_Name: "\uC74C\uD5A5 \uC124\uC815T"
+  m_Name: dmagidT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2334,7 +2334,7 @@ GameObject:
   - component: {fileID: 1053942485}
   - component: {fileID: 1053942484}
   m_Layer: 0
-  m_Name: "\uC124\uC815\uC644\uB8CC"
+  m_Name: success
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2467,7 +2467,7 @@ GameObject:
   - component: {fileID: 1094854218}
   - component: {fileID: 1094854217}
   m_Layer: 5
-  m_Name: "\uD1B5\uACC4 \uBC84\uD2BC"
+  m_Name: xhdrP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2782,7 +2782,7 @@ GameObject:
   - component: {fileID: 1204213050}
   - component: {fileID: 1204213049}
   m_Layer: 5
-  m_Name: "\uBC30\uACBD"
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3371,7 +3371,7 @@ GameObject:
   - component: {fileID: 1548354743}
   - component: {fileID: 1548354742}
   m_Layer: 0
-  m_Name: "\uC124\uC815\uCC3DT"
+  m_Name: tjfwjdT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3505,7 +3505,7 @@ GameObject:
   - component: {fileID: 1557356518}
   - component: {fileID: 1557356517}
   m_Layer: 0
-  m_Name: "\uB4B7\uBC30\uACBD \uC5B4\uB461\uAC8C"
+  m_Name: panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3580,7 +3580,7 @@ GameObject:
   - component: {fileID: 1568618467}
   - component: {fileID: 1568618466}
   m_Layer: 0
-  m_Name: "\uD574\uC0C1\uB3C4 \uC124\uC815T"
+  m_Name: gotkdehT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3849,7 +3849,7 @@ GameObject:
   - component: {fileID: 1581127422}
   - component: {fileID: 1581127421}
   m_Layer: 5
-  m_Name: "\uD50C\uB808\uC774\uC5B4 \uB2C9\uB124\uC784"
+  m_Name: Player_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4243,7 +4243,7 @@ GameObject:
   - component: {fileID: 1673282964}
   - component: {fileID: 1673282962}
   m_Layer: 5
-  m_Name: "\uD574\uC0C1\uB3C4"
+  m_Name: gotkdeh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4915,7 +4915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025300911}
   m_Layer: 0
-  m_Name: "\uC124\uC815\uCC3D"
+  m_Name: option_popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 506285353}
   - component: {fileID: 506285352}
   m_Layer: 5
-  m_Name: "\uD31D\uC5C5"
+  m_Name: popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1127,7 +1127,7 @@ GameObject:
   - component: {fileID: 616125229}
   - component: {fileID: 616125228}
   m_Layer: 5
-  m_Name: "\uD734\uC2DD"
+  m_Name: rest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1405,7 +1405,7 @@ GameObject:
   - component: {fileID: 741184241}
   - component: {fileID: 741184240}
   m_Layer: 5
-  m_Name: "\uC9C4\uC9DC?"
+  m_Name: check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 907850721}
   - component: {fileID: 907850720}
   m_Layer: 5
-  m_Name: "\uC81C\uAC70\uC644\uB8CC"
+  m_Name: del
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2725,7 +2725,7 @@ GameObject:
   - component: {fileID: 1419533990}
   - component: {fileID: 1419533989}
   m_Layer: 5
-  m_Name: "\uBC30\uACBD"
+  m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2801,7 +2801,7 @@ GameObject:
   - component: {fileID: 1422571708}
   - component: {fileID: 1422571707}
   m_Layer: 5
-  m_Name: "\uC544\uB2C8\uC694"
+  m_Name: x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3151,7 +3151,7 @@ GameObject:
   - component: {fileID: 1560513985}
   - component: {fileID: 1560513984}
   m_Layer: 5
-  m_Name: "\uB9C8\uB140\uB4E4\uC758 \uD734\uC2DD\uCC98"
+  m_Name: restplace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3646,11 +3646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 14783.52
+      value: 15738.062
       objectReference: {fileID: 0}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 332688.94
+      value: 352771.03
       objectReference: {fileID: 0}
     - target: {fileID: 4489171550410472659, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4052,7 +4052,7 @@ GameObject:
   - component: {fileID: 1911864177}
   - component: {fileID: 1911864176}
   m_Layer: 5
-  m_Name: "\uC608"
+  m_Name: o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
