@@ -4,36 +4,36 @@ using UnityEngine;
 
 public class UserManager : MonoBehaviour
 {
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤
     public static UserManager Instance { get; private set; }
 
-    // userNumÀ» ÀúÀåÇÒ º¯¼ö
+    // userNumì„ ì €ì¥í•  ë³€ìˆ˜
     public long UserNum { get; private set; }
 
-    // userNicknameÀ» ÀúÀåÇÒ º¯¼ö
+    // userNicknameì„ ì €ì¥í•  ë³€ìˆ˜
     public string UserNickname { get; private set; }
 
     private void Awake()
     {
-        // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º ÃÊ±âÈ­
+        // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ì´ˆê¸°í™”
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ÀÌ °´Ã¼¸¦ »õ·Î¿î ¾À ·Îµå ½Ã¿¡µµ ÆÄ±«µÇÁö ¾Ê°Ô ÇÔ
+            DontDestroyOnLoad(gameObject); // ì´ ê°ì²´ë¥¼ ìƒˆë¡œìš´ ì”¬ ë¡œë“œ ì‹œì—ë„ íŒŒê´´ë˜ì§€ ì•Šê²Œ í•¨
         }
         else
         {
-            Destroy(gameObject); // ÀÎ½ºÅÏ½º°¡ ÀÌ¹Ì Á¸ÀçÇÏ¸é »õ·Î¿î °´Ã¼¸¦ ÆÄ±«
+            Destroy(gameObject); // ì¸ìŠ¤í„´ìŠ¤ê°€ ì´ë¯¸ ì¡´ì¬í•˜ë©´ ìƒˆë¡œìš´ ê°ì²´ë¥¼ íŒŒê´´
         }
     }
 
-    // userNum ¼³Á¤ ¸Ş¼­µå
+    // userNum ì„¤ì • ë©”ì„œë“œ
     public void SetUserNum(long userNum)
     {
         UserNum = userNum;
     }
 
-    // userNickname ¼³Á¤ ¸Ş¼­µå
+    // userNickname ì„¤ì • ë©”ì„œë“œ
     public void SetUserNickname(string userNickname)
     {
         UserNickname = userNickname;
