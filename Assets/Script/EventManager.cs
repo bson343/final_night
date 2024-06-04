@@ -9,7 +9,7 @@ public class EventManager : MonoBehaviour
     
     public void Exit()
     {
-        Debug.Log("Ã¢ ´İÀ½");
+        Debug.Log("ì°½ ë‹«ìŒ");
         NightSceneManager.Instance.UnloadScene();
     }
 }

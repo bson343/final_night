@@ -30,6 +30,12 @@ public class testBindToolbar : MonoBehaviour
     {
         //NightSceneManager.Instance.UnloadScene();
         toolbar = GameObject.Find(_nameGameBar);
+        
+        if (toolbar is null)
+        {
+            return;
+        }
+        
         Debug.Log(toolbar.name);
 
         Slider[] components = toolbar.GetComponentsInChildren<Slider>();
