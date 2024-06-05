@@ -8,7 +8,7 @@ public class NightSceneManager : MonoBehaviour
     public static NightSceneManager Instance { get; private set; }
     string loadedSceneName;
 
-    public List<string> eventScenes = new List<string>() { // ÀÌº¥Æ® ¾À ·£´ı ¸®½ºÆ®
+    public List<string> eventScenes = new List<string>() { // ì´ë²¤íŠ¸ ì”¬ ëœë¤ ë¦¬ìŠ¤íŠ¸
         "EventScene1",
         "EventScene2",
         "EventScene3",
@@ -17,7 +17,7 @@ public class NightSceneManager : MonoBehaviour
 
     };
 
-    private void Awake() // ½ÌÅ¬Åæ ÆĞÅÏ , °ÔÀÓ ¿ÀºêÁ§Æ®°¡ ´ÙÀ½ ¾À¿¡ °¡¼­µµ ¾È»ç¶óÁö°Ô ¼³Á¤
+    private void Awake() // ì‹±í´í†¤ íŒ¨í„´ , ê²Œì„ ì˜¤ë¸Œì íŠ¸ê°€ ë‹¤ìŒ ì”¬ì— ê°€ì„œë„ ì•ˆì‚¬ë¼ì§€ê²Œ ì„¤ì •
     {
         if (Instance == null)
         {
@@ -30,21 +30,21 @@ public class NightSceneManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(string sceneName) // ¾ÀÀÇ ÀÌ¸§À» ÀÔ·Â¹Ş¾Æ¼­ ¾ÀÀ» ºÒ·¯¿Â´Ù (·Î±×ÀÎ , ¸ŞÀÎÈ­¸é¶§ »ç¿ë)
+    public void LoadScene(string sceneName) // ì”¬ì˜ ì´ë¦„ì„ ì…ë ¥ë°›ì•„ì„œ ì”¬ì„ ë¶ˆëŸ¬ì˜¨ë‹¤ (ë¡œê·¸ì¸ , ë©”ì¸í™”ë©´ë•Œ ì‚¬ìš©)
     {
         StartCoroutine(LoadSceneAsync(sceneName));
     }
-    public void GameLoadScene(string sceneName) // ¾ÀÀÇ ÀÌ¸§À» ÀÔ·Â¹Ş¾Æ¼­ ¾ÀÀ» ºÒ·¯¿Â´Ù, (¸Ê¿¡¼­ ´Ù¸¥ ¾ÀÀ» ºÒ·¯³¾¶§ »ç¿ëÇÑ´Ù. ³ª°¥¼öÀÖ¾î¾ßÇÏ´Ï±î Ã¢¿¡¼­ Ãß°¡ÇÏ´Â ½ÄÀ¸·Î)
+    public void GameLoadScene(string sceneName) // ì”¬ì˜ ì´ë¦„ì„ ì…ë ¥ë°›ì•„ì„œ ì”¬ì„ ë¶ˆëŸ¬ì˜¨ë‹¤, (ë§µì—ì„œ ë‹¤ë¥¸ ì”¬ì„ ë¶ˆëŸ¬ë‚¼ë•Œ ì‚¬ìš©í•œë‹¤. ë‚˜ê°ˆìˆ˜ìˆì–´ì•¼í•˜ë‹ˆê¹Œ ì°½ì—ì„œ ì¶”ê°€í•˜ëŠ” ì‹ìœ¼ë¡œ)
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive).completed += (AsyncOperation op) =>
         {
             loadedSceneName = sceneName;
-            Debug.Log("ÇöÀç ·ÎµåµÈ ¾À ÀÌ¸§: " + loadedSceneName);
+            Debug.Log("í˜„ì¬ ë¡œë“œëœ ì”¬ ì´ë¦„: " + loadedSceneName);
         };
     }
 
 
-    private IEnumerator LoadSceneAsync(string sceneName) // ¾ÀÀÇ ºñµ¿±âÀû Ã³¸®¸¦ À§ÇØ »ç¿ë (´õ »¡¶óÁü)
+    private IEnumerator LoadSceneAsync(string sceneName) // ì”¬ì˜ ë¹„ë™ê¸°ì  ì²˜ë¦¬ë¥¼ ìœ„í•´ ì‚¬ìš© (ë” ë¹¨ë¼ì§)
     {
         AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
 
@@ -54,22 +54,22 @@ public class NightSceneManager : MonoBehaviour
         }
     }
 
-    public void LoadRandomScene() //·£´ı ÀÌº¥Æ® ¾À ·Îµå
+    public void LoadRandomScene() //ëœë¤ ì´ë²¤íŠ¸ ì”¬ ë¡œë“œ
     {
         int index = Random.Range(0, eventScenes.Count);
         string sceneToLoad = eventScenes[index];
         SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive).completed += (AsyncOperation op) =>
         {
             loadedSceneName = sceneToLoad;
-            Debug.Log("ÇöÀç ·ÎµåµÈ ¾À ÀÌ¸§: " + loadedSceneName);
+            Debug.Log("í˜„ì¬ ë¡œë“œëœ ì”¬ ì´ë¦„: " + loadedSceneName);
         };
     }
 
-    public void UnloadScene() // ¾À ¾ğ·Îµù (¾ÀÀ» °è¼Ó ºÒ·¯¿À¸é ¼º´ÉÀÌ ¾ÈÁÁ¾ÆÁü, ±×·¡¼­ ²¨Áà¾ßÇÑ´Ù.)
+    public void UnloadScene() // ì”¬ ì–¸ë¡œë”© (ì”¬ì„ ê³„ì† ë¶ˆëŸ¬ì˜¤ë©´ ì„±ëŠ¥ì´ ì•ˆì¢‹ì•„ì§, ê·¸ë˜ì„œ êº¼ì¤˜ì•¼í•œë‹¤.)
     {
         if (!string.IsNullOrEmpty(loadedSceneName))
         {
-            Debug.Log("¾ğ·Îµå ¾À ÀÌ¸§: " + loadedSceneName);
+            Debug.Log("ì–¸ë¡œë“œ ì”¬ ì´ë¦„: " + loadedSceneName);
             SceneManager.UnloadSceneAsync(loadedSceneName);
         }
     }
