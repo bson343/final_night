@@ -51,7 +51,8 @@ public class AchievementManager : MonoBehaviour
             if (gameDataArray != null && gameDataArray.Length > 0)
             {
                 GameData gameData = gameDataArray[0]; // Assuming you want to get the first item
-                UserManager.Instance.SetData_ID(gameData.DataID); // 데이터 저장할때 사용할 아이디 유저 매니저에 저장
+                UserManager.Instance.SetData_ID(gameData.id); // 데이터 저장할때 사용할 아이디 유저 매니저에 저장
+                Debug.Log(gameData.id);
                 clearCountText.text = "게임 클리어 횟수 : "+gameData.clearCount.ToString();
                 playtimeText.text = "플레이타임 : "+ FormatPlaytime(gameData.playtime);
             }
@@ -72,7 +73,7 @@ public class AchievementManager : MonoBehaviour
     private class GameData
     {
         public bool success;
-        public long DataID;
+        public long id;
         public int clearCount;
         public int playtime;
     }
