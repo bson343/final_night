@@ -4,98 +4,98 @@ using UnityEngine;
 
 public class UserManager : MonoBehaviour
 {
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º
+    // ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½
     public static UserManager Instance { get; private set; }
 
-    // userNumÀ» ÀúÀåÇÒ º¯¼ö (Å¬·¡½º ¿ÜºÎ¿¡¼­´Â °ªÀ» ÀÐÀ» ¼ö ÀÖÁö¸¸ ¼³Á¤ÇÒ ¼ö´Â ¾øµµ·Ï Á¦ÇÑ)
+    // userNumï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     public long UserNum { get; private set; }
 
-    public long DataID { get; private set; } // µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ¶§ »ç¿ëÇÏ´Â ID¸¦ ¹Þ¾Æ¿À´Â º¯¼ö , ÀÌ°É·Î ÀúÀåÇÒ¶§ Äõ¸®¸¦ ÀÛ¼ºÇÑ´Ù.
+    public long DataID { get; private set; } // ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ IDï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ , ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ñ´ï¿½.
     
-    // userNicknameÀ» ÀúÀåÇÒ º¯¼ö
+    // userNicknameï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public string UserNickname { get; private set; }
 
     public int Gold { get; private set; }
-    // ÇÃ·¹ÀÌ¾î °ñµå 
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ 
     public int HP { get; private set; }
-    // ÇÃ·¹ÀÌ¾î Ã¼·Â 
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Ã¼ï¿½ï¿½ 
     public List<CardData> CardDeck { get; private set; }
-    // ÇÃ·¹ÀÌ¾î µ¦
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½
     public List<HeroCardData> HeroCardDeck { get; private set; }
-    // ÇÃ·¹ÀÌ¾î ¿µ¿õ Ä«µå µ¦
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½
     public string Map { get; private set; }
-    // ÇÃ·¹ÀÌ¾î ¸Ê Á¤º¸
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private void Awake()
     {
-        // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º ÃÊ±âÈ­
+        // ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½Ê±ï¿½È­
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ÀÌ °´Ã¼¸¦ »õ·Î¿î ¾À ·Îµå ½Ã¿¡µµ ÆÄ±«µÇÁö ¾Ê°Ô ÇÔ
+            DontDestroyOnLoad(gameObject); // ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ ï¿½Îµï¿½ ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½
         }
         else
         {
-            Destroy(gameObject); // ÀÎ½ºÅÏ½º°¡ ÀÌ¹Ì Á¸ÀçÇÏ¸é »õ·Î¿î °´Ã¼¸¦ ÆÄ±«
+            Destroy(gameObject); // ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ä±ï¿½
         }
     }
 
-    // userNum ¼³Á¤ ¸Þ¼­µå
+    // userNum ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetUserNum(long userNum)
     {
         UserNum = userNum;
     }
 
-    // userNickname ¼³Á¤ ¸Þ¼­µå
+    // userNickname ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetUserNickname(string userNickname)
     {
         UserNickname = userNickname;
     }
 
-    // µ¥ÀÌÅÍ ID ¼³Á¤ ¸Þ¼­µå
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ID ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetData_ID(long dataID)
     {
         DataID = dataID;
     }
 
 
-    // °ñµå °ªÀ» º¯°æÇÏ´Â ¸Þ¼­µå
+    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetGold(int gold)
     {
         Gold = gold;
     }
 
-    // Ã¼·Â °ªÀ» º¯°æÇÏ´Â ¸Þ¼­µå
+    // Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetHP(int hp)
     {
         HP = hp;
     }
 
-    // Ä«µå µ¦À» º¯°æÇÏ´Â ¸Þ¼­µå
+    // Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetCardDeck(List<CardData> cardDeck)
     {
         CardDeck = cardDeck;
     }
 
-    // ¿µ¿õ Ä«µå µ¦À» º¯°æÇÏ´Â ¸Þ¼­µå
+    // ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetHeroCardDeck(List<HeroCardData> heroCardDeck)
     {
         HeroCardDeck = heroCardDeck;
     }
 
-    // ¸Ê Á¤º¸¸¦ º¯°æÇÏ´Â ¸Þ¼­µå
+    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SetMap(string map)
     {
         Map = map;
     }
 
-    // µ¥ÀÌÅÍ¸¦ JSON ¹®ÀÚ¿­·Î º¯È¯ÇÏ¿© UserManager¿¡ ÀúÀåÇÏ´Â ¸Þ¼­µå
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ JSON ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï¿ï¿½ UserManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void SaveMapToManager(string json)
     {
         Map = json;
     }
 
-    // UserManager¿¡ ÀúÀåµÈ JSON ¹®ÀÚ¿­À» ºÒ·¯¿À´Â ¸Þ¼­µå
+    // UserManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ JSON ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public string LoadMapFromManager()
     {
         return Map;

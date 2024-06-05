@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/BattleCard.cs" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/BattleCardBattleState.cs" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/BattleCardController.cs" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/BattleCardHolder.cs" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/BattleCardStateFactory.cs" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/Card/BattleCard.cs" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/Card/CardState/BattleCardBattleState.cs" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/Assets/Private/bson/Scripts/TempPlayer.cs" charset="x-windows-949" />
+  </component>
+</project>
