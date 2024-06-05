@@ -7,11 +7,20 @@ public class UserManager : MonoBehaviour
     // 싱글톤 인스턴스
     public static UserManager Instance { get; private set; }
 
-    // userNum을 저장할 변수
+    // userNum을 저장할 변수 (클래스 외부에서는 값을 읽을 수 있지만 설정할 수는 없도록 제한)
     public long UserNum { get; private set; }
 
     // userNickname을 저장할 변수
     public string UserNickname { get; private set; }
+
+    public int Gold { get; private set; }
+    // 플레이어 골드 
+    public int HP { get; private set; }
+    // 플레이어 체력 
+    public List<CardData> CardDeck { get; private set; }
+    // 플레이어 덱
+    public string Map { get; private set; }
+    // 플레이어 맵 정보
 
     private void Awake()
     {

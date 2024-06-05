@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 19.700031
       objectReference: {fileID: 0}
+    - target: {fileID: 2357096037072020862, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2460737954634601932, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.30203947
@@ -364,11 +368,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 8c148aa6a373ba34882454df27ec16ed, type: 3}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 15905.353
+      value: 21848.797
       objectReference: {fileID: 0}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 356343.3
+      value: 487274.94
       objectReference: {fileID: 0}
     - target: {fileID: 4489171550410472659, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -500,6 +504,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5783193376938277730, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600054424941480615, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600054424941480615, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600054424941480615, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6997821138751577283, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
@@ -644,6 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eab54e2684acdb4281e9f27090b3442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nicknameText: {fileID: 0}
 --- !u!114 &1086410847
 MonoBehaviour:
   m_ObjectHideFlags: 0
