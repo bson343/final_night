@@ -10,7 +10,7 @@ public class login : MonoBehaviour
     
 
     // Update is called once per frame
-    public void LoginSceneChange() // ¹öÆ°¿¡ ¿¬°á
+    public void LoginSceneChange() // ë²„íŠ¼ì— ì—°ê²°
     {
         NightSceneManager.Instance.LoadScene("Main");
     }
