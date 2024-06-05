@@ -24,16 +24,16 @@ public class BattleCard : MonoBehaviour
 
     private BattleCardStateFactory _CardStateFactory;
     private BattleCardHolder _cardHolder;
-    private CardData _cardData;
+    private BattleCardData _cardData;
 
-    public CardData CardData => _cardData;
+    public BattleCardData CardData => _cardData;
     public BattleCardState CurrentState => _CardStateFactory.CurrentState;
     public BattleCardHolder CardHolder => _cardHolder;
     public BattleCardController CardController => _cardController;
     
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
-    public void Init(BattleCardHolder cardHolder, CardData cardData, int generateNumber)
+    public void Init(BattleCardHolder cardHolder, BattleCardData cardData, int generateNumber)
     {
         _CardStateFactory = new BattleCardStateFactory(this);
 

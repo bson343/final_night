@@ -30,8 +30,8 @@ public enum ECardFrameData
     UniqueSkill
 }
 
-[CreateAssetMenu()]
-public class CardData : ScriptableObject
+[CreateAssetMenu(fileName = "aboutBattleData", menuName = "aboutBattleData/BattleCardData")]
+public class BattleCardData : ScriptableObject
 {
     [Header("카드 정보")]
     public int id;
