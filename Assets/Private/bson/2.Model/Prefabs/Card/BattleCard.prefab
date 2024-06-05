@@ -513,6 +513,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generateNumber: 0
+  cardType: 0
+  cost: 0
+  cardName: 
   _cardController: {fileID: 5782829446020380290}
 --- !u!114 &5782829446020380290
 MonoBehaviour:

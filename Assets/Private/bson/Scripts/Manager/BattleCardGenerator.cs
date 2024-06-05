@@ -10,7 +10,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     [SerializeField] private BattleCardHolder _cardHolder;
 
     [SerializeField] private List<BattleCard> _cards;
-    [SerializeField] private List<CardData> _cardDatas;
+    [SerializeField] private List<BattleCardData> _cardDatas;
 
     public void Init()
     {
