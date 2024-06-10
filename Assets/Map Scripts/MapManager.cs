@@ -14,10 +14,10 @@ namespace Map
 
         private void Start()
         {
-            if (PlayerPrefs.HasKey("Map"))
+            if (UserManager.Instance.Map!=null)
             {
-                var mapJson = PlayerPrefs.GetString("Map"); // PlayerPrefs에 "Map"이라는 키가 있는지 확인
-                var map = JsonConvert.DeserializeObject<Map>(mapJson); //만약 "Map"이라는 키가 있다면, 저장된 맵 데이터를 가져온다. 가져온 맵 데이터를 Deserialize하여 Map 객체로 변환
+                
+                var map = JsonConvert.DeserializeObject<Map>(UserManager.Instance.Map); // 맵 데이터를 Deserialize하여 Map 객체로 변환
                 // using this instead of .Contains()
                 if (map.path.Any(p => p.Equals(map.GetBossNode().point))) //맵 데이터에 보스 노드에 대한 경로가 포함되어 있는지 확인
                 {
@@ -31,7 +31,7 @@ namespace Map
                     view.ShowMap(map);
                 }
             }
-            else //PlayerPrefs에 "Map"이라는 키가 없다면, 새로운 맵을 생성 
+            else 
             {
                 GenerateNewMap();
             }
@@ -49,10 +49,9 @@ namespace Map
         {
             if (CurrentMap == null) return; //현재 맵이 null인지 확인합니다. 만약 현재 맵이 없으면 아무 작업도 수행하지 않고 종료
 
-            var json = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented, //현재 맵을 JSON 형식으로 직렬화. 이때 JsonConvert.SerializeObject() 메소드를 사용하여 CurrentMap 객체를 JSON 문자열로 변환
-                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
-            PlayerPrefs.SetString("Map", json); //JSON 문자열로 변환된 맵을 PlayerPrefs에 저장. 이를 위해 PlayerPrefs.SetString() 메소드를 사용하여 "Map" 키에 해당하는 값을 설정
-            PlayerPrefs.Save(); // 플레이어 프리팹에 저장
+            string map = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented, //현재 맵을 JSON 형식으로 직렬화. 이때 JsonConvert.SerializeObject() 메소드를 사용하여 CurrentMap 객체를 JSON 문자열로 변환
+                new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+            UserManager.Instance.SetMap(map);
         }
 
         private void OnApplicationQuit() //어플리케이션이 종료될 때 호출되는 Unity 메소드

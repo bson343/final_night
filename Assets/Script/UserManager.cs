@@ -19,6 +19,11 @@ public class UserManager : MonoBehaviour
     // �÷��̾� ��� 
     public int HP { get; private set; }
     // �÷��̾� ü�� 
+
+    public List<int> CardDeckIndex { get; private set; }
+
+    public List<int> HeroCardDeckIndex { get; private set; }
+
     public List<CardData> CardDeck { get; private set; }
     // �÷��̾� ��
     public List<HeroCardData> HeroCardDeck { get; private set; }
@@ -71,6 +76,16 @@ public class UserManager : MonoBehaviour
         HP = hp;
     }
 
+    public void SetCardDeckindex(List<int> cardDeck) // list 숫자형으로 테스트
+    {
+        CardDeckIndex = cardDeck;
+    }
+
+    public void SetHeroCardDeckindex(List<int> herocardDeck) // list 숫자형으로 테스트
+    {
+        HeroCardDeckIndex = herocardDeck;
+    }
+
     // ī�� ���� �����ϴ� �޼���
     public void SetCardDeck(List<CardData> cardDeck)
     {
@@ -95,8 +110,8 @@ public class UserManager : MonoBehaviour
         Map = json;
     }
 
-    // UserManager�� ����� JSON ���ڿ��� �ҷ����� �޼���
-    public string LoadMapFromManager()
+    // UserManager에서 오브젝트인 맵을 돌려줌
+    public object LoadMapFromManager()
     {
         return Map;
     }
