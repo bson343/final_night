@@ -6,11 +6,10 @@ using Newtonsoft.Json;
 
 public class GamePlayDataLodingManager : MonoBehaviour
 {
-    private int BasicHP = 80;
+    private int BasicHP = 100;
     private int BasicGold = 99;
     private List<int> BasicCardDeck = new List<int> { 1, 1, 1, 1, 1, 2, 2, 2, 2, 3 };
     private const string BaseUrl = "http://localhost:8080/gamesavedata/user/";
-
     // userNumber를 저장할 변수
     public long userNumber;
 
@@ -29,58 +28,78 @@ public class GamePlayDataLodingManager : MonoBehaviour
         UnityWebRequest request = UnityWebRequest.Get(url);
         yield return request.SendWebRequest();
 
-        if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.LogError(request.error);
+            string jsonResponse = request.downloadHandler.text;
+            ProcessGameData(jsonResponse);
         }
         else
         {
-            string jsonData = request.downloadHandler.text;
-            List<GameData> gameDataList = JsonConvert.DeserializeObject<List<GameData>>(jsonData);
+            Debug.LogError($"Error fetching game data: {request.error}");
+        }
+    }
 
-            if (gameDataList == null || gameDataList.Count == 0)
+    private void ProcessGameData(string jsonResponse)
+    {
+        List<GameData> gameDataList = JsonConvert.DeserializeObject<List<GameData>>(jsonResponse);
+
+        foreach (var gameData in gameDataList)
+        {
+            if (gameData.gameData == null)
             {
-                // gameData가 null이거나 리스트가 비어있으면 기본 값 설정
+                Debug.Log("gameData is null for ID: " + gameData.Id);
                 SetDefaultGameData();
             }
             else
             {
-                // gameData가 있으면 UserManager에 값 설정
-                foreach (GameData gameData in gameDataList)
-                {
-                    SetUserManagerData(gameData);
-                }
+                GameDataContent gameDataContent = JsonConvert.DeserializeObject<GameDataContent>(gameData.gameData);
+                SetUserManagerData(gameDataContent);
             }
+
+            
         }
     }
 
     private void SetDefaultGameData()
-    {
-        UserManager.Instance.SetHP(BasicHP);
-        UserManager.Instance.SetGold(BasicGold);
-        UserManager.Instance.SetCardDeckindex(BasicCardDeck);
+        {
+            UserManager.Instance.SetMaxHP(BasicHP);
+            UserManager.Instance.UpdateMaxHP(BasicHP);
+            UserManager.Instance.SetCurrentHP(BasicHP);
+            UserManager.Instance.UpdateCurrentHP(BasicHP);
+            UserManager.Instance.SetGold(BasicGold);
+            UserManager.Instance.UpdateGold(BasicGold);
+            UserManager.Instance.SetCardDeckindex(BasicCardDeck);
 
 
-        // 디버깅용 출력
-        Debug.Log("Default HP: " + BasicHP);
-        Debug.Log("Default Gold: " + BasicGold);
-        Debug.Log("Default CardDeckIndex: " + string.Join(", ", BasicCardDeck));
-        Debug.Log("맵 데이터 없음");
+            // 디버깅용 출력
+            Debug.Log("Default HP: " + UserManager.Instance.MaxHP);
+            Debug.Log("Default Gold: " + BasicGold);
+            Debug.Log("Default CardDeckIndex: " + string.Join(", ", BasicCardDeck));
+            Debug.Log("맵 데이터 없음");
     }
 
-    private void SetUserManagerData(GameData gameData)
-    {
-        UserManager.Instance.SetHP(gameData.HP);
-        UserManager.Instance.SetGold(gameData.Gold);
-        UserManager.Instance.SetCardDeckindex(gameData.CardDeckIndex);
-        UserManager.Instance.SetHeroCardDeckindex(gameData.HeroCardDeckIndex);
-        UserManager.Instance.SetMap(gameData.Map);
+        private void SetUserManagerData(GameDataContent gameData)
+        {
+            UserManager.Instance.SetMaxHP(gameData.MaxHP);
+            UserManager.Instance.UpdateMaxHP(gameData.MaxHP);
+            UserManager.Instance.SetCurrentHP(gameData.CurrentHP);
+            UserManager.Instance.UpdateCurrentHP(gameData.CurrentHP);
+            UserManager.Instance.SetGold(gameData.Gold);
+            UserManager.Instance.UpdateGold(gameData.Gold);
+            UserManager.Instance.SetCardDeckindex(gameData.CardDeckIndex);
+            UserManager.Instance.SetHeroCardDeckindex(gameData.HeroCardDeckIndex);
+            UserManager.Instance.SetMap(gameData.Map);
 
-        // 변수 값을 출력 (디버깅용)
-        Debug.Log("HP: " + gameData.HP);
-        Debug.Log("Gold: " + gameData.Gold);
-        Debug.Log("CardDeckIndex: " + string.Join(", ", gameData.CardDeckIndex));
-        Debug.Log("HeroCardDeckIndex: " + string.Join(", ", gameData.HeroCardDeckIndex));
-        Debug.Log("Map: " + JsonConvert.SerializeObject(gameData.Map, Formatting.Indented));
+            // 변수 값을 출력 (디버깅용)
+            Debug.Log("HP: " + gameData.MaxHP);
+            Debug.Log("Gold: " + gameData.Gold);
+            Debug.Log("CardDeckIndex: " + string.Join(", ", gameData.CardDeckIndex));
+            Debug.Log("HeroCardDeckIndex: " + string.Join(", ", gameData.HeroCardDeckIndex));
+            Debug.Log("Map: " + JsonConvert.SerializeObject(gameData.Map, Formatting.Indented));
     }
+
+    
 }
+
+
+

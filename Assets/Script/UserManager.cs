@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class UserManager : MonoBehaviour
 {
@@ -17,9 +18,11 @@ public class UserManager : MonoBehaviour
 
     public int Gold { get; private set; }
     // �÷��̾� ��� 
-    public int HP { get; private set; }
     // �÷��̾� ü�� 
+    public int MaxHP { get; private set; } // 최대 HP
+    public int CurrentHP { get; private set; } // 현재 HP
 
+    public event Action OnDataChanged;
     public List<int> CardDeckIndex { get; private set; }
 
     public List<int> HeroCardDeckIndex { get; private set; }
@@ -71,9 +74,14 @@ public class UserManager : MonoBehaviour
     }
 
     // ü�� ���� �����ϴ� �޼���
-    public void SetHP(int hp)
+    public void SetMaxHP(int hp)
     {
-        HP = hp;
+        MaxHP = hp;
+    }
+
+    public void SetCurrentHP(int hp)
+    {
+        CurrentHP = hp;
     }
 
     public void SetCardDeckindex(List<int> cardDeck) // list 숫자형으로 테스트
@@ -114,5 +122,23 @@ public class UserManager : MonoBehaviour
     public object LoadMapFromManager()
     {
         return Map;
+    }
+
+    public void UpdateGold(int newGold)
+    {
+        Gold = newGold;
+        OnDataChanged?.Invoke();
+    }
+
+    public void UpdateMaxHP(int newHP)
+    {
+        MaxHP = newHP;
+        OnDataChanged?.Invoke();
+    }
+
+    public void UpdateCurrentHP(int newHP)
+    {
+        CurrentHP = newHP;
+        OnDataChanged?.Invoke();
     }
 }

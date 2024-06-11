@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Login DBTest.unity
+    guid: 70e1e9fd325a27644ad1a498000b32c4
+  - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: eb73a5fdc13fa08489b1e4a5782d235a
   - enabled: 1
@@ -38,9 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/deck_check.unity
     guid: ace567d225b5f2c4886969485ecc18ad
-  - enabled: 1
-    path: Assets/Scenes/Login DBTest.unity
-    guid: 70e1e9fd325a27644ad1a498000b32c4
   - enabled: 1
     path: Assets/Scenes/Main DBTest.unity
     guid: 4e61fc7978cd31e4c90d0c3e8619e09e
