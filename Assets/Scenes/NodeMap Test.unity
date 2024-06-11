@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65685706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65685708}
+  - component: {fileID: 65685707}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &65685707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65685706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b8cf86dcbcc8ba4892c96271ad1ed6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &65685708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65685706}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.202644, y: 482.9591, z: -8.998191}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &176835287
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +250,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1829533343}
         m_TargetAssemblyTypeName: GamePlayDataUpdater, Assembly-CSharp
         m_MethodName: OnClickSave
         m_Mode: 1
@@ -509,11 +553,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 8c148aa6a373ba34882454df27ec16ed, type: 3}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 31583.975
+      value: 31373.512
       objectReference: {fileID: 0}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 694242.2
+      value: 689792.2
       objectReference: {fileID: 0}
     - target: {fileID: 4489171550410472659, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -787,8 +831,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 277
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2421430175903378228, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6405127267692122060, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
     m_AddedGameObjects:
@@ -1113,7 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37f4ff1d9fdcca4ea7c9bab9e16f0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1920592547
+--- !u!1 &1829533339
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1121,66 +1164,71 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1920592550}
-  - component: {fileID: 1920592549}
-  - component: {fileID: 1920592548}
+  - component: {fileID: 1829533342}
+  - component: {fileID: 1829533341}
+  - component: {fileID: 1829533343}
+  - component: {fileID: 1829533344}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: GameDataManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1920592548
+--- !u!114 &1829533341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920592547}
+  m_GameObject: {fileID: 1829533339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 342ae60ec30bba540bf7fb1b6e045229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1920592549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920592547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1920592550
+  userNumber: 0
+--- !u!4 &1829533342
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920592547}
+  m_GameObject: {fileID: 1829533339}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 560.49036, y: 489.8887, z: -6.474334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829533343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829533339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e946365812b5d0e42a3ae2ede55b01f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1829533344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829533339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5768dbd51e036b44992c34fb500b80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePlayDataUpdater: {fileID: 1829533343}
+  timerManager: {fileID: 65685707}
 --- !u!1 &1938015050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,4 +1568,5 @@ SceneRoots:
   - {fileID: 1311161702}
   - {fileID: 1055919812}
   - {fileID: 1574698216}
-  - {fileID: 1920592550}
+  - {fileID: 65685708}
+  - {fileID: 1829533342}
