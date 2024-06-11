@@ -37,7 +37,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
     public void Init()
     {
         moveRewardButton.onClick.AddListener(() => {
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            NightSceneManager.Instance.UnloadScene();
         });
     }
 
