@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Private/bson/Scene/TestBattleScene.unity
     guid: c9fd817f047527c418e03d6f2e4ac619
+  - enabled: 1
+    path: Assets/Scenes/NodeMap Test.unity
+    guid: d894e33084885fd48a80feebf25aa694
   m_configObjects: {}
