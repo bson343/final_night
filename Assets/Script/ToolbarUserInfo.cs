@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,11 +7,15 @@ using UnityEngine;
 public class ToolbarUserInfo : MonoBehaviour
 {
     public TMP_Text nicknameText;
+    public TMP_Text GoldText;
+    public TMP_Text HPText;
 
+    
     private void Start()
     {
         if (UserManager.Instance != null)
         {
+            UserManager.Instance.OnDataChanged += UpdateStausText;
             UpdateNickname();
         }
         else
@@ -32,8 +37,10 @@ public class ToolbarUserInfo : MonoBehaviour
         }
     }
 
-    void Awake()
+    public void UpdateStausText()
     {
-        DontDestroyOnLoad(gameObject);
+        GoldText.text = UserManager.Instance.Gold.ToString();
+        HPText.text = UserManager.Instance.MaxHP.ToString()+"/" + UserManager.Instance.CurrentHP.ToString();
     }
+   
 }
