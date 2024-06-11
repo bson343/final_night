@@ -17,13 +17,16 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private GameObject _reticle;
     
     public CharacterStat CharacterStat { get; private set; }
+    public CharacterAnimation CharacterAnimation { get; private set; }
 
     private void Awake()
     {
         CharacterStat = GetComponent<CharacterStat>();
-        
+        CharacterAnimation = GetComponent<CharacterAnimation>();
+
         CharacterStat.Init(this);
-        
+        CharacterAnimation.Init(this);
+
         battleManager.onStartMyTurn += OnStartMyTurn;
         battleManager.onEndMyTurn += OnEndMyTurn;
         battleManager.onStartEnemyTurn += OnStartEnemyTurn;
@@ -98,6 +101,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     public override void Dead()
     {
         Debug.Log("주겄당");
+        CharacterAnimation.SetTrigger("isDead");
     }
 
     public override void Hit(int damage, Character attacker)

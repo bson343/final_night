@@ -7,6 +7,9 @@ public class PlayerStat : CharacterStat
 {
     [SerializeField] private Text hpText;
     [SerializeField] private Text energyText;
+    [SerializeField] private Text moneyText;
+
+
     private int _money;
     private int _maxOrb;
     private int _currentOrb;
@@ -40,6 +43,17 @@ public class PlayerStat : CharacterStat
         set
         {
             _height = value;
+        }
+    }
+
+    public int Money
+    {
+        get { return _money; }
+        set
+        {
+            _money = value;
+            _money = Mathf.Clamp(_money, 0, 9999);
+            moneyText.text = _money.ToString();
         }
     }
 

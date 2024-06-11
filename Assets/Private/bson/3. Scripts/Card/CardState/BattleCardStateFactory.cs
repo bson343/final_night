@@ -16,6 +16,7 @@ public class BattleCardStateFactory
         _card = battleCard;
 
         _dicState[ECardUsage.Battle] = new BattleCardBattleState(_card, this);
+        _dicState[ECardUsage.Gain] = new BattleCardGainState(_card, this);
 
         // 가장 처음은 배틀상태로 초기화
         ChangeState(ECardUsage.Battle);

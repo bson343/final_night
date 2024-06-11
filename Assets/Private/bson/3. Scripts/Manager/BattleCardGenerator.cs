@@ -16,17 +16,22 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     {
         
     }
-    
-    //임시 생성 함수
-    public BattleCard GenerateBattleCard(int idx)
+
+    public BattleCard GeneratorRandomCard()
     {
-        if (_cardDatas.Count <= idx)
+        return GenerateBattleCard(Random.Range(0, _cardDatas.Count));
+    }
+
+    //임시 생성 함수
+    public BattleCard GenerateBattleCard(int cardIdx)
+    {
+        if (_cardDatas.Count <= cardIdx)
         {
             Assert.IsTrue(false);
         }
 
         BattleCard genCard = Instantiate(_baseBattleCard, _cardParent);
-        genCard.Init(_cardHolder, _cardDatas[idx], GeneratNumber++);
+        genCard.Init(_cardHolder, _cardDatas[cardIdx], GeneratNumber++);
         
         return genCard;
     }

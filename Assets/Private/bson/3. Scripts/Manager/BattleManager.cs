@@ -45,7 +45,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
     private Coroutine _coBattle = null;
     
     private UIManager UIManager => ServiceLocator.Instance.GetService<UIManager>();
-    
+    private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
+
     public BattlePlayer Player => _player;
     public List<Enemy> Enemies => _enemies;
 
@@ -137,6 +138,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
             onEndBattle?.Invoke();
 
             Debug.Log("보상을 줍니다.");
+            rewardManager.ShowReward(_currentBattleData);
         }
     }
 }
