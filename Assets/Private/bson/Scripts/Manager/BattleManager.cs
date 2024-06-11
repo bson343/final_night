@@ -128,24 +128,15 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
         if (_player.PlayerStat.IsDead)  // 플레이어가 죽었다.
         {
-            // _gameScoreUI.GameOver();
-            // UIManager.ShowThisUI(_gameScoreUI);
         }
         else if(Player.PlayerStat.Height >= 16)  // 보스를 깼다...
         {
-            //UIManager.ShowThisUI(inGoEndingUI);
         }
         else
         {
             onEndBattle?.Invoke();
 
-            // 클리어 처리
-            //GameManager.Game.CurrentRoom.ClearRoom();
-
-            // 보상
             Debug.Log("보상을 줍니다.");
-            //rewardManager.ShowReward(_currentBattleData);
-            //UIManager.ShowThisUI(inRewardUI);
         }
     }
 }
