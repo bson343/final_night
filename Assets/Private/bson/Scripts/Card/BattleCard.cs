@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum ECardUsage
 {
@@ -47,6 +48,9 @@ public class BattleCard : MonoBehaviour
         cardType = _cardData.cardType;
         cost = _cardData.cost;
         cardName = _cardData.cardName;
+
+        Image cardImage = GetComponent<Image>();
+        cardImage.sprite = _cardData.cardImage;
     }
 
     public void ChangeState(ECardUsage cardUsage)
