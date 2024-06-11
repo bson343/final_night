@@ -4,25 +4,10 @@ using UnityEngine.Networking;
 
 public class TimerManager : MonoBehaviour
 {
-    public static TimerManager Instance { get; private set; }
-
     private int secondsElapsed;
     private long gameDataId;
     private const string getPlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
     private const string updatePlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     void Start()
     {
