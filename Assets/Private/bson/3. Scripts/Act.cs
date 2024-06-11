@@ -7,6 +7,7 @@ public class Act : MonoBehaviour
 {
     public static bool testMode = false;
 
+    
     [SerializeField] private BattlePlayer _player;
     
     [SerializeField]
@@ -15,17 +16,33 @@ public class Act : MonoBehaviour
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private BattleCardGenerator CardGenerator => ServiceLocator.Instance.GetService<BattleCardGenerator>();
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         testMode = true;
 
         _player.init();
 
+        if (testMode == true)
+        {
+            startTestMode();
+        }
+        {
+
+        }
+    }
+
+    private void startTestMode()
+    {
         for (int i = 0; i < 6; i++)
         {
             _player.AddCard(CardGenerator.GenerateBattleCard(0));
         }
-        
+
         battleManager.StartBattle(BattleMockData);
     }
 }
