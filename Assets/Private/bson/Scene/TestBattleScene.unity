@@ -924,6 +924,7 @@ MonoBehaviour:
   - {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
   _cardDatas:
   - {fileID: 11400000, guid: 6a5ec7f9340a7f64c9bcc0b557ca3e79, type: 2}
+  _baseBattleCard: {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
 --- !u!1 &1345403521
 GameObject:
   m_ObjectHideFlags: 0

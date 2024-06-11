@@ -9,7 +9,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     [SerializeField] private Transform _cardParent;
     [SerializeField] private BattleCardHolder _cardHolder;
 
-    [SerializeField] private List<BattleCard> _cards;
+    [SerializeField] BattleCard _baseBattleCard;
     [SerializeField] private List<BattleCardData> _cardDatas;
 
     public void Init()
@@ -20,12 +20,12 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     //임시 생성 함수
     public BattleCard GenerateBattleCard(int idx)
     {
-        if (_cards.Count <= idx)
+        if (_cardDatas.Count <= idx)
         {
             Assert.IsTrue(false);
         }
 
-        BattleCard genCard = Instantiate(_cards[idx], _cardParent);
+        BattleCard genCard = Instantiate(_baseBattleCard, _cardParent);
         genCard.Init(_cardHolder, _cardDatas[idx], GeneratNumber++);
         
         return genCard;
