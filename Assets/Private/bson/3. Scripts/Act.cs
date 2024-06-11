@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Act : MonoBehaviour
 {
+    public static bool testMode = false;
+
     [SerializeField] private BattlePlayer _player;
     
     [SerializeField]
@@ -15,9 +17,9 @@ public class Act : MonoBehaviour
 
     private void Start()
     {
+        testMode = true;
+
         _player.init();
-        
-        int generateNumber = 0;
 
         for (int i = 0; i < 6; i++)
         {

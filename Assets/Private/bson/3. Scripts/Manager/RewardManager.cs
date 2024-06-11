@@ -37,7 +37,12 @@ public class RewardManager : MonoBehaviour, IRegisterable
     public void Init()
     {
         moveRewardButton.onClick.AddListener(() => {
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            if (Act.testMode == true)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                return;
+            }
+            NightSceneManager.Instance.UnloadScene();
         });
     }
 
@@ -55,10 +60,9 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
         // 돈
         int money = Random.Range(battleData.minMoney, battleData.maxMoney);
-        moneyRewardText.text = money + "골드를 획득합니다.";
+        moneyRewardText.text = money + " 골드를 획득합니다.";
         moneyRewardButton.onClick.AddListener(() => GetMoney(money));
         moneyRewardButton.onClick.AddListener(() => moneyRewardButton.interactable = false);
-
 
 
         // 랜덤 카드 선택
@@ -96,10 +100,6 @@ public class RewardManager : MonoBehaviour, IRegisterable
     // 보상 카드를 눌렀을 때 실행될 함수
     private void OnClickGainCard()
     {
-        // 카드를 얻고
-        // 카드 보상 창을 닫고
-        // 카드 보상을 없애고
-
         cardRewardGameObject.gameObject.SetActive(false);
     }
 
