@@ -920,11 +920,9 @@ MonoBehaviour:
   GeneratNumber: 0
   _cardParent: {fileID: 8613713420726461622}
   _cardHolder: {fileID: 366670768}
-  _cards:
-  - {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
+  _baseBattleCard: {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
   _cardDatas:
   - {fileID: 11400000, guid: 6a5ec7f9340a7f64c9bcc0b557ca3e79, type: 2}
-  _baseBattleCard: {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
 --- !u!1 &1345403521
 GameObject:
   m_ObjectHideFlags: 0
@@ -3759,7 +3757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockSpriteColor: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  originSpriteColor: {r: 1, g: 1, b: 1, a: 0}
+  originSpriteColor: {r: 1, g: 1, b: 1, a: 1}
   hoverTurnEnd: {fileID: 8613713419294466090}
   turnEndText: {fileID: 8613713420086909164}
 --- !u!222 &8613713419198561593
