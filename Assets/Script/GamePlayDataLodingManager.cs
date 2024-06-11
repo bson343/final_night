@@ -9,6 +9,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
     private int BasicHP = 100;
     private int BasicGold = 99;
     private List<int> BasicCardDeck = new List<int> { 1, 1, 1, 1, 1, 2, 2, 2, 2, 3 };
+    private List<int> BasicHeroCardDeck = new List<int> {1 };
     private const string BaseUrl = "http://localhost:8080/gamesavedata/user/";
     // userNumber를 저장할 변수
     public long userNumber;
@@ -69,12 +70,13 @@ public class GamePlayDataLodingManager : MonoBehaviour
             UserManager.Instance.SetGold(BasicGold);
             UserManager.Instance.UpdateGold(BasicGold);
             UserManager.Instance.SetCardDeckindex(BasicCardDeck);
+            UserManager.Instance.SetHeroCardDeckindex(BasicHeroCardDeck);
 
 
             // 디버깅용 출력
             Debug.Log("Default HP: " + UserManager.Instance.MaxHP);
-            Debug.Log("Default Gold: " + BasicGold);
-            Debug.Log("Default CardDeckIndex: " + string.Join(", ", BasicCardDeck));
+            Debug.Log("Default Gold: " + UserManager.Instance.Gold);
+            Debug.Log("Default CardDeckIndex: " + UserManager.Instance.CardDeckIndex);
             Debug.Log("맵 데이터 없음");
     }
 

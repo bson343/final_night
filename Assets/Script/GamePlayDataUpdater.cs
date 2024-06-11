@@ -2,23 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class GamePlayDataUpdater : MonoBehaviour
 {
-    public static GamePlayDataUpdater Instance { get; private set; }
     private string baseUrl = "http://localhost:8080/gamesavedata";
 
-    private void Awake()
+    public void OnClickSave()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        StartCoroutine(SaveGameData());
     }
 
     public IEnumerator SaveGameData()
@@ -41,15 +33,18 @@ public class GamePlayDataUpdater : MonoBehaviour
     {
         string url = $"{baseUrl}/{id}/gamedata";
 
-        string jsonGameData = JsonUtility.ToJson(newGameData);
-        Dictionary<string, string> updateData = new Dictionary<string, string>
+        string jsonGameData = JsonConvert.SerializeObject(newGameData);
+        var updateData = new Dictionary<string, string>
         {
             { "gameData", jsonGameData }
         };
-        string jsonBody = JsonUtility.ToJson(updateData);
+        string jsonBody = JsonConvert.SerializeObject(updateData);
+
+        Debug.Log("Request URL: " + url);
+        Debug.Log("Request Body: " + jsonBody);
 
         UnityWebRequest request = new UnityWebRequest(url, "PATCH");
-        byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonBody);
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
