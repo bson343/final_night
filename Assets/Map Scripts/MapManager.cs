@@ -14,7 +14,7 @@ namespace Map
 
         private void Start()
         {
-            if (UserManager.Instance.Map!=null)
+            if (/*UserManager.Instance.Map!=null*/false)
             {
                 
                 var map = JsonConvert.DeserializeObject<Map>(UserManager.Instance.Map); // 맵 데이터를 Deserialize하여 Map 객체로 변환
@@ -47,16 +47,16 @@ namespace Map
 
         public void SaveMap() //현재 맵을 저장
         {
-            if (CurrentMap == null) return; //현재 맵이 null인지 확인합니다. 만약 현재 맵이 없으면 아무 작업도 수행하지 않고 종료
+            /*if (CurrentMap == null) return; //현재 맵이 null인지 확인합니다. 만약 현재 맵이 없으면 아무 작업도 수행하지 않고 종료
 
             string map = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented, //현재 맵을 JSON 형식으로 직렬화. 이때 JsonConvert.SerializeObject() 메소드를 사용하여 CurrentMap 객체를 JSON 문자열로 변환
                 new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
-            UserManager.Instance.SetMap(map);
+            UserManager.Instance.SetMap(map);*/
         }
 
         private void OnApplicationQuit() //어플리케이션이 종료될 때 호출되는 Unity 메소드
         {
-            SaveMap(); // 맵 저장
+            //SaveMap(); // 맵 저장
         }
     }
 }
