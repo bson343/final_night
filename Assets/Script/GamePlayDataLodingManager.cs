@@ -10,7 +10,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
     private int BasicGold = 99;
     private List<int> BasicCardDeck = new List<int> { 1, 1, 1, 1, 1, 2, 2, 2, 2, 3 };
     private List<int> BasicHeroCardDeck = new List<int> {1 };
-    private const string BaseUrl = "http://localhost:8080/gamesavedata/user/";
+    private const string BaseUrl = "http://15.165.102.117:8080/gamesavedata/user/";
     // userNumber를 저장할 변수
     public long userNumber;
 
