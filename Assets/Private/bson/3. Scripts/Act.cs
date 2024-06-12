@@ -10,19 +10,14 @@ public class Act : MonoBehaviour
     [SerializeField]
     private BattleData BattleMockData;
 
+    [SerializeField] private List<BattleData> stages;
+
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private BattleCardGenerator CardGenerator => ServiceLocator.Instance.GetService<BattleCardGenerator>();
 
     private void Awake()
     {
-        
-    }
-
-    private void Start()
-    {
         battleManager.testMode = true;
-
-        _player.init();
 
         if (battleManager.testMode == true)
         {
@@ -33,13 +28,22 @@ public class Act : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        
+    }
+
     private void startTestMode()
     {
+        _player.init();
+        
         for (int i = 0; i < 6; i++)
         {
             _player.AddCard(CardGenerator.GeneratorRandomCard());
         }
 
+        battleManager.defeatCommonEnemy = 100;
+        
         battleManager.StartBattle(BattleMockData);
     }
 }

@@ -160,7 +160,7 @@ MonoBehaviour:
   enemyPatterns:
   - patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
     indentData: {fileID: 0}
-    amount: 2
+    amount: 5
     secondAmount: 0
   enemyCyclePatterns: []
   isAlreadyPattern: 0

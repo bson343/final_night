@@ -47,8 +47,6 @@ public class CharacterStat : MonoBehaviour
         get { return _currentHp; }
         set
         {
-            int changeValue = value - _currentHp;
-
             // 체력바
             _currentHp = value;
             _currentHp = Mathf.Clamp(_currentHp, 0, _maxHp);

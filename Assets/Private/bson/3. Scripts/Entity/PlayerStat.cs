@@ -61,6 +61,21 @@ public class PlayerStat : CharacterStat
     {
         base.Init(character);
 
+        setPlayerStatData();
+    }
+
+    public void Init(Character character, int maxHp, int currentHp)
+    {
+        base.Init(character);
+
+        MaxHp = maxHp;
+        CurrentHp = currentHp;
+        
+        setPlayerStatData();
+    }
+
+    private void setPlayerStatData()
+    {
         Height = 0;
         MaxOrb = 3;
         CurrentOrb = MaxOrb;

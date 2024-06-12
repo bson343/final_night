@@ -106,6 +106,19 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         Debug.Log("주겄당");
         CharacterAnimation.SetTrigger("isDead");
+        
+        switch (_enemyGrade)
+        {
+            case EEnemyGrade.common:
+                battleManager.defeatCommonEnemy++;
+                break;
+            case EEnemyGrade.Elite:
+                battleManager.defeatElite++;
+                break;
+            case EEnemyGrade.Boss:
+                battleManager.defeatBoss++;
+                break;
+        }
     }
 
     public override void Hit(int damage, Character attacker)

@@ -30,14 +30,18 @@ public class BattleManager : MonoBehaviour, IRegisterable
     public System.Action onEndBattle;        // 전투가 끝나면 발생
     
     public InBattleUI inBattleUI;
+    public InGameOverUI inGameOverUI;
+
+    public int defeatCommonEnemy;
+    public int defeatElite;
+    public int defeatBoss;
     
     public int myTurnCount = 1;
     public bool myTurn = false; //상태 전환을 위한 감시값
     
     [SerializeField]
     private BattlePlayer _player;
-    // [SerializeField]
-    // private InGoEndingUI inGoEndingUI;
+    
     private BattleData _currentBattleData;
     
     private List<Enemy> _enemies;
@@ -130,6 +134,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
         if (_player.PlayerStat.IsDead)  // 플레이어가 죽었다.
         {
+            UIManager.ShowThisUI(inGameOverUI);
         }
         else if(Player.PlayerStat.Height >= 16)  // 보스를 깼다...
         {
