@@ -23,11 +23,11 @@ public class Act : MonoBehaviour
 
     private void Start()
     {
-        testMode = true;
+        battleManager.testMode = true;
 
         _player.init();
 
-        if (testMode == true)
+        if (battleManager.testMode == true)
         {
             startTestMode();
         }

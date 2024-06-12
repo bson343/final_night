@@ -16,7 +16,8 @@ public enum EBattleState
 public class BattleManager : MonoBehaviour, IRegisterable
 {
     private int battleCount = 0;
-    
+    public bool testMode = false;
+
     public System.Action onStartMyTurn;     // 내 턴 시작 시 발생
     public System.Action onEndMyTurn;       // 내 턴 끝 시 발생
     public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
