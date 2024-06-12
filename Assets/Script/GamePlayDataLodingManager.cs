@@ -64,11 +64,8 @@ public class GamePlayDataLodingManager : MonoBehaviour
     private void SetDefaultGameData()
         {
             UserManager.Instance.SetMaxHP(BasicHP);
-            UserManager.Instance.UpdateMaxHP(BasicHP);
             UserManager.Instance.SetCurrentHP(BasicHP);
-            UserManager.Instance.UpdateCurrentHP(BasicHP);
             UserManager.Instance.SetGold(BasicGold);
-            UserManager.Instance.UpdateGold(BasicGold);
             UserManager.Instance.SetCardDeckindex(BasicCardDeck);
             UserManager.Instance.SetHeroCardDeckindex(BasicHeroCardDeck);
 
@@ -83,11 +80,8 @@ public class GamePlayDataLodingManager : MonoBehaviour
         private void SetUserManagerData(GameDataContent gameData)
         {
             UserManager.Instance.SetMaxHP(gameData.MaxHP);
-            UserManager.Instance.UpdateMaxHP(gameData.MaxHP);
             UserManager.Instance.SetCurrentHP(gameData.CurrentHP);
-            UserManager.Instance.UpdateCurrentHP(gameData.CurrentHP);
             UserManager.Instance.SetGold(gameData.Gold);
-            UserManager.Instance.UpdateGold(gameData.Gold);
             UserManager.Instance.SetCardDeckindex(gameData.CardDeckIndex);
             UserManager.Instance.SetHeroCardDeckindex(gameData.HeroCardDeckIndex);
             UserManager.Instance.SetMap(gameData.Map);

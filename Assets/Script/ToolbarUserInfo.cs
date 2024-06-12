@@ -1,5 +1,4 @@
 using System.Collections;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,6 +16,7 @@ public class ToolbarUserInfo : MonoBehaviour
         {
             UserManager.Instance.OnDataChanged += UpdateStausText;
             UpdateNickname();
+            UpdateStausText();
         }
         else
         {
