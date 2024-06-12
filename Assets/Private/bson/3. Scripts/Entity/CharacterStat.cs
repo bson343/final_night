@@ -12,9 +12,9 @@ public class CharacterStat : MonoBehaviour
     [Header("Stat")]
     [SerializeField] private int _maxHp;
     private int _currentHp;
-    private int _shield;
-    private int _power;
-    private int _agility;
+    // private int _shield;
+    // private int _power;
+    // private int _agility;
 
     [Header("UI")]
     [SerializeField] private GameObject _hpCanvas;

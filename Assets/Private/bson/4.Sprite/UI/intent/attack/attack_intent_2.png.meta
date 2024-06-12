@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20af76332623ebd4bb7ec450a1df6913
+guid: 81fb499104cffc34aa37921f38ba9aef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5948562849397781105
-    second: inputCell_0
+      213: 8335706812776939420
+    second: attack_intent_2_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -132,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inputCell_0
+      name: attack_intent_2_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 7
-        width: 1026
-        height: 33
+        x: 41
+        y: 39
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,8 +146,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8d4f85fa95727da0800000000000000
-      internalID: -5948562849397781105
+      spriteID: c9f7f578e216ea370800000000000000
+      internalID: 8335706812776939420
       vertices: []
       indices: 
       edges: []
@@ -163,7 +163,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      inputCell_0: -5948562849397781105
+      attack_intent_2_0: 8335706812776939420
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

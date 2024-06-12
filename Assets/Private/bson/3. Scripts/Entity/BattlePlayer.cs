@@ -16,12 +16,15 @@ public class BattlePlayer : Character
     public BattleCardHolder CardHolder;
 
     private BattleCardGenerator _cardGenerator => ServiceLocator.instance.GetService<BattleCardGenerator>();
+    public CharacterAnimation CharacterAnimation { get; private set; }
 
     public void init()
     {
         PlayerStat = GetComponent<PlayerStat>();
+        CharacterAnimation = GetComponent<CharacterAnimation>();
 
         PlayerStat.Init(this);
+        CharacterAnimation.Init(this);
         
         battleManager.onStartMyTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);
         battleManager.onStartBattle += (() => OnStartBattle());
@@ -53,12 +56,16 @@ public class BattlePlayer : Character
         Debug.Log("주겄당");
 
         onDead?.Invoke();
+        CharacterAnimation.SetTrigger("isDead");
     }
 
     public override void Hit(int damage, Character attacker)
     {
         Debug.Log("맞았당");
         PlayerStat.Hit(damage);
+        
+        if (!PlayerStat.IsDead)
+            CharacterAnimation.SetTrigger("isHitted");
     }
 
     public override void Act()

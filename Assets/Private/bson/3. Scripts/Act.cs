@@ -37,7 +37,7 @@ public class Act : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            _player.AddCard(CardGenerator.GenerateBattleCard(0));
+            _player.AddCard(CardGenerator.GeneratorRandomCard());
         }
 
         battleManager.StartBattle(BattleMockData);

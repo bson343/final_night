@@ -18,14 +18,17 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     public CharacterStat CharacterStat { get; private set; }
     public CharacterAnimation CharacterAnimation { get; private set; }
+    public EnemyPattern EnemyPattern { get; private set; }
 
     private void Awake()
     {
         CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
+        EnemyPattern = GetComponent<EnemyPattern>();
 
         CharacterStat.Init(this);
         CharacterAnimation.Init(this);
+        EnemyPattern.Init(this);
 
         battleManager.onStartMyTurn += OnStartMyTurn;
         battleManager.onEndMyTurn += OnEndMyTurn;
@@ -63,6 +66,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnStartMyTurn()
     {
+        EnemyPattern.DecidePattern();
     }
     
     public void DestroyMySelf()
@@ -108,10 +112,15 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         Debug.Log("맞았당");
         CharacterStat.Hit(damage);
+        
+        if (!CharacterStat.IsDead)
+            CharacterAnimation.SetTrigger("isHitted");
     }
 
     public override void Act()
     {
         Debug.Log("행동한당");
+        EnemyPattern.Act();
+        StartCoroutine(CharacterAnimation.CoAct(false));
     }
 }
