@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Act : MonoBehaviour
 {
-    public static bool testMode = false;
-
-    
     [SerializeField] private BattlePlayer _player;
     
     [SerializeField]

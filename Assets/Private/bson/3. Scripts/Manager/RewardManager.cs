@@ -37,7 +37,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
     public void Init()
     {
         moveRewardButton.onClick.AddListener(() => {
-            if (Act.testMode == true)
+            if (battleManager.testMode == true)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
