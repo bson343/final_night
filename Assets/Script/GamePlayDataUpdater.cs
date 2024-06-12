@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 public class GamePlayDataUpdater : MonoBehaviour
 {
-    private string baseUrl = "http://localhost:8080/gamesavedata";
+    private string baseUrl = "http://15.165.102.117:8080/gamesavedata";
 
     public void OnClickSave()
     {

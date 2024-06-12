@@ -6,8 +6,8 @@ public class TimerManager : MonoBehaviour
 {
     private int secondsElapsed;
     private long gameDataId;
-    private const string getPlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
-    private const string updatePlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
+    private const string getPlayTimeUrl = "http://15.165.102.117:8080/gamesavedata/{id}/playtime";
+    private const string updatePlayTimeUrl = "http://15.165.102.117:8080/gamesavedata/{id}/playtime";
 
     void Start()
     {
