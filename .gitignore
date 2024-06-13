@@ -73,3 +73,6 @@ crashlytics-build.properties
 config
 Assets/TextMesh Pro/Resources/Fonts & Materials/static/NotoSansKR-Bold SDF.asset
 Assets/TextMesh Pro/Resources/Fonts & Materials/static/NotoSansKR-ExtraBold SDF.asset
+Assets/TextMesh Pro/Resources/Fonts & Materials/static/NotoSansKR-Bold SDF.asset
+Assets/Font/HeirofLightBold SDF.asset
+Assets/Font/HeirofLightRegular SDF.asset
