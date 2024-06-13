@@ -4048,7 +4048,7 @@ RectTransform:
   m_Father: {fileID: 6920122660299208200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 48.9, y: -0.60000324}
   m_SizeDelta: {x: 69.1211, y: 50.000008}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4652,7 +4652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7704911487718515974}
   m_Layer: 0
-  m_Name: tjfwjdckd
+  m_Name: SettingPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5719,11 +5719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6819927910577426271, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 32181.996
+      value: 32434.209
       objectReference: {fileID: 0}
     - target: {fileID: 6819927910577426271, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 707778.4
+      value: 713369.7
       objectReference: {fileID: 0}
     - target: {fileID: 8693630998673270218, guid: ab4f5bd0fc1e68246934625f7b915c45, type: 3}
       propertyPath: m_AnchorMax.x
