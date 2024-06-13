@@ -54,7 +54,14 @@ public class GamePlayDataLodingManager : MonoBehaviour
             else
             {
                 GameDataContent gameDataContent = JsonConvert.DeserializeObject<GameDataContent>(gameData.gameData);
-                SetUserManagerData(gameDataContent);
+                if(gameDataContent.CurrentHP == 0)
+                {
+                    SetDefaultGameData();
+                }
+                else
+                {
+                    SetUserManagerData(gameDataContent);
+                }
             }
 
             
