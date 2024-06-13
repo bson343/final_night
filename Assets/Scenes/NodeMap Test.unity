@@ -280,11 +280,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 32191.781
+      value: 32266.773
       objectReference: {fileID: 0}
     - target: {fileID: 4406647431106940100, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 708011.9
+      value: 709615.9
       objectReference: {fileID: 0}
     - target: {fileID: 5783193376938277730, guid: a78c97140eef96548a9068b9e1b02963, type: 3}
       propertyPath: m_Pivot.x
@@ -420,7 +420,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.5266109, g: 0.56592965, b: 0.5754717, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
