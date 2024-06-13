@@ -9,6 +9,22 @@ public class TimerManager : MonoBehaviour
     private const string getPlayTimeUrl = "http://15.165.102.117:8080/gamesavedata/{id}/playtime";
     private const string updatePlayTimeUrl = "http://15.165.102.117:8080/gamesavedata/{id}/playtime";
 
+    private static TimerManager instance;
+    public static TimerManager Instance => instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         secondsElapsed = 0;
@@ -26,7 +42,7 @@ public class TimerManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SavePlayTime()
+    public void SavePlayTimeSync()
     {
         gameDataId = UserManager.Instance.DataID;
         Debug.Log("Application is quitting. DataID: " + gameDataId + ", Elapsed seconds: " + secondsElapsed);
@@ -34,18 +50,23 @@ public class TimerManager : MonoBehaviour
         string getUrl = getPlayTimeUrl.Replace("{id}", gameDataId.ToString());
 
         UnityWebRequest getRequest = UnityWebRequest.Get(getUrl);
-        yield return getRequest.SendWebRequest();
+        var getOperation = getRequest.SendWebRequest();
+
+        while (!getOperation.isDone)
+        {
+            // 동기적으로 완료될 때까지 대기
+        }
 
         if (getRequest.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Error getting current PlayTime: " + getRequest.error);
-            yield break;
+            return;
         }
 
         if (!int.TryParse(getRequest.downloadHandler.text, out int currentPlayTime))
         {
             Debug.LogError("Error parsing current PlayTime: " + getRequest.downloadHandler.text);
-            yield break;
+            return;
         }
         Debug.Log("Current playTime from server: " + currentPlayTime);
 
@@ -56,10 +77,18 @@ public class TimerManager : MonoBehaviour
 
         string jsonBody = "{\"playtime\":" + newPlayTime + "}";
 
-        UnityWebRequest patchRequest = UnityWebRequest.Put(patchUrl, jsonBody);
-        patchRequest.method = "PATCH";
+        UnityWebRequest patchRequest = new UnityWebRequest(patchUrl, "PATCH");
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
+        patchRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        patchRequest.downloadHandler = new DownloadHandlerBuffer();
         patchRequest.SetRequestHeader("Content-Type", "application/json");
-        yield return patchRequest.SendWebRequest();
+
+        var patchOperation = patchRequest.SendWebRequest();
+
+        while (!patchOperation.isDone)
+        {
+            // 동기적으로 완료될 때까지 대기
+        }
 
         if (patchRequest.result == UnityWebRequest.Result.Success)
         {

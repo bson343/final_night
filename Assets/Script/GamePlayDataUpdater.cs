@@ -8,14 +8,25 @@ public class GamePlayDataUpdater : MonoBehaviour
 {
     private string baseUrl = "http://15.165.102.117:8080/gamesavedata";
 
-    public void OnClickSave()
+    private static GamePlayDataUpdater instance;
+    public static GamePlayDataUpdater Instance => instance;
+
+    private void Awake()
     {
-        StartCoroutine(SaveGameData());
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public IEnumerator SaveGameData()
+    public void SaveGameDataSync()
     {
-        long gameId = UserManager.Instance.DataID; // 업데이트할 게임 데이터의 ID
+        long gameId = UserManager.Instance.DataID;
         GameDataContent newGameData = new GameDataContent
         {
             MaxHP = UserManager.Instance.MaxHP,
@@ -26,12 +37,7 @@ public class GamePlayDataUpdater : MonoBehaviour
             Map = UserManager.Instance.Map,
         };
 
-        yield return StartCoroutine(UpdateGameDataCoroutine(gameId, newGameData));
-    }
-
-    private IEnumerator UpdateGameDataCoroutine(long id, GameDataContent newGameData)
-    {
-        string url = $"{baseUrl}/{id}/gamedata";
+        string url = $"{baseUrl}/{gameId}/gamedata";
 
         string jsonGameData = JsonConvert.SerializeObject(newGameData);
         var updateData = new Dictionary<string, string>
@@ -43,21 +49,28 @@ public class GamePlayDataUpdater : MonoBehaviour
         Debug.Log("Request URL: " + url);
         Debug.Log("Request Body: " + jsonBody);
 
-        UnityWebRequest request = new UnityWebRequest(url, "PATCH");
-        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
-        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.Success)
+        using (UnityWebRequest request = new UnityWebRequest(url, "PATCH"))
         {
-            Debug.Log("GameData updated successfully!");
-        }
-        else
-        {
-            Debug.LogError($"Error updating GameData: {request.error}");
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            var operation = request.SendWebRequest();
+
+            while (!operation.isDone)
+            {
+                // 동기적으로 완료될 때까지 대기
+            }
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("GameData updated successfully!");
+            }
+            else
+            {
+                Debug.LogError($"Error updating GameData: {request.error}");
+            }
         }
     }
 }

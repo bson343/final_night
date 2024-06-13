@@ -40,7 +40,7 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.Log("로그인 성공! UserNum: " + loginResponse.userNum);
                 UserManager.Instance.SetUserNum(loginResponse.userNum); // UserManager를 통해 userNum 설정
-                NightSceneManager.Instance.LoadScene("Main DBTest");
+                NightSceneManager.Instance.LoadScene("Main");
             }
             else
             {
