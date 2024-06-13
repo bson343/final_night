@@ -6,20 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Login DBTest.unity
-    guid: 70e1e9fd325a27644ad1a498000b32c4
-  - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: eb73a5fdc13fa08489b1e4a5782d235a
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 7b31970d79dc75746bf9b086982ea903
+  - enabled: 1
+    path: Assets/Scenes/NodeMap Test.unity
+    guid: d894e33084885fd48a80feebf25aa694
   - enabled: 1
     path: Assets/Scenes/EventScene1.unity
     guid: 1854813e63d62794ca33c22374136190
   - enabled: 1
     path: Assets/Scenes/EventScene2.unity
-    guid: c74bc30ec087ef14aa272a833287f37d
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 7b31970d79dc75746bf9b086982ea903
+    guid: 42642b943c76ad44685a86fe52df389c
   - enabled: 1
     path: Assets/Scenes/MainPage.unity
     guid: 9f5ff3e59200af140bbf2f841b5fac7e
@@ -28,26 +28,17 @@ EditorBuildSettings:
     guid: 4419f41c24edaa64a9f8fbc400e6b8b2
   - enabled: 1
     path: Assets/Scenes/EventScene3.unity
-    guid: 06fece30e0dcae949a4f3a086364edfc
+    guid: c19ca08c9617bd549b8de2c448ae7824
   - enabled: 1
     path: Assets/Scenes/EventScene4.unity
-    guid: a77af513a7c3d974a8db67af4a0a8f49
+    guid: 622c89de370da6247bc687a64f8c67c0
   - enabled: 1
     path: Assets/Scenes/EventScene5.unity
-    guid: 4d50a0adaaf6b6b4980e9801dd0daba9
-  - enabled: 1
-    path: Assets/Scenes/NodeMap1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: fd73a974d6ff43f428caba09af64c82b
   - enabled: 1
     path: Assets/Scenes/deck_check.unity
     guid: ace567d225b5f2c4886969485ecc18ad
   - enabled: 1
-    path: Assets/Scenes/Main DBTest.unity
-    guid: 4e61fc7978cd31e4c90d0c3e8619e09e
-  - enabled: 1
     path: Assets/Private/bson/Scene/TestBattleScene.unity
     guid: c9fd817f047527c418e03d6f2e4ac619
-  - enabled: 1
-    path: Assets/Scenes/NodeMap Test.unity
-    guid: d894e33084885fd48a80feebf25aa694
   m_configObjects: {}
