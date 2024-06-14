@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: CardMockData
   m_EditorClassIdentifier: 
   id: 1
-  cardImage: {fileID: 21300000, guid: 66119891263733d479dc896cd65a8b8e, type: 3}
-  CardPrefab: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 96b83cfca94d70d4b9f58aa054ace64a, type: 3}
   cardName: "\uD0C0\uACA9"
   cost: 1
   cardType: 0

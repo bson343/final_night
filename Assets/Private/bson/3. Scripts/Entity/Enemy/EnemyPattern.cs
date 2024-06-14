@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ public class EnemyPattern : MonoBehaviour
     public bool isCyclePattern = false; // 패턴이 순환하는가
 
     [SerializeField] private Image _patternImage;
-    [SerializeField] private Text _patternText;
+    [SerializeField] private TMP_Text _patternText;
 
     private bool _isDecided = false;
     private int _patternTurn = 1;

@@ -6,6 +6,6 @@ public class AttackCardEffect : BaseCardEffect
 {
     public void Strike()
     {
-        targetEnemy.Hit(2 + power, player);
+        targetEnemy.Hit(5 + power, player);
     }
 }
