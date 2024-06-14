@@ -8,4 +8,9 @@ public class AttackCardEffect : BaseCardEffect
     {
         targetEnemy.Hit(5 + power, player);
     }
+
+    public void SoulLiberation()
+    {
+        targetEnemy.Hit(13 + power, player);
+    }
 }
