@@ -18,15 +18,7 @@ public class InGameOverUI : BaseUI
     {
         leaveBtn.onClick.AddListener(() =>
         {
-            if (battleManager.testMode == true)
-            {
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit(); // 어플리케이션 종료
-#endif
-                return;
-            }
+            UserManager.Instance.SetCurrentHP(0);
             NightSceneManager.Instance.LoadScene("Main");
         });
 
