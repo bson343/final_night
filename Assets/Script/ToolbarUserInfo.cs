@@ -43,4 +43,12 @@ public class ToolbarUserInfo : MonoBehaviour
         HPText.text = UserManager.Instance.MaxHP.ToString()+"/" + UserManager.Instance.CurrentHP.ToString();
     }
    
+    public void GameExit()
+    {
+        Application.Quit();
+#if UNITY_EDITOR
+        // 유니티 에디터에서 실행 중일 경우 에디터를 중지합니다.
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
 }
