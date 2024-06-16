@@ -42,7 +42,7 @@ public class ToolbarUserInfo : MonoBehaviour
     public void UpdateStausText()
     {
         GoldText.text = UserManager.Instance.Gold.ToString();
-        HPText.text = UserManager.Instance.MaxHP.ToString()+"/" + UserManager.Instance.CurrentHP.ToString();
+        HPText.text = UserManager.Instance.CurrentHP.ToString()+"/" + UserManager.Instance.MaxHP.ToString();
         SPText.text = UserManager.Instance.CurrentSP.ToString() + "/" + MaxSp;
     }
    

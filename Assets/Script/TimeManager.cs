@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -8,9 +10,16 @@ public class TimerManager : MonoBehaviour
     private long gameDataId;
     private const string getPlayTimeUrl = "http://15.165.102.117:8080/gamesavedata/{id}/playtime";
     private const string updatePlayTimeUrl = "http://15.165.102.117:8080/gamesavedata/{id}/playtime";
-
     private static TimerManager instance;
     public static TimerManager Instance => instance;
+    
+    
+
+    void Start()
+    {   
+        StartCoroutine(StartTimer());
+        Debug.Log("Timer started.");
+    }
 
     private void Awake()
     {
@@ -23,13 +32,6 @@ public class TimerManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        secondsElapsed = 0;
-        StartCoroutine(StartTimer());
-        Debug.Log("Timer started.");
     }
 
     private IEnumerator StartTimer()
@@ -98,5 +100,11 @@ public class TimerManager : MonoBehaviour
         {
             Debug.LogError("Error updating PlayTime: " + patchRequest.error);
         }
+    }
+
+
+    public void SetSecondsElapsed(int time)
+    {
+        secondsElapsed = time;
     }
 }
