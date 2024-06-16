@@ -61,18 +61,21 @@ public class PlayerStat : CharacterStat
     {
         base.Init(character);
 
+        MaxHp = UserManager.Instance.MaxHP;
+        CurrentHp = UserManager.Instance.CurrentHP;
+
         setPlayerStatData();
     }
 
-    public void Init(Character character, int maxHp, int currentHp)
+    /*public void Init(Character character)
     {
         base.Init(character);
 
-        MaxHp = maxHp;
-        CurrentHp = currentHp;
+        MaxHp = UserManager.Instance.MaxHP;
+        CurrentHp = UserManager.Instance.CurrentHP;
         
         setPlayerStatData();
-    }
+    }*/
 
     private void setPlayerStatData()
     {
@@ -80,5 +83,6 @@ public class PlayerStat : CharacterStat
         MaxOrb = 3;
         CurrentOrb = MaxOrb;
         onChangeHp += (() => hpText.text = CurrentHp + "/" + MaxHp);
+        onChangeHp += (() => UserManager.Instance.UpdateCurrentHP(CurrentHp));
     }
 }

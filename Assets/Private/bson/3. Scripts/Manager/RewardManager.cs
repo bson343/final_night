@@ -105,7 +105,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
     private void GetMoney(int value)
     {
-        battleManager.Player.PlayerStat.Money += value;
+        UserManager.Instance.UpdateGold(UserManager.Instance.Gold+value);
     }
 
 }

@@ -1257,6 +1257,9 @@ MonoBehaviour:
   _cardDatas:
   - {fileID: 11400000, guid: 6a5ec7f9340a7f64c9bcc0b557ca3e79, type: 2}
   - {fileID: 11400000, guid: 0479d1937a3bc6247b312931222e677a, type: 2}
+  - {fileID: 11400000, guid: 1b78dfaf62cdeed42bb1b099420654ab, type: 2}
+  - {fileID: 11400000, guid: f51297f854bedba4b90888116147ab40, type: 2}
+  - {fileID: 11400000, guid: 9bfc87b175d70704db2bdee8802bf736, type: 2}
 --- !u!1 &1345403521
 GameObject:
   m_ObjectHideFlags: 0
