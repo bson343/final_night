@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 
 public class GamePlayDataLodingManager : MonoBehaviour
 {
-    private int BasicHP = 100;
+    private int BasicHP = 50;
+    private int BasicSP = 0;
     private int BasicGold = 99;
     private List<int> BasicCardDeck = new List<int> { 1, 1, 1, 1, 1, 2, 2, 2, 2, 3 };
     private List<int> BasicHeroCardDeck = new List<int> {1 };
@@ -72,6 +73,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         {
             UserManager.Instance.SetMaxHP(BasicHP);
             UserManager.Instance.SetCurrentHP(BasicHP);
+            UserManager.Instance.SetCurrentSP(BasicSP);
             UserManager.Instance.SetGold(BasicGold);
             UserManager.Instance.SetCardDeckindex(BasicCardDeck);
             UserManager.Instance.SetHeroCardDeckindex(BasicHeroCardDeck);
@@ -88,6 +90,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         {
             UserManager.Instance.SetMaxHP(gameData.MaxHP);
             UserManager.Instance.SetCurrentHP(gameData.CurrentHP);
+            UserManager.Instance.SetCurrentHP(gameData.CurrentSP);
             UserManager.Instance.SetGold(gameData.Gold);
             UserManager.Instance.SetCardDeckindex(gameData.CardDeckIndex);
             UserManager.Instance.SetHeroCardDeckindex(gameData.HeroCardDeckIndex);

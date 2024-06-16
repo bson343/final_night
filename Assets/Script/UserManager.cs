@@ -20,6 +20,9 @@ public class UserManager : MonoBehaviour
     public int MaxHP { get; private set; } // 최대 HP
     public int CurrentHP { get; private set; } // 현재 HP
 
+    public int CurrentSP { get; private set; } // 현재 SP
+
+
     public event Action OnDataChanged;
     public List<int> CardDeckIndex { get; private set; }
 
@@ -82,6 +85,11 @@ public class UserManager : MonoBehaviour
         CurrentHP = hp;
     }
 
+    public void SetCurrentSP(int sp)
+    {
+        CurrentSP = sp;
+    }
+
     public void SetCardDeckindex(List<int> cardDeck) // list 숫자형으로 테스트
     {
         CardDeckIndex = cardDeck;
@@ -137,6 +145,12 @@ public class UserManager : MonoBehaviour
     public void UpdateCurrentHP(int newHP)
     {
         CurrentHP = newHP;
+        OnDataChanged?.Invoke();
+    }
+
+    public void UpdateCurrentSP(int newSP)
+    {
+        CurrentSP = newSP;
         OnDataChanged?.Invoke();
     }
 }

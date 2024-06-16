@@ -21,6 +21,7 @@ public class GameDataContent
 {
     public int MaxHP;
     public int CurrentHP;
+    public int CurrentSP;
     public int Gold;
     public List<int> CardDeckIndex;
     public List<int> HeroCardDeckIndex;
