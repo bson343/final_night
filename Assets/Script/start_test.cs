@@ -9,6 +9,7 @@ public class start_test : MonoBehaviour
     public void OnClickGameStart() //시작버튼을 누르면 맵으로 이동
     {
         Debug.Log("게임시작");
+        GlobalSoundManager.Instance.PlaySE(ESE.ShowMap);
         NightSceneManager.Instance.LoadScene("NodeMap Test");
     }
     public void OnClickOption()
