@@ -21,6 +21,18 @@ public class TypingEffect : MonoBehaviour
         Out.SetActive(false);
         Statue.SetActive(false);
         Tx.text = "";
+
+        // NextBtn의 Button 컴포넌트에 OnClick 이벤트를 연결합니다.
+        Button nextButtonComponent = NextBtn.GetComponent<Button>();
+        if (nextButtonComponent != null)
+        {
+            nextButtonComponent.onClick.AddListener(OnNextBtnClicked);
+        }
+        else
+        {
+            Debug.LogError("NextBtn에 Button 컴포넌트가 없습니다!");
+        }
+
         StartCoroutine(_Typing());
     }
 
