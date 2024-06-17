@@ -90,7 +90,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         {
             UserManager.Instance.SetMaxHP(gameData.MaxHP);
             UserManager.Instance.SetCurrentHP(gameData.CurrentHP);
-            UserManager.Instance.SetCurrentHP(gameData.CurrentSP);
+            UserManager.Instance.SetCurrentSP(gameData.CurrentSP);
             UserManager.Instance.SetGold(gameData.Gold);
             UserManager.Instance.SetCardDeckindex(gameData.CardDeckIndex);
             UserManager.Instance.SetHeroCardDeckindex(gameData.HeroCardDeckIndex);
