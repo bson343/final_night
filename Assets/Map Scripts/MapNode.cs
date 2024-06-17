@@ -151,6 +151,7 @@ namespace Map
 
         public void OnPointerDown(PointerEventData data) //마우스 버튼을 누르는 순간 호출되는 이벤트 핸들러
         {
+            GlobalSoundManager.Instance.PlaySE(ESE.UIClick);
             mouseDownTime = Time.time; // 마우스 버튼을 누를때 누른 시간을 저장 (얼마나 오래 눌렀는가 계산할때 쓰인다.)
         }
 
@@ -159,6 +160,7 @@ namespace Map
             if (Time.time - mouseDownTime < MaxClickDuration) //약 시간 간격이 MaxClickDuration보다 작다면,
                                                               
             {
+                GlobalSoundManager.Instance.PlaySE(ESE.EnterRoom);
                 // 유저가 노드를 클릭했다는걸 알린다.
                 MapPlayerTracker.Instance.SelectNode(this);
             }

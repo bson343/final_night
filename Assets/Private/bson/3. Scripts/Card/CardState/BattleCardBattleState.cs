@@ -25,6 +25,8 @@ public class BattleCardBattleState : BattleCardState
     public override void OnBeginDrag(PointerEventData eventData)
     {
         _isDrag = true;
+        
+        GlobalSoundManager.Instance.PlaySE(ESE.CardSelect);
 
         _battleCard.CardHolder.selectedCard = _battleCard;
 

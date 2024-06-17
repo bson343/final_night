@@ -50,6 +50,7 @@ public class BattleCardController : MonoBehaviour, IPointerEnterHandler, IPointe
     // 해당 카드에 마우스를 진입할 때
     public void OnPointerEnter(PointerEventData eventData)
     {
+        GlobalSoundManager.Instance.PlaySE(ESE.CardHover);
         _card.CurrentState.OnPointerEnter(eventData);
     }
 
