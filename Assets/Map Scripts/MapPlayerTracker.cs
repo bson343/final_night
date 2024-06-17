@@ -73,19 +73,19 @@ namespace Map
                     NightSceneManager.Instance.GameLoadScene("TestBattleScene");
                     break;
                 case NodeType.EliteEnemy: // 엘리트 몹
-
+                    NightSceneManager.Instance.GameLoadScene("TestBattleScene");
                     break;
                 case NodeType.RestSite: // 회복?
                     NightSceneManager.Instance.GameLoadScene("shop");
                     break;
                 case NodeType.Treasure: // 마찬가지
-
+                    NightSceneManager.Instance.GameLoadScene("shop");
                     break;
                 case NodeType.Store: // 상점
                     NightSceneManager.Instance.GameLoadScene("shop");
                     break;
                 case NodeType.Boss: // 보스
-
+                    NightSceneManager.Instance.GameLoadScene("BossBattleScene");
                     break;
                 case NodeType.Mystery: // 이벤트 씬
                     GlobalSoundManager.Instance.FadeBGM(EBGM.EventScene, 0.2f);
