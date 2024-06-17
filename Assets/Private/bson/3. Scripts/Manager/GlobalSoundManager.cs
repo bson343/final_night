@@ -6,7 +6,7 @@ using UnityEngine;
 public enum EBGM
 {
     Menu,
-    Level1,
+    EventScene,
     Merchant,
     Rest,
     EliteMeet,
@@ -50,6 +50,8 @@ public class GlobalSoundManager : MonoBehaviour
     public float bgmVolume = 0.5f;
     public float seVolume = 0.5f;
 
+    private Coroutine _coBGM;
+
     private void Awake()
     {
         if (Instance == null)
@@ -78,6 +80,11 @@ public class GlobalSoundManager : MonoBehaviour
             _seAudio = go1.AddComponent<AudioSource>();
             _seAudio.loop = false;
         }
+
+        _bgmDic = new Dictionary<EBGM, AudioClip>();
+
+        _bgmDic[EBGM.Menu] = Resources.Load<AudioClip>("BGM/Piano Instrumental 3_SunSet");
+        _bgmDic[EBGM.EventScene] = Resources.Load<AudioClip>("BGM/RPG_Dungeon");
         
         _seDic = new Dictionary<ESE, AudioClip>();
     
@@ -104,6 +111,12 @@ public class GlobalSoundManager : MonoBehaviour
 
         // 적
         _seDic[ESE.EnemyAttack] = Resources.Load<AudioClip>("SE/STS_SFX_Shiv2_v1");
+    }
+
+    private void Start()
+    {
+        GlobalSoundManager.Instance.ChangeBGMVolume(0.5f);
+        GlobalSoundManager.Instance.FadeBGM(EBGM.Menu);
     }
 
     public void PlaySE(ESE se)
@@ -147,8 +160,20 @@ public class GlobalSoundManager : MonoBehaviour
         _seAudio.volume = value;
     }
 
+    public void FadeBGM(EBGM bgm, float volume = 0.5f, float duration = 1.5f)
+    {
+        if (_coBGM != null)
+        {
+            StopCoroutine(_coBGM);
+        }
+
+        bgmVolume = volume;
+        
+        _coBGM = StartCoroutine(FadeInOutAudioSource(bgm, duration));
+    }
+
     // 배경음 fade in, out 재생
-    public IEnumerator FadeInOutAudioSource(EBGM bgm, float duration = 1.5f)
+    private IEnumerator FadeInOutAudioSource(EBGM bgm, float duration = 1.5f)
     {
         if (!_bgmDic.ContainsKey(bgm))
         {
