@@ -34,6 +34,7 @@ public class TimerManager : MonoBehaviour
         }
     }
 
+
     private IEnumerator StartTimer()
     {
         while (true)

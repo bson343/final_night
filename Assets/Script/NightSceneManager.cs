@@ -8,16 +8,18 @@ public class NightSceneManager : MonoBehaviour
     public static NightSceneManager Instance { get; private set; }
     string loadedSceneName;
 
-    public List<string> eventScenes = new List<string>() { // 이벤트 씬 랜덤 리스트
+    public delegate void SceneLoadedHandler(Scene scene, LoadSceneMode mode);
+    public event SceneLoadedHandler SceneLoaded;
+
+    public List<string> eventScenes = new List<string>() {
         "EventScene1",
         "EventScene2",
         "EventScene3",
         "EventScene4",
         "EventScene5"
-
     };
 
-    private void Awake() // 싱클톤 패턴 , 게임 오브젝트가 다음 씬에 가서도 안사라지게 설정
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -30,31 +32,35 @@ public class NightSceneManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(string sceneName) // 씬의 이름을 입력받아서 씬을 불러온다 (로그인 , 메인화면때 사용)
+    public void LoadScene(string sceneName)
     {
         StartCoroutine(LoadSceneAsync(sceneName));
     }
-    public void GameLoadScene(string sceneName) // 씬의 이름을 입력받아서 씬을 불러온다, (맵에서 다른 씬을 불러낼때 사용한다. 나갈수있어야하니까 창에서 추가하는 식으로)
+
+    public void GameLoadScene(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive).completed += (AsyncOperation op) =>
         {
             loadedSceneName = sceneName;
             Debug.Log("현재 로드된 씬 이름: " + loadedSceneName);
+            SceneLoaded?.Invoke(SceneManager.GetSceneByName(sceneName), LoadSceneMode.Additive);
         };
     }
 
-
-    private IEnumerator LoadSceneAsync(string sceneName) // 씬의 비동기적 처리를 위해 사용 (더 빨라짐)
+    private IEnumerator LoadSceneAsync(string sceneName)
     {
-        AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
+
+        loadedSceneName = sceneName;
+        SceneLoaded?.Invoke(SceneManager.GetSceneByName(sceneName), LoadSceneMode.Single);
     }
 
-    public void LoadRandomScene() //랜덤 이벤트 씬 로드
+    public void LoadRandomScene()
     {
         int index = Random.Range(0, eventScenes.Count);
         string sceneToLoad = eventScenes[index];
@@ -62,10 +68,11 @@ public class NightSceneManager : MonoBehaviour
         {
             loadedSceneName = sceneToLoad;
             Debug.Log("현재 로드된 씬 이름: " + loadedSceneName);
+            SceneLoaded?.Invoke(SceneManager.GetSceneByName(sceneToLoad), LoadSceneMode.Additive);
         };
     }
 
-    public void UnloadScene() // 씬 언로딩 (씬을 계속 불러오면 성능이 안좋아짐, 그래서 꺼줘야한다.)
+    public void UnloadScene()
     {
         if (!string.IsNullOrEmpty(loadedSceneName))
         {
@@ -76,7 +83,7 @@ public class NightSceneManager : MonoBehaviour
 
     private IEnumerator UnloadSceneAsync(string sceneName)
     {
-        AsyncOperation asyncUnload = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(sceneName);
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(sceneName);
 
         while (!asyncUnload.isDone)
         {

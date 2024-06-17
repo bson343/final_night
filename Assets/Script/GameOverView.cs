@@ -32,16 +32,17 @@ public class GameOverView : MonoBehaviour
 
     public void SetActiveGamaOver()
     {
-        if (UserManager.Instance.CurrentHP <= 0)
+        if (UserManager.Instance.CurrentHP <= 0 && gameOverPopup != null)
         {
-            clearfloorText.text = "클리어한 층 : " + clearfloor;
+            clearfloorText.text = "클리어한 스테이지: " + clearfloor +"스테이지";
             gameOverPopup.SetActive(true);
         }
+        else
+        {
+            Debug.LogWarning("gameOverPanel is null or has been destroyed.");
+        }
+
     }
 
-    private string FormatPlaytime(int playtimeInSeconds)
-    {
-        TimeSpan time = TimeSpan.FromSeconds(playtimeInSeconds);
-        return $"{time.Hours}시간 {time.Minutes}분 {time.Seconds}초";
-    }
+   
 }
