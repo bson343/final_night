@@ -69,6 +69,7 @@ namespace Map
             switch (mapNode.Node.nodeType)
             {
                 case NodeType.MinorEnemy: //일반몹
+                    GlobalSoundManager.Instance.FadeBGM(EBGM.Act1);
                     NightSceneManager.Instance.GameLoadScene("TestBattleScene");
                     break;
                 case NodeType.EliteEnemy: // 엘리트 몹
@@ -87,6 +88,7 @@ namespace Map
                     NightSceneManager.Instance.GameLoadScene("BossBattleScene");
                     break;
                 case NodeType.Mystery: // 이벤트 씬
+                    GlobalSoundManager.Instance.FadeBGM(EBGM.EventScene, 0.2f);
                     NightSceneManager.Instance.LoadRandomScene();
                     break;
                 default:
