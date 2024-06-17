@@ -7,7 +7,7 @@ public enum EBGM
 {
     Menu,
     EventScene,
-    Merchant,
+    Act1,
     Rest,
     EliteMeet,
     PlayerDead,
@@ -85,6 +85,7 @@ public class GlobalSoundManager : MonoBehaviour
 
         _bgmDic[EBGM.Menu] = Resources.Load<AudioClip>("BGM/Piano Instrumental 3_SunSet");
         _bgmDic[EBGM.EventScene] = Resources.Load<AudioClip>("BGM/RPG_Dungeon");
+        _bgmDic[EBGM.Act1] = Resources.Load<AudioClip>("BGM/STS_Level1_NewMix_v1");
         
         _seDic = new Dictionary<ESE, AudioClip>();
     
