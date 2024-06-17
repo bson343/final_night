@@ -6,7 +6,7 @@ using TMPro;
 public class TypingEffect : MonoBehaviour
 {
     public TextMeshProUGUI Tx;
-    private string m_Text = "동상이 말을 건다... 무슨 말을 하려는 걸까...";
+    private string m_Text = "석상이 말을 건다... 무슨 말을 하려는 걸까...";
     private string s_Text = "휴식을 취하면 체력을 회복시켜주지... 필요없다면 그냥 가도 좋다...";
     public GameObject Statue;
     public GameObject Player;
