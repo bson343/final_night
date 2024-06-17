@@ -1359,6 +1359,7 @@ GameObject:
   - component: {fileID: 1389190101}
   - component: {fileID: 1389190100}
   - component: {fileID: 1389190099}
+  - component: {fileID: 1389190103}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1450,6 +1451,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1389190103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389190098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fc38074b776e14a98aee103bd2649e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1426580694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1589,34 @@ PrefabInstance:
     - target: {fileID: 5072570781951455729, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245828262010198455, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245828262010198455, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245828262010198455, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1389190103}
+    - target: {fileID: 5245828262010198455, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245828262010198455, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClearFloorPlus
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245828262010198455, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ClearFloor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245828262010198455, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6292247362933641744, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_Pivot.x

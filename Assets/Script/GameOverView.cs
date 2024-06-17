@@ -14,7 +14,7 @@ public class GameOverView : MonoBehaviour
     
     private void Start()
     {
-        clearfloor = 0;
+        //clearfloor = 0;
 
         if (UserManager.Instance != null)
         {
