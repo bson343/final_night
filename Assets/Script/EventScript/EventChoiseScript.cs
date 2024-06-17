@@ -44,4 +44,9 @@ public class EventChoiseScript : MonoBehaviour
     {
 
     }
+
+    public void Event_Open_BOX()
+    {
+        UserManager.Instance.UpdateGold(UserManager.Instance.Gold + 50);
+    }
 }

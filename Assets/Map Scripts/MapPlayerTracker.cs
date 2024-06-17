@@ -13,6 +13,7 @@ namespace Map
         public MapView view; // 맵을 표시하는 MapView 인스턴스
 
         public static MapPlayerTracker Instance;
+        public GameObject navObject;
 
         public bool Locked { get; set; } // 현재 플레이어가 잠겨 있는지 여부를 나타내는 속성
 
@@ -70,29 +71,44 @@ namespace Map
             {
                 case NodeType.MinorEnemy: //일반몹
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Act1);
+                    MapPlayerTracker.Instance.SetActiveNav();
                     NightSceneManager.Instance.GameLoadScene("TestBattleScene");
                     break;
                 case NodeType.EliteEnemy: // 엘리트 몹
-                    NightSceneManager.Instance.GameLoadScene("TestBattleScene");
+                    MapPlayerTracker.Instance.SetActiveNav();
+                    NightSceneManager.Instance.GameLoadScene("EliteBattleScene");
                     break;
                 case NodeType.RestSite: // 회복?
+                    MapPlayerTracker.Instance.SetActiveNav();
                     NightSceneManager.Instance.GameLoadScene("shop");
                     break;
                 case NodeType.Treasure: // 마찬가지
-                    NightSceneManager.Instance.GameLoadScene("shop");
+                    MapPlayerTracker.Instance.SetActiveNav();
+                    NightSceneManager.Instance.GameLoadScene("Treasure");
                     break;
                 case NodeType.Store: // 상점
+                    MapPlayerTracker.Instance.SetActiveNav();
                     NightSceneManager.Instance.GameLoadScene("shop");
                     break;
                 case NodeType.Boss: // 보스
+                    MapPlayerTracker.Instance.SetActiveNav();
                     NightSceneManager.Instance.GameLoadScene("BossBattleScene");
                     break;
                 case NodeType.Mystery: // 이벤트 씬
                     GlobalSoundManager.Instance.FadeBGM(EBGM.EventScene, 0.2f);
+                    MapPlayerTracker.Instance.SetActiveNav();
                     NightSceneManager.Instance.LoadRandomScene();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
+            }
+        }
+        
+        void SetActiveNav()
+        {
+            if (MapPlayerTracker.Instance.navObject != null)
+            {
+                MapPlayerTracker.Instance.navObject.SetActive(false);
             }
         }
 
