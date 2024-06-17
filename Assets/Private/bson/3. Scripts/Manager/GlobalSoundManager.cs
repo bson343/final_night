@@ -77,10 +77,6 @@ public class GlobalSoundManager : MonoBehaviour
             go1.transform.parent = gameObject.transform;
             _seAudio = go1.AddComponent<AudioSource>();
             _seAudio.loop = false;
-            
-            //¿œ¥‹ mute
-            _bgmAudio.mute = true;
-            _seAudio.mute = true;
         }
         
         _seDic = new Dictionary<ESE, AudioClip>();
