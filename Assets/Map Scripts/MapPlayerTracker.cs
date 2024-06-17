@@ -87,6 +87,7 @@ namespace Map
 
                     break;
                 case NodeType.Mystery: // 이벤트 씬
+                    GlobalSoundManager.Instance.FadeBGM(EBGM.EventScene, 0.2f);
                     NightSceneManager.Instance.LoadRandomScene();
                     break;
                 default:

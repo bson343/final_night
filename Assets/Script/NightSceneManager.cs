@@ -77,6 +77,7 @@ public class NightSceneManager : MonoBehaviour
         if (!string.IsNullOrEmpty(loadedSceneName))
         {
             Debug.Log("언로드 씬 이름: " + loadedSceneName);
+            GlobalSoundManager.Instance.FadeBGM(EBGM.Menu);
             SceneManager.UnloadSceneAsync(loadedSceneName);
         }
     }
