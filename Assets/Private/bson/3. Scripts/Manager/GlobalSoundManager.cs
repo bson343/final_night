@@ -54,9 +54,9 @@ public class GlobalSoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (GlobalSoundManager.Instance == null)
         {
-            Instance = this;
+            GlobalSoundManager.Instance = this;
             DontDestroyOnLoad(gameObject);
 
             init();
