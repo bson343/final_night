@@ -66,7 +66,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         }
     }
 
-    public void InitializeData()
+    public void InitializeData() // 데이터 초기화 시 값으로 사용된다.
     {
         isDataInitialized = true;
         UserManager.Instance.SetMaxHP(BasicHP);
@@ -82,7 +82,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         Debug.Log("Default Gold: " + UserManager.Instance.Gold);
         Debug.Log("Default CardDeckIndex: " + string.Join(", ", UserManager.Instance.CardDeckIndex));
         Debug.Log("맵 데이터 없음");
-    }
+    } 
 
     private IEnumerator GetGameData(long userNumber)
     {
