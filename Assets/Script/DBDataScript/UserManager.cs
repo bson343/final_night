@@ -28,9 +28,6 @@ public class UserManager : MonoBehaviour
 
     public List<int> HeroCardDeckIndex { get; private set; }
 
-    public List<CardData> CardDeck { get; private set; }
-   
-    public List<HeroCardData> HeroCardDeck { get; private set; }
    
     public string Map { get; private set; }
   
@@ -100,17 +97,6 @@ public class UserManager : MonoBehaviour
         HeroCardDeckIndex = herocardDeck;
     }
 
-   
-    public void SetCardDeck(List<CardData> cardDeck)
-    {
-        CardDeck = cardDeck;
-    }
-
-   
-    public void SetHeroCardDeck(List<HeroCardData> heroCardDeck)
-    {
-        HeroCardDeck = heroCardDeck;
-    }
 
    
     public void SetMap(string map)

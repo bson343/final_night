@@ -19,7 +19,7 @@ public class LoginManager : MonoBehaviour
 
     private IEnumerator LoginCoroutine()
     {
-        string url = "http://15.165.102.117:8080/api/login"; // 마리아 db에 로그인 요청
+        string url = "http://localhost:8080/api/login"; // 마리아 db에 로그인 요청
         WWWForm form = new WWWForm();
         form.AddField("userId", userIdInput.text);
         form.AddField("userPassword", passwordInput.text);
