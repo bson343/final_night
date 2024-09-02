@@ -1,16 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Act : MonoBehaviour
 {
     [SerializeField] private BattlePlayer _player;
-    
-    [SerializeField]
-    private BattleData BattleMockData;
 
-    [SerializeField] private List<BattleData> stages;
+    [SerializeField] private List<BattleData> Act1BattleDataList;
+
+    private System.Random  random = new System.Random();
+
+    private int randomNumber;
 
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private BattleCardGenerator CardGenerator => ServiceLocator.Instance.GetService<BattleCardGenerator>();
@@ -35,6 +36,7 @@ public class Act : MonoBehaviour
 
     private void startTestMode()
     {
+        randomNumber = random.Next(0, Act1BattleDataList.Count-1);
         _player.init();
         
         for (int i = 0; i < 6; i++)
@@ -43,7 +45,7 @@ public class Act : MonoBehaviour
         }
 
         battleManager.defeatCommonEnemy = 100;
-        
-        battleManager.StartBattle(BattleMockData);
+
+        battleManager.StartBattle(Act1BattleDataList[randomNumber]);
     }
 }
