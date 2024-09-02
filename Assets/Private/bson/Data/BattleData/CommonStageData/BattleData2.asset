@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BattleData2
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 5465405177701037325, guid: f81d14aae68de604db52260e67fcb90f, type: 3}
+  - {fileID: 5465405177701037325, guid: 9ba0da6054e57fe4f8443ab5b005872f, type: 3}
+  - {fileID: 5465405177701037325, guid: dbb1d571016f3c941a5154f90799963f, type: 3}
   spawnPos:
   - {x: 4.31, y: -0.03, z: 0}
+  - {x: 8.31, y: -0.03, z: 0}
   maxMoney: 100
   minMoney: 10

@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1699946128}
-  BattleMockData: {fileID: 11400000, guid: e33a72488b04b1543ae953e0a640aa22, type: 2}
+  BattleMockData: {fileID: 11400000, guid: 2996a6d50a0d72d4898cfe6646d5496e, type: 2}
   stages: []
 --- !u!1 &1172744707
 GameObject:
