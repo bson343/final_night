@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class CharacterStat : MonoBehaviour
     [Header("Stat")]
     [SerializeField] private int _maxHp;
     private int _currentHp;
-    // private int _shield;
+    private int _shield;
     // private int _power;
     // private int _agility;
 
@@ -63,6 +64,20 @@ public class CharacterStat : MonoBehaviour
         }
     }
 
+    public int Shield
+    {
+        get { return _shield; }
+        set
+        {
+            int shieldAmount = value - _shield;
+
+            _shield += shieldAmount;
+            _shield = Mathf.Clamp(_shield, 0, 999);
+
+            _hpBar.DisplayShield(_shield);
+        }
+    }
+
     public int Power { get; set; }
 
     public bool IsDead => CurrentHp == 0;
@@ -88,8 +103,26 @@ public class CharacterStat : MonoBehaviour
         {
             vfxGenerator.CreateVFX(EVFX.PlayerAttack, transform.position);
         }
-        
-        CurrentHp -= damage;
+
+        if (_shield > 0)
+        {
+            if (_shield >= damage)
+            {
+                Shield -= damage; // 쉴드로 모든 피해를 막을 수 있으면 체력에 영향을 주지 않음
+                damage = 0;
+            }
+            else
+            {
+                damage -= _shield; // 쉴드를 소모하고 남은 피해를 체력에 반영
+                Shield = 0;
+            }
+        }
+
+        // 남은 피해를 체력에 반영
+        if (damage > 0)
+        {
+            CurrentHp -= damage;
+        }
     }
 
     public void IsBattle(bool flag)

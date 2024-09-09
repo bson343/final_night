@@ -20,15 +20,15 @@ MonoBehaviour:
   cardTypeString: "\uBC29\uC5B4"
   cardExplanation: 
   cardGrade: 0
-  isBezierCurve: 1
+  isBezierCurve: 0
   isExtinction: 0
-  cardFrameData: 1
+  cardFrameData: 3
   useEffect:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7523764426691023024, guid: d667e0841c3f87d49986c415587db70c, type: 3}
-        m_TargetAssemblyTypeName: AttackCardEffect, Assembly-CSharp
-        m_MethodName: Strike
+      - m_Target: {fileID: 639554513690431524, guid: 4f21f7ac313611543b6aed33c1f6d5a6, type: 3}
+        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
+        m_MethodName: barrier
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
