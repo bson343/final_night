@@ -325,7 +325,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1349878449418620407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,9 +603,11 @@ MonoBehaviour:
   hpBarSlider: {fileID: 1349878448547820376}
   hpBarText: {fileID: 1349878449856060411}
   hpBarFill: {fileID: 1349878450242329829}
+  hpBarShield: {fileID: 7630289640107660227}
+  hpBarShieldText: {fileID: 8808127092320935434}
   outLine: {fileID: 35445408107449893}
   originColor: {r: 1, g: 0.050980393, b: 0.050980393, a: 1}
-  shieldColor: {r: 0, g: 0.5176471, b: 0.5294118, a: 0}
+  shieldColor: {r: 0, g: 0.8763102, b: 0.8962264, a: 0}
 --- !u!1 &2103518206486943168
 GameObject:
   m_ObjectHideFlags: 0

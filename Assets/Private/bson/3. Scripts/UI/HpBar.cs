@@ -8,6 +8,8 @@ public class HpBar : MonoBehaviour
     [SerializeField] private Slider hpBarSlider;
     [SerializeField] private Text hpBarText;
     [SerializeField] private Image hpBarFill;
+    [SerializeField] private GameObject hpBarShield;
+    [SerializeField] private Text hpBarShieldText;
     [SerializeField] private GameObject outLine;
 
     [SerializeField] private Color originColor;
@@ -28,8 +30,21 @@ public class HpBar : MonoBehaviour
 
     public void DisplayShield(int shieldAmount)
     {
-        outLine.SetActive(false);
+        // 쉴드가 있으면
+        if (shieldAmount > 0)
+        {
+            outLine.SetActive(true);
 
-        hpBarFill.color = originColor;
+            hpBarFill.color = shieldColor;
+            hpBarShield.gameObject.SetActive(true);
+            hpBarShieldText.text = shieldAmount.ToString();
+        }
+        else
+        {
+            outLine.SetActive(false);
+
+            hpBarFill.color = originColor;
+            hpBarShield.gameObject.SetActive(false);
+        }
     }
 }
