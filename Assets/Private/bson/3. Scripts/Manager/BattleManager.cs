@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public enum EBattleState
@@ -38,6 +39,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
     
     public int myTurnCount = 1;
     public bool myTurn = false; //상태 전환을 위한 감시값
+
+    public Dictionary<string, System.Action> CardEffectTable { get; private set; }
     
     [SerializeField]
     private BattlePlayer _player;
@@ -48,7 +51,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
     private BattleManagerStateFactory _stateFactory;
     
     private Coroutine _coBattle = null;
-    
+
     private UIManager UIManager => ServiceLocator.Instance.GetService<UIManager>();
     private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
 
@@ -78,6 +81,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
     {
         battleCount = 0;
         _stateFactory = new BattleManagerStateFactory(this);
+
+        makeEffectTable();
     }
     
     public void EndMyTurn()
@@ -145,6 +150,25 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
             Debug.Log("보상을 줍니다.");
             rewardManager.ShowReward(_currentBattleData);
+        }
+    }
+
+    private void makeEffectTable()
+    {
+        CardEffectTable = new Dictionary<string, System.Action>();
+        BattleCardEffect battleCardEffect = new BattleCardEffect();
+
+        // 현재 객체의 모든 public 메소드를 가져옵니다
+        MethodInfo[] methods = battleCardEffect.GetType().GetMethods(BindingFlags.Public);
+
+        foreach (MethodInfo method in methods)
+        {
+            // 매개변수가 없는 메소드만 처리합니다
+            if (method.GetParameters().Length == 0)
+            {
+                // 메소드를 Action으로 변환하여 Dictionary에 추가합니다
+                CardEffectTable.Add(method.Name, () => method.Invoke(this, null));
+            }
         }
     }
 }
