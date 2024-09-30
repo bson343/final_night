@@ -30,7 +30,7 @@ public class LoginManager : MonoBehaviour
         if (www.result != UnityWebRequest.Result.Success)
         {
             loginpopup.SetActive(true);
-            resultText.text = "Error: 로그인의 실패하셨습니다. " + www.error;
+            resultText.text = "Error: 로그인에 실패하셨습니다. " + www.error;
         }
         else
         {
