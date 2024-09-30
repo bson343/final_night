@@ -794,7 +794,7 @@ MonoBehaviour:
   Prefab3: {fileID: 1184562449179964260, guid: 1fa08dcf82829a44f95bee7150378c35, type: 3}
   Prefab4: {fileID: 6130513910703402157, guid: d31653d079d551a49a5a6b90ea3f9a59, type: 3}
   Prefab5: {fileID: 2388169223246201926, guid: 0f09afa460791b54baf961f0d9de7003, type: 3}
-  Prefab6: {fileID: 106150411654353888, guid: 1516c062af2c614499ea75bbb7900f43, type: 3}
+  Prefab6: {fileID: 8788221679616335916, guid: 22e5433accef19d418b4d163c5f7643d, type: 3}
   Prefab7: {fileID: 8221807124714267811, guid: f5570f6ced39d0a4eab4c52e600d7053, type: 3}
   Prefab8: {fileID: 2124220098365754414, guid: 368c48b51a3393f40be17ed4019a142b, type: 3}
   Prefab9: {fileID: 6608519826086820743, guid: 0d40508291268ac4283027d9a3b6d233, type: 3}
@@ -804,10 +804,10 @@ MonoBehaviour:
   animator3: {fileID: 1261149140016288918, guid: 1fa08dcf82829a44f95bee7150378c35, type: 3}
   animator4: {fileID: -487689718454649782, guid: d31653d079d551a49a5a6b90ea3f9a59, type: 3}
   animator5: {fileID: -8255376223428440339, guid: 0f09afa460791b54baf961f0d9de7003, type: 3}
-  animator6: {fileID: 1588275449405067047, guid: 1516c062af2c614499ea75bbb7900f43, type: 3}
-  animator7: {fileID: 0}
-  animator8: {fileID: 0}
-  animator9: {fileID: 0}
+  animator6: {fileID: -5766722459962586901, guid: 22e5433accef19d418b4d163c5f7643d, type: 3}
+  animator7: {fileID: 808196934130423421, guid: f5570f6ced39d0a4eab4c52e600d7053, type: 3}
+  animator8: {fileID: -2125240798729999964, guid: 368c48b51a3393f40be17ed4019a142b, type: 3}
+  animator9: {fileID: -6363772916211424933, guid: 0d40508291268ac4283027d9a3b6d233, type: 3}
   parentCanvas: {fileID: 312108830}
 --- !u!1 &313002127
 GameObject:

@@ -33,6 +33,19 @@ public class ObjectSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             // B 오브젝트 생성
+            spawnedObject = Instantiate(Prefab1, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform);
+
+            // C 애니메이션 재생
+            if (animator1 != null)
+            {
+                animator1.SetTrigger("PlayAnimation");
+                Destroy(spawnedObject, 1.0f);
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            // B 오브젝트 생성
             spawnedObject = Instantiate(Prefab2, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform);
 
             // C 애니메이션 재생
@@ -82,7 +95,7 @@ public class ObjectSpawner : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             spawnedObject = Instantiate(Prefab6, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform   );
 
@@ -92,6 +105,42 @@ public class ObjectSpawner : MonoBehaviour
                 animator6.SetTrigger("PlayAnimation");
                 Destroy(spawnedObject, 1.0f);
                
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            spawnedObject = Instantiate(Prefab7, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform);
+
+            // C 애니메이션 재생
+            if (animator7 != null)
+            {
+                animator7.SetTrigger("PlayAnimation");
+                Destroy(spawnedObject, 1.0f);
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            spawnedObject = Instantiate(Prefab8, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform);
+
+            // C 애니메이션 재생
+            if (animator8 != null)
+            {
+                animator8.SetTrigger("PlayAnimation");
+                Destroy(spawnedObject, 1.0f);
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            spawnedObject = Instantiate(Prefab9, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform);
+
+            // C 애니메이션 재생
+            if (animator9 != null)
+            {
+                animator9.SetTrigger("PlayAnimation");
+                Destroy(spawnedObject, 1.0f);
+
             }
         }
     }
