@@ -15,7 +15,9 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject Prefab7;
     public GameObject Prefab8;
     public GameObject Prefab9;
-    public GameObject Prefab10;// B 오브젝트 프리팹
+    public GameObject Prefab10;
+    public GameObject Prefab11;
+    public GameObject Prefab12;// B 오브젝트 프리팹
     public Transform spawnPoint; // B 오브젝트 생성 위치
     public Animator animator1;
     public Animator animator2;
@@ -27,6 +29,7 @@ public class ObjectSpawner : MonoBehaviour
     public Animator animator8;
     public Animator animator9;
     public Animator animator10;
+    public Animator animator11;
     public Canvas parentCanvas;
 
 
@@ -153,6 +156,30 @@ public class ObjectSpawner : MonoBehaviour
             if (animator10 != null)
             {
                 animator10.SetTrigger("PlayAnimation");
+                Destroy(spawnedObject, 1.0f);
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            spawnedObject = Instantiate(Prefab11, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform);
+
+            // C 애니메이션 재생
+            if (animator11 != null)
+            {
+                animator11.SetTrigger("PlayAnimation");
+                Destroy(spawnedObject, 1.0f);
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            spawnedObject = Instantiate(Prefab12, spawnPoint.position, spawnPoint.rotation, parentCanvas.transform);
+
+            // C 애니메이션 재생
+            if (animator11 != null)
+            {
+                animator11.SetTrigger("PlayAnimation");
                 Destroy(spawnedObject, 1.0f);
 
             }

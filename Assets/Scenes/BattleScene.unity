@@ -798,6 +798,7 @@ MonoBehaviour:
   Prefab7: {fileID: 8221807124714267811, guid: f5570f6ced39d0a4eab4c52e600d7053, type: 3}
   Prefab8: {fileID: 2124220098365754414, guid: 368c48b51a3393f40be17ed4019a142b, type: 3}
   Prefab9: {fileID: 6608519826086820743, guid: 0d40508291268ac4283027d9a3b6d233, type: 3}
+  Prefab10: {fileID: 1104979511854314390, guid: aed412f6a89a8d74fae28ff1c3dd88ea, type: 3}
   spawnPoint: {fileID: 1817576725}
   animator1: {fileID: 9216178565113129098, guid: 62dc04d8f96de2745ac86afe53f50e48, type: 3}
   animator2: {fileID: -3441109182427345267, guid: e61b394e884481a469256b3468bdd431, type: 3}
@@ -808,6 +809,7 @@ MonoBehaviour:
   animator7: {fileID: 808196934130423421, guid: f5570f6ced39d0a4eab4c52e600d7053, type: 3}
   animator8: {fileID: -2125240798729999964, guid: 368c48b51a3393f40be17ed4019a142b, type: 3}
   animator9: {fileID: -6363772916211424933, guid: 0d40508291268ac4283027d9a3b6d233, type: 3}
+  animator10: {fileID: 7340824461529043925, guid: aed412f6a89a8d74fae28ff1c3dd88ea, type: 3}
   parentCanvas: {fileID: 312108830}
 --- !u!1 &313002127
 GameObject:
