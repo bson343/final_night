@@ -38,11 +38,10 @@ public class Act : MonoBehaviour
     {
         randomNumber = random.Next(0, Act1BattleDataList.Count-1);
         _player.init();
-        
-        for (int i = 0; i < 6; i++)
-        {
-            _player.AddCard(CardGenerator.GeneratorRandomCard());
-        }
+
+
+        CardGenerator.GenerateAllCards();
+
 
         battleManager.defeatCommonEnemy = 100;
 

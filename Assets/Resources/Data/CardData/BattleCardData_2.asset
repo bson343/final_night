@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 945446db4d499374e9ac7d65672d45c1, type: 3}
-  m_Name: 3
+  m_Name: BattleCardData_2
   m_EditorClassIdentifier: 
-  id: 3
-  cardImage: {fileID: 21300000, guid: 91cb4b0aac6a43a4398d0d20228b202a, type: 3}
-  cardName: "\uD68C\uBCF5"
-  cost: 1
-  cardType: 1
-  cardTypeString: "\uBC29\uC5B4"
+  id: 2
+  cardImage: {fileID: 21300000, guid: c01a55d566dcd19449417ef529084c70, type: 3}
+  cardName: "\uC601\uD63C \uD574\uBC29"
+  cost: 2
+  cardType: 0
+  cardTypeString: "\uACF5\uACA9"
   cardExplanation: 
   cardGrade: 0
-  isBezierCurve: 0
+  isBezierCurve: 1
   isExtinction: 0
-  cardFrameData: 3
+  cardFrameData: 1
   useEffect:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 639554513690431524, guid: 4f21f7ac313611543b6aed33c1f6d5a6, type: 3}
-        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
-        m_MethodName: barrier
+      - m_Target: {fileID: 7523764426691023024, guid: d667e0841c3f87d49986c415587db70c, type: 3}
+        m_TargetAssemblyTypeName: AttackCardEffect, Assembly-CSharp
+        m_MethodName: SoulLiberation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
