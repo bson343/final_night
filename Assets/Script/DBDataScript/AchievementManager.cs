@@ -34,7 +34,8 @@ public class AchievementManager : MonoBehaviour
 
     private IEnumerator GetGameDataCoroutine()
     {
-        string url = "http://localhost:8080/gamesavedata/user/" + userNum; // GET 요청 URL 서버올리면 여기서 IP 바꾸면된다.
+        //string url = "http://localhost:8080/gamesavedata/user/" + userNum; // GET 요청 URL 서버올리면 여기서 IP 바꾸면된다.
+        string url = "http://10.30.1.110:8080/gamesavedata/user/" + userNum; // GET 요청 URL 서버올리면 여기서 IP 바꾸면된다.
 
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();

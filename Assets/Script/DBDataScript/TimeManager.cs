@@ -8,8 +8,10 @@ public class TimerManager : MonoBehaviour
 {
     private int secondsElapsed;
     private long gameDataId;
-    private const string getPlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
-    private const string updatePlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
+    //private const string getPlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
+    private const string getPlayTimeUrl = "http://10.30.1.110/gamesavedata/{id}/playtime";
+    //private const string updatePlayTimeUrl = "http://localhost:8080/gamesavedata/{id}/playtime";
+    private const string updatePlayTimeUrl = "http://10.30.1.110/gamesavedata/{id}/playtime";
     private static TimerManager instance;
     public static TimerManager Instance => instance;
     

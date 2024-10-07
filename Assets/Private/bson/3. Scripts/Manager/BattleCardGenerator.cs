@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class BattleCardGenerator : MonoBehaviour, IRegisterable
 {
@@ -11,6 +13,12 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
     [SerializeField] private BattleCard _baseBattleCard;
     [SerializeField] private List<BattleCardData> _MydeckList = new List<BattleCardData>();
+    [SerializeField] BattleCard _baseBattleCard;
+    [SerializeField] BattleCard _defaultDummyCard;
+    [SerializeField] private List<BattleCardData> _cardDatas;
+
+    Dictionary<decimal, BattleCardData> CardDataMap => CardMap.Instance.CardDataMap;
+    Dictionary<string, Sprite> CardSpriteMap => CardMap.Instance.CardSpriteMap;
 
     public void Init()
     {
@@ -44,6 +52,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     }
 
     // 임의의 인덱스로부터 랜덤 카드 생성
+    //Deprecated
     public BattleCard GeneratorRandomCard()
     {
         return GenerateBattleCard(Random.Range(0, _MydeckList.Count));
@@ -67,6 +76,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     }
 
     // 인덱스로부터 BattleCard를 생성하는 메서드
+    //Deprecated
     public BattleCard GenerateBattleCard(int cardIdx)
     {
         if (_MydeckList.Count <= cardIdx)
@@ -77,4 +87,47 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
         return GenerateBattleCardFromData(_MydeckList[cardIdx]);
     }
+
+    public BattleCard GenBatCard(int cardId)
+    {
+        if (
+            !(CardMap.Instance.AttackCardIdList.Contains(cardId) 
+            || CardMap.Instance.SkillCardIdList.Contains(cardId)
+            || CardMap.Instance.HeroCardIdList.Contains(cardId))
+            )
+        {
+            Assert.IsTrue(false);
+        }
+
+        BattleCard genCard = Instantiate(_defaultDummyCard, _cardParent);
+        updateCardResource(genCard.gameObject.transform, cardId);
+
+        genCard.Init(_cardHolder, cardId);
+
+        return genCard;
+    }
+
+    private void updateCardResource(Transform genCard, int cardId)
+    {
+        BattleCardData cardData = CardDataMap[cardId]; 
+
+        genCard.Find("background").GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("background")];
+
+        genCard.Find("icon").GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("icon")];
+
+        Transform goName = genCard.Find("name");
+        goName.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("name")];
+        goName.GetChild(0).GetComponent<TMP_Text>().text = cardData.cardName;
+
+        Transform goCost = genCard.Find("cost");
+        goCost.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("cost")];
+        goCost.GetChild(0).GetComponent<TMP_Text>().text = cardData.cost.ToString();
+
+        Transform goInfor = genCard.Find("infor");
+        goInfor.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("infor")];
+        goInfor.GetChild(0).GetComponent<TMP_Text>().text = cardData.cardTypeString;
+        goInfor.GetChild(1).GetComponent<TMP_Text>().text = cardData.cardExplanation;
+    }
+
+
 }

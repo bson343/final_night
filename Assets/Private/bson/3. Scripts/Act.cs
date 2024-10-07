@@ -18,6 +18,11 @@ public class Act : MonoBehaviour
 
     private void Awake()
     {
+        
+    }
+
+    private void Start()
+    {
         battleManager.testMode = true;
 
         if (battleManager.testMode == true)
@@ -29,19 +34,15 @@ public class Act : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void startTestMode()
     {
         randomNumber = random.Next(0, Act1BattleDataList.Count-1);
         _player.init();
-
-
-        CardGenerator.GenerateAllCards();
-
+        
+        for (int i = 0; i < 6; i++)
+        {
+            _player.AddCard(CardGenerator.GenBatCard(5));
+        }
 
         battleManager.defeatCommonEnemy = 100;
 

@@ -19,7 +19,8 @@ public class NicknameManager : MonoBehaviour
 
     private IEnumerator GetNicknameCoroutine()
     {
-        string url = "http://localhost:8080/api/nickname?userNum=" + userNum; // GET 요청으로 변경
+        //string url = "http://localhost:8080/api/nickname?userNum=" + userNum; // GET 요청으로 변경
+        string url = "http://10.30.1.110:8080/api/nickname?userNum=" + userNum; // GET 요청으로 변경
 
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();

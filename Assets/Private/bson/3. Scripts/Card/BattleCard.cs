@@ -12,11 +12,15 @@ public enum ECardUsage
 }
 public class BattleCard : MonoBehaviour
 {
+    //Deprecated start
     public int generateNumber;
     public ECardType cardType;
     public int cost;
     public int cardID;
     public string cardName;
+    //Deprecated end
+
+    public int CardId;
 
     // 온클릭 함수
     public Action onClickAction;
@@ -55,6 +59,21 @@ public class BattleCard : MonoBehaviour
         cardImage.sprite = _cardData.cardImage;
     }
 
+    public void Init(BattleCardHolder cardHolder, int cardId)
+    {
+        _CardStateFactory = new BattleCardStateFactory(this);
+        _cardHolder = cardHolder;
+        _cardData = CardMap.Instance.CardDataMap[cardId];
+
+        _cardController.Init(_cardData.isBezierCurve, this);
+
+        // 정렬 데이터
+        this.generateNumber = -1;
+        cardType = _cardData.cardType;
+        cost = _cardData.cost;
+        cardName = _cardData.cardName;
+    }
+
     public void ChangeState(ECardUsage cardUsage)
     {
         _CardStateFactory.ChangeState(cardUsage);
@@ -64,7 +83,11 @@ public class BattleCard : MonoBehaviour
     {
         if (TryUseCard())
         {
-            _cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
+            //_cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
+            foreach (var useCard in _cardData.effects)
+            {
+                battleManager.CardEffectTable[useCard].Invoke();
+            }
 
             if(_cardData.isExtinction)
             {
