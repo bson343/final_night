@@ -159,7 +159,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
         BattleCardEffect battleCardEffect = new BattleCardEffect();
 
         // 현재 객체의 모든 public 메소드를 가져옵니다
-        MethodInfo[] methods = battleCardEffect.GetType().GetMethods(BindingFlags.Public);
+        MethodInfo[] methods = battleCardEffect.GetType().GetMethods(BindingFlags.Public | BindingFlags.Instance);
 
         foreach (MethodInfo method in methods)
         {

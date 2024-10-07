@@ -13,7 +13,6 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
     [SerializeField] private BattleCard _baseBattleCard;
     [SerializeField] private List<BattleCardData> _MydeckList = new List<BattleCardData>();
-    [SerializeField] BattleCard _baseBattleCard;
     [SerializeField] BattleCard _defaultDummyCard;
     [SerializeField] private List<BattleCardData> _cardDatas;
 
@@ -25,7 +24,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
         // 필요한 초기화 작업이 있으면 여기에서 처리
     }
 
-    public void Start() // 게임 시작 시 실행, 덱 설정 및 카드 생성
+    /*public void Start() // 게임 시작 시 실행, 덱 설정 및 카드 생성
     {
         List<int> deckIndices = UserManager.Instance.CardDeckIndex;
         List<BattleCard> myCardList = new List<BattleCard>();
@@ -49,7 +48,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
         _cardHolder.StartBattle(myCardList); // 카드 홀더에 덱 전달
         Debug.Log("덱 생성 완료");
-    }
+    }*/
 
     // 임의의 인덱스로부터 랜덤 카드 생성
     //Deprecated

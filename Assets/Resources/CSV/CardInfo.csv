@@ -3,4 +3,4 @@ Id,CardName,Cost,eType,TypeString,bBezier,bExtinction,Constants(;로 스플릿),
 2,영혼 해방,2,0,공격,1,0,13,영혼을 해방시켜 적에게 {}의 피해를 입힙니다.,SoulLiberation,background_attack,icon_attack2,name_attack,cost_attack,infor_attack
 3,회복,1,1,방어,0,0,5,현재 체력을 {} 만큼 회복합니다.,barrier,background_skill,icon_skill6,name_skill,cost_skill,infor_skill
 4,마나 순환,2,1,특수,1,0,30,SP를 {} 만큼 회복합니다.,Strike,background_skill,icon_skill2,name_skill,cost_skill,infor_skill
-5,폭주마법진,2,1,특수,1,0,2,파워가 {} 만큼 증가합니다.,Strike,background_skill,icon_skill3,name_skill,cost_skill,infor_skill
+5,폭주마법진,2,1,특수,1,0,2,파워가 {} 만큼 증가합니다.sdfsdfsdf,Strike,background_skill,icon_skill3,name_skill,cost_skill,infor_skill

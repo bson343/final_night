@@ -86,7 +86,7 @@ public class BattleCard : MonoBehaviour
             //_cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
             foreach (var useCard in _cardData.effects)
             {
-                battleManager.CardEffectTable[useCard].Invoke();
+                //battleManager.CardEffectTable[useCard]?.Invoke();
             }
 
             if(_cardData.isExtinction)
