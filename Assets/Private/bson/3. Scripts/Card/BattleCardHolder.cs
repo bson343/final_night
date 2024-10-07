@@ -210,6 +210,7 @@ public class BattleCardHolder : MonoBehaviour
         // 뽑을 카드가 없으면 묘지에 있는 카드를 전부 덱에 넣고 셔플한 다음 드로우
         if (_cardDeck.Count <= 0)
         {
+            Debug.Log("뽑을 카드가 없음");
             ReturnToDeck();
             Util.ShuffleList(_cardDeck);
         }

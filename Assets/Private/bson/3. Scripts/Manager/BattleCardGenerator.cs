@@ -40,11 +40,13 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
                 Debug.LogError("BattleCardData with ID " + id + " not found.");
             }
         }
+
+        Debug.Log("덱 생성 완료");
     }
 
     public BattleCard GeneratorRandomCard()
     {
-        return GenerateBattleCard(Random.Range(0, _MydeckList.Count));
+        return  GenerateBattleCard(Random.Range(0, _MydeckList.Count));
     }
 
     public void GenerateAllCards()
@@ -61,6 +63,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     {
         if (_MydeckList.Count <= cardIdx)
         {
+            Debug.Log("배틀 카드 생성");
             Assert.IsTrue(false);
         }
 
