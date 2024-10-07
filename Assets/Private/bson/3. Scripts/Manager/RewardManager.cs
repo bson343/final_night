@@ -84,9 +84,9 @@ public class RewardManager : MonoBehaviour, IRegisterable
         card2.onClickAction = null;
         card3.onClickAction = null;
 
-        card1.onClickAction += (() => OnClickGainCard());
-        card2.onClickAction += (() => OnClickGainCard());
-        card3.onClickAction += (() => OnClickGainCard());
+        card1.onClickAction += (() => OnClickGainCard(card1));
+        card2.onClickAction += (() => OnClickGainCard(card2));
+        card3.onClickAction += (() => OnClickGainCard(card3));
 
         card1.transform.SetParent(cardRewardParent);
         card2.transform.SetParent(cardRewardParent);
@@ -96,13 +96,14 @@ public class RewardManager : MonoBehaviour, IRegisterable
         card2.transform.localScale = Vector3.one;
         card3.transform.localScale = Vector3.one;
 
-        Debug.Log(card1.GetInstanceID());
+       
     }
 
     // 보상 카드를 눌렀을 때 실행될 함수
-    private void OnClickGainCard()
-    {   
-        
+    private void OnClickGainCard(BattleCard clickedCard)
+    {
+        int cardID = clickedCard.cardID;
+        Debug.Log("클릭한 카드 ID: " + cardID);
         cardRewardGameObject.gameObject.SetActive(false);
     }
 
