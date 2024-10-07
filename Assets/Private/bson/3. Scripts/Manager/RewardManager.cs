@@ -104,6 +104,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
     {
         int cardID = clickedCard.cardID;
         Debug.Log("클릭한 카드 ID: " + cardID);
+        UserManager.Instance.CardDeckIndex.Add(cardID);
         cardRewardGameObject.gameObject.SetActive(false);
     }
 
