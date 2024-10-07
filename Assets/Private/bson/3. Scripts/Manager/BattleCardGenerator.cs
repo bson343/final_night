@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class BattleCardGenerator : MonoBehaviour, IRegisterable
 {
@@ -63,22 +64,22 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
     private void updateCardResource(Transform genCard, int cardId)
     {
-        BattleCardData cardData = CardDataMap[cardId];
+        BattleCardData cardData = CardDataMap[cardId]; 
 
-        genCard.Find("background").GetComponent<SpriteRenderer>().sprite = CardSpriteMap[cardData.getSpritePath("background")];
+        genCard.Find("background").GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("background")];
 
-        genCard.Find("icon").GetComponent<SpriteRenderer>().sprite = CardSpriteMap[cardData.getSpritePath("icon")];
+        genCard.Find("icon").GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("icon")];
 
         Transform goName = genCard.Find("name");
-        goName.GetComponent<SpriteRenderer>().sprite = CardSpriteMap[cardData.getSpritePath("name")];
+        goName.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("name")];
         goName.GetChild(0).GetComponent<TextMeshPro>().text = cardData.cardName;
 
         Transform goCost = genCard.Find("cost");
-        goName.GetComponent<SpriteRenderer>().sprite = CardSpriteMap[cardData.getSpritePath("cost")];
+        goName.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("cost")];
         goName.GetChild(0).GetComponent<TextMeshPro>().text = cardData.cost.ToString();
 
         Transform goInfor = genCard.Find("infor");
-        goName.GetComponent<SpriteRenderer>().sprite = CardSpriteMap[cardData.getSpritePath("infor")];
+        goName.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("infor")];
         goName.GetChild(0).GetComponent<TextMeshPro>().text = cardData.cardTypeString;
         goName.GetChild(1).GetComponent<TextMeshPro>().text = cardData.cardExplanation;
     }

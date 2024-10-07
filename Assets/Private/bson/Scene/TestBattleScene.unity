@@ -863,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1025760514
 Transform:
   m_ObjectHideFlags: 0
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   _cardParent: {fileID: 8613713420726461622}
   _cardHolder: {fileID: 366670768}
   _baseBattleCard: {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
-  _defaultDummyCard: {fileID: 0}
+  _defaultDummyCard: {fileID: 1942049735635938910, guid: 099ed9c9980ca664e862d987672ef6cd, type: 3}
   _cardDatas:
   - {fileID: 11400000, guid: 6a5ec7f9340a7f64c9bcc0b557ca3e79, type: 2}
   - {fileID: 11400000, guid: 0479d1937a3bc6247b312931222e677a, type: 2}

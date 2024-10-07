@@ -16,9 +16,11 @@ public class CardResourceLoader
     public List<int> SkillCardIdList = new List<int>();
     public List<int> HeroCardIdList = new List<int>();
 
-    public void Init(string csvPath)
+    public void Init(string csvPathOrRowData)
     {
-        CSV_Data = CSVReader.Read(csvPath);
+        CSV_Data = isFilePath(csvPathOrRowData) 
+            ?  CSVReader.Read(csvPathOrRowData)
+            : CSVReader.Parse(csvPathOrRowData);
     }
 
     public bool LoadCardSpriteMap()
@@ -75,16 +77,16 @@ public class CardResourceLoader
 
             temp.setSpritePaths(spritePaths);
             
-            int.TryParse(element["Id"] as string, out temp.id);
+            int.TryParse(element["Id"].ToString(), out temp.id);
 
-            temp.cardName = element["CardName"] as string;
+            temp.cardName = element["CardName"].ToString();
 
             int.TryParse(element["Cost"].ToString(), out temp.cost);
 
             temp.constants = (element["Constants"].ToString()).Split(';');
 
             int eType;
-            int.TryParse(element["eType"] as string, out eType);
+            int.TryParse(element["eType"].ToString(), out eType);
             temp.cardType = ECardType.Attack + eType;
             switch(temp.cardType)
             {
@@ -102,7 +104,7 @@ public class CardResourceLoader
                 break; 
             }
 
-            temp.cardTypeString = element["TypeString"] as string;
+            temp.cardTypeString = element["TypeString"].ToString();
 
             temp.cardExplanation = txtInfo;
 
@@ -110,7 +112,7 @@ public class CardResourceLoader
 
             bool.TryParse(element["bExtinction"].ToString(), out temp.isExtinction);
 
-            temp.effects = (element["Effects"] as string).Split(';');
+            temp.effects = (element["Effects"].ToString()).Split(';');
 
             CardDataMap[temp.id] = temp;
         }
@@ -142,5 +144,10 @@ public class CardResourceLoader
             ret += inforArray[i + 1];
         }
         return ret;
+    }
+
+    bool isFilePath(string input)
+    {
+        return input.Contains(@"\") || input.Contains(@"/");
     }
 }

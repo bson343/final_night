@@ -6,11 +6,19 @@ public class CardResourceMappedManager : MonoBehaviour
 {
     [SerializeField] string CSV_Path;
 
-    void Awake()
+    public void Start()
+    {
+        GoogleSheetManager m = GetComponent<GoogleSheetManager>();
+
+        m.init(init);
+    }
+
+    public void init(string RowData)
     {
         CardResourceLoader loader = new CardResourceLoader();
 
-        loader.Init("CSV/CardInfo");
+        //loader.Init("CSV/CardInfo");
+        loader.Init(RowData);
 
         loader.LoadCardDataMap();
         loader.LoadCardSpriteMap();

@@ -10,12 +10,19 @@ public class GoogleSheetManager : MonoBehaviour
 {
     const string URL = "https://docs.google.com/spreadsheets/d/1xl-m1CtQxmsX2f-sevtRFEfX0mbiXM_MiLSNBNXqdyg/export?format=csv";
 
-    IEnumerator Start()
+    public void init(Action<string> callback)
+    {
+        StartCoroutine(loadGoogleSheet(callback));
+    }
+
+    IEnumerator loadGoogleSheet(Action<string> callback)
     {
         UnityWebRequest www = UnityWebRequest.Get(URL);
         yield return www.SendWebRequest();
 
         string csvData = www.downloadHandler.text;
+
+        callback?.Invoke(csvData);
 
 #if UNITY_EDITOR
         const string CSV_FOLDER_PATH = "CSV";
@@ -70,6 +77,4 @@ public class GoogleSheetManager : MonoBehaviour
         UnityEditor.AssetDatabase.Refresh();
 #endif
     }
-
-
 }
