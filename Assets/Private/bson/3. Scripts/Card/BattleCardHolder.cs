@@ -201,6 +201,7 @@ public class BattleCardHolder : MonoBehaviour
     /// </summary>
     public void DrawCard()
     {
+        Debug.Log(_cardDeck.Count);
         // 패에 카드 10장이상이면 더이상 카드를 드로우하지 못함
         if (_cardHands.Count >= 10)
         {

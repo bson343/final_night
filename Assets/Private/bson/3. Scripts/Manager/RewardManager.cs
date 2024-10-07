@@ -95,11 +95,14 @@ public class RewardManager : MonoBehaviour, IRegisterable
         card1.transform.localScale = Vector3.one;
         card2.transform.localScale = Vector3.one;
         card3.transform.localScale = Vector3.one;
+
+        Debug.Log(card1.GetInstanceID());
     }
 
     // 보상 카드를 눌렀을 때 실행될 함수
     private void OnClickGainCard()
-    {
+    {   
+        
         cardRewardGameObject.gameObject.SetActive(false);
     }
 
