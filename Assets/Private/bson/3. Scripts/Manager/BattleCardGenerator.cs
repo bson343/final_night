@@ -59,7 +59,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
         genCard.Init(_cardHolder, cardId);
 
-        return null;
+        return genCard;
     }
 
     private void updateCardResource(Transform genCard, int cardId)
@@ -72,16 +72,16 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
         Transform goName = genCard.Find("name");
         goName.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("name")];
-        goName.GetChild(0).GetComponent<TextMeshPro>().text = cardData.cardName;
+        goName.GetChild(0).GetComponent<TMP_Text>().text = cardData.cardName;
 
         Transform goCost = genCard.Find("cost");
-        goName.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("cost")];
-        goName.GetChild(0).GetComponent<TextMeshPro>().text = cardData.cost.ToString();
+        goCost.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("cost")];
+        goCost.GetChild(0).GetComponent<TMP_Text>().text = cardData.cost.ToString();
 
         Transform goInfor = genCard.Find("infor");
-        goName.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("infor")];
-        goName.GetChild(0).GetComponent<TextMeshPro>().text = cardData.cardTypeString;
-        goName.GetChild(1).GetComponent<TextMeshPro>().text = cardData.cardExplanation;
+        goInfor.GetComponent<Image>().sprite = CardSpriteMap[cardData.getSpritePath("infor")];
+        goInfor.GetChild(0).GetComponent<TMP_Text>().text = cardData.cardTypeString;
+        goInfor.GetChild(1).GetComponent<TMP_Text>().text = cardData.cardExplanation;
     }
 
 
