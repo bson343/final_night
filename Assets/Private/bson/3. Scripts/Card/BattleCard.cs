@@ -62,6 +62,14 @@ public class BattleCard : MonoBehaviour
         _CardStateFactory = new BattleCardStateFactory(this);
         _cardHolder = cardHolder;
         _cardData = CardMap.Instance.CardDataMap[cardId];
+
+        _cardController.Init(_cardData.isBezierCurve, this);
+
+        // 정렬 데이터
+        this.generateNumber = -1;
+        cardType = _cardData.cardType;
+        cost = _cardData.cost;
+        cardName = _cardData.cardName;
     }
 
     public void ChangeState(ECardUsage cardUsage)

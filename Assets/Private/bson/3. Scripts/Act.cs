@@ -41,7 +41,7 @@ public class Act : MonoBehaviour
         
         for (int i = 0; i < 6; i++)
         {
-            _player.AddCard(CardGenerator.GenBatCard(1));
+            _player.AddCard(CardGenerator.GenBatCard(5));
         }
 
         battleManager.defeatCommonEnemy = 100;
