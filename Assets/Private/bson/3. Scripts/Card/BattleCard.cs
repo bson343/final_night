@@ -15,6 +15,7 @@ public class BattleCard : MonoBehaviour
     public int generateNumber;
     public ECardType cardType;
     public int cost;
+    public int cardID;
     public string cardName;
 
     // 온클릭 함수
@@ -48,6 +49,7 @@ public class BattleCard : MonoBehaviour
         cardType = _cardData.cardType;
         cost = _cardData.cost;
         cardName = _cardData.cardName;
+        cardID = _cardData.id;
 
         Image cardImage = GetComponent<Image>();
         cardImage.sprite = _cardData.cardImage;
