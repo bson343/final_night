@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainPage.unity
     guid: 9f5ff3e59200af140bbf2f841b5fac7e
   - enabled: 1
-    path: Assets/Scenes/shop.unity
+    path: Assets/Scenes/Rest.unity
     guid: 4419f41c24edaa64a9f8fbc400e6b8b2
   - enabled: 1
     path: Assets/Scenes/EventScene3.unity
