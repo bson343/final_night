@@ -1,17 +1,18 @@
-Id,CardName,Cost,eType,TypeString,bBezier,bExtinction,Constants(;로 스플릿),Description({중괄호는 Constants로 대체}),Effects(;로 스플릿. 실행하려는 함수명과 완벽히 동일해야함),resource_back,resource_icon,resource_name,resource_cost,resource_infor
-1,꿰뚫는 손,1,0,공격,1,0,5,{demage}의 피해를 입힙니다.,Strike,background_attack,icon_attack1,name_attack,cost_attack,infor_attack
-2,영혼 해방,2,0,공격,1,0,13,{demage}의 피해를 입힙니다.,SoulLiberation,background_attack,icon_attack2,name_attack,cost_attack,infor_attack
-3,마나 방어막,1,1,특수,0,0,5,{}의 방어막을 얻습니다.,barrier,background_skill,icon_skill1,name_skill,cost_skill,infor_skill
-4,마나 순환,1,1,특수,0,0,2,카드를 {}장 뽑습니다.,Strike,background_skill,icon_skill2,name_skill,cost_skill,infor_skill
-5,마안,1,1,특수,0,0,2,마력를 {} 얻습니다.,Strike,background_skill,icon_skill5,name_skill,cost_skill,infor_skill
-6,유성우,3,0,공격,0,0,5,적 전체에게 {demage}의 피해를 3번 입힙니다.,Strike,background_attack,icon_attack6,name_attack,cost_attack,infor_attack
-7,현신,0,0,특수,0,0,20,파워를 {} 얻습니다. 한 턴 뒤 죽습니다.,barrier,background_skill,icon_attack8,name_skill,cost_skill,infor_skill
-8,착취의 손아귀,2,0,공격,1,0,8,"{demage}의 피해를 입힙니다,입힌 피해만큼 회복합니다.",Strike,background_attack,icon_attack5,name_attack,cost_attack,infor_attack
-9,암흑 마력탄,2,0,공격,1,0,12,"{demage}의 피해를 입힙니다, 마력의 영향이 4배 적용됩니다.",Strike,background_attack,icon_attack9,name_attack,cost_attack,infor_attack
-10,화염 물약,1,0,공격,1,0,5,"{demage}의 피해를 입힙니다, 화상을 3 부여합니다.",Strike,background_attack,icon_skill6,name_attack,cost_attack,infor_attack
-11,대폭발,3,0,공격,0,0,10,"적 전체에게 {demage}의 피해를 입힙니다, 화상을 5 부여합니다.",Strike,background_attack,icon_attack10,name_attack,cost_attack,infor_attack
-12,점화,1,0,공격,1,0,3,"{demage}를 피해를 입힙니다, 적에게 걸린 화상이 2배가 됩니다.",Strike,background_attack,icon_attack7,name_attack,cost_attack,infor_attack
-13,깎아내기,1,0,공격,1,0,5,"{demage}를 피해를 입힙니다, 약화 효과를 2 부여합니다.",Strike,background_attack,icon_attack4,name_attack,cost_attack,infor_attack
-14,암흑 정령 소환,1,1,특수,0,0,3,암흑 정령을 {}장 얻습니다.,barrier,background_skill,icon_skill3,name_skill,cost_skill,infor_skill
-15,저주의 손길,3,1,특수,0,0,3,"적 전체에게 약화,화상을 {} 부여합니다.",barrier,background_skill,icon_skill4,name_skill,cost_skill,infor_skill
-16,암흑 정령,0,0,공격,1,0,4,{demage}의 피해를 입힙니다.,Strike,background_attack,icon_attack3,name_attack,cost_attack,infor_attack
+Id,CardName,Cost,eType,TypeString,bBezier,bExtinction,Constants(;로 스플릿),Description(C# 문자열 보간 사용),Effects(;로 스플릿. 실행하려는 함수명과 완벽히 동일해야함),resource_back,resource_icon,resource_name,resource_cost,resource_infor
+999,TEST,-1,0,테스트용,1,0,1,"""<color=red><b>{0}</b></color>의 피해를 입힙니다. 공격 할 때 마다 공격력이 <color=blue><b>+1</b></color> 상승합니다.""",GrowthAttackDamage,background_attack,icon_attack1,name_attack,cost_attack,infor_attack
+1,꿰뚫는 손,1,0,공격,1,0,5,<color=red><b>{0}</b></color>의 피해를 입힙니다.,Strike,background_attack,icon_attack1,name_attack,cost_attack,infor_attack
+2,영혼 해방,2,0,공격,1,0,13,{0}의 피해를 입힙니다.,SoulLiberation,background_attack,icon_attack2,name_attack,cost_attack,infor_attack
+3,마나 방어막,1,1,특수,0,0,5,{0}의 방어막을 얻습니다.,barrier,background_skill,icon_skill1,name_skill,cost_skill,infor_skill
+4,마나 순환,1,1,특수,0,0,2,카드를 {0}장 뽑습니다.,Strike,background_skill,icon_skill2,name_skill,cost_skill,infor_skill
+5,마안,1,1,특수,0,0,2,마력를 {0} 얻습니다.,Strike,background_skill,icon_skill5,name_skill,cost_skill,infor_skill
+6,유성우,3,0,공격,0,0,5,적 전체에게 {0}의 피해를 <color=blue><b>3</b></color>번 입힙니다.,Strike,background_attack,icon_attack6,name_attack,cost_attack,infor_attack
+7,현신,0,0,특수,0,0,20,파워를 {0} 얻습니다. 한 턴 뒤 죽습니다.,barrier,background_skill,icon_attack8,name_skill,cost_skill,infor_skill
+8,착취의 손아귀,2,0,공격,1,0,8,"""{0}의 피해를 입힙니다,입힌 피해만큼 회복합니다.""",Strike,background_attack,icon_attack5,name_attack,cost_attack,infor_attack
+9,암흑 마력탄,2,0,공격,1,0,12,"""{0}의 피해를 입힙니다, 마력의 영향이  <color=blue><b>4</b></color>배 적용됩니다.""",Strike,background_attack,icon_attack9,name_attack,cost_attack,infor_attack
+10,화염 물약,1,0,공격,1,0,5,"""{0}의 피해를 입힙니다, 화상을  <color=blue><b>3</b></color> 부여합니다.""",Strike,background_attack,icon_skill6,name_attack,cost_attack,infor_attack
+11,대폭발,3,0,공격,0,0,10,"""적 전체에게 {0}의 피해를 입힙니다, 화상을  <color=blue><b>5</b></color> 부여합니다.""",Strike,background_attack,icon_attack10,name_attack,cost_attack,infor_attack
+12,점화,1,0,공격,1,0,3,"""{0}를 피해를 입힙니다, 적에게 걸린 화상이  <color=blue><b>2</b></color>배가 됩니다.""",Strike,background_attack,icon_attack7,name_attack,cost_attack,infor_attack
+13,깎아내기,1,0,공격,1,0,5,"""{0}를 피해를 입힙니다, 약화 효과를  <color=blue><b>2</b></color> 부여합니다.""",Strike,background_attack,icon_attack4,name_attack,cost_attack,infor_attack
+14,암흑 정령 소환,1,1,특수,0,0,3,암흑 정령을 {0}장 얻습니다.,barrier,background_skill,icon_skill3,name_skill,cost_skill,infor_skill
+15,저주의 손길,3,1,특수,0,0,3,"""적 전체에게 약화,화상을 {0} 부여합니다.""",barrier,background_skill,icon_skill4,name_skill,cost_skill,infor_skill
+16,암흑 정령,0,0,공격,1,0,4,{0}의 피해를 입힙니다.,Strike,background_attack,icon_attack3,name_attack,cost_attack,infor_attack
