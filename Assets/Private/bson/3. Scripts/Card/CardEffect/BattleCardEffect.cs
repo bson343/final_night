@@ -11,12 +11,12 @@ public class BattleCardEffect
 
     public void Strike(BattleCard sender)
     {
-        targetEnemy.Hit(5, player);
+        targetEnemy?.Hit(5, player);
     }
 
     public void SoulLiberation(BattleCard sender)
     {
-        targetEnemy.Hit(13, player);
+        targetEnemy?.Hit(13, player);
     }
 
     // ¹æ¾î¸·
@@ -27,7 +27,7 @@ public class BattleCardEffect
 
     public void GrowthAttackDamage(BattleCard sender)
     {
-        targetEnemy.Hit(sender.EffectValues[0], player);
+        targetEnemy?.Hit(sender.EffectValues[0], player);
         sender.EffectValues[0]++;
     }
 }
