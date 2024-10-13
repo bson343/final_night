@@ -76,9 +76,9 @@ public class ResourceManager : MonoBehaviour
         btnLogin.GetComponent<Button>().interactable = true;
         txtShowState.GetChild(0).GetComponent<TMP_Text>().text = "Resource Completed";
 
-        DontDestroyOnLoad(this);
         Instance = this;
         IsInit = true;
+        DontDestroyOnLoad(this);
     }
 
 
