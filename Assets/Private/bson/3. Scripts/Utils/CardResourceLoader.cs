@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -18,30 +19,25 @@ public class CardResourceLoader
     public List<int> SkillCardIdList = new List<int>();
     public List<int> HeroCardIdList = new List<int>();
 
-    public void Init(string csvPathOrRowData)
+    public void Init(string csvRowData)
     {
-        if (isFilePath(csvPathOrRowData))
-        {
-            Assert.IsTrue(checkResourcePaths(csvPathOrRowData));
+        CSV_Data = CSVReader.Parse(csvRowData);
 
-            CSV_Data = CSVReader.Read(csvPathOrRowData);
-        }
-        else
-        {
-            CSV_Data = CSVReader.Parse(csvPathOrRowData);
+        Assert.IsTrue(CSV_Data.Count != 0);
 
-            Assert.IsTrue(CSV_Data.Count != 0);
-        }
+        //if (isFilePath(csvPathOrRowData))
+        //{
+        //    Assert.IsTrue(checkResourcePaths(csvPathOrRowData));
 
-    }
+        //    CSV_Data = CSVReader.Read(csvPathOrRowData);
+        //}
+        //else
+        //{
+        //    CSV_Data = CSVReader.Parse(csvPathOrRowData);
 
-    private bool checkResourcePaths(string path)
-    {
-        if (!File.Exists(path))
-        {
-            return false;
-        }
-        return true;
+        //    Assert.IsTrue(CSV_Data.Count != 0);
+        //}
+
     }
 
     public bool LoadCardSpriteMap()
@@ -80,13 +76,13 @@ public class CardResourceLoader
         {
             BattleCardData temp = new BattleCardData();
 
-            string txtInfo = parseInfoText(element["Constants"].ToString(), element["Description"] as string);
+            //string txtInfo = parseInfoText(element["Constants"].ToString(), element["Description"] as string);
 
-            if (txtInfo == string.Empty)
-            {
-                CardDataMap = null;
-                return false;
-            }
+            //if (txtInfo == string.Empty)
+            //{
+            //    CardDataMap = null;
+            //    return false;
+            //}
 
             Dictionary<string, string> spritePaths = new Dictionary<string, string>();
 
@@ -127,7 +123,7 @@ public class CardResourceLoader
 
             temp.cardTypeString = element["TypeString"].ToString();
 
-            temp.cardExplanation = txtInfo;
+            temp.cardExplanation = element["Description"] as string;
 
             //bool.TryParse(element["bBezier"].ToString(), out temp.isBezierCurve);
             temp.isBezierCurve = element["bBezier"].ToString() == "1" ? true : false;
@@ -136,6 +132,8 @@ public class CardResourceLoader
 
             temp.effects = (element["Effects"].ToString()).Split(';');
 
+            checkCardData(temp);
+            
             CardDataMap[temp.id] = temp;
         }
 
@@ -144,6 +142,7 @@ public class CardResourceLoader
 
     private string parseInfoText(string constants, string description)
     {
+        Assert.IsTrue(false, "Used Deprecated Func, Don't");
         const string CURLY_BRACES_RE = @"\{[^}]*\}";
         string ret;
 
@@ -171,5 +170,24 @@ public class CardResourceLoader
     bool isFilePath(string input)
     {
         return input.Contains(@"\") || input.Contains(@"/");
+    }
+
+    bool checkCardData(BattleCardData data)
+    {
+        if (data.constants.Length < Regex.Matches(data.cardExplanation, @"\{[0-9]+\}").Count)
+        {
+            Assert.IsTrue(false, "Description와 Contants가 서로 매칭되지 않습니다. Description >= Contants 형태가 되도록 확인하십시요.");
+        }
+
+        return true;
+    }
+
+    private bool checkResourcePaths(string path)
+    {
+        if (!File.Exists(path))
+        {
+            return false;
+        }
+        return true;
     }
 }

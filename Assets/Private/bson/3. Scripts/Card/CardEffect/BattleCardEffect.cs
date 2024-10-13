@@ -9,19 +9,25 @@ public class BattleCardEffect
     protected List<Enemy> enemies => battleManager.Enemies;
     protected Enemy targetEnemy => battleManager.TargetEnemy;
 
-    public void Strike()
+    public void Strike(BattleCard sender)
     {
         targetEnemy.Hit(5, player);
     }
 
-    public void SoulLiberation()
+    public void SoulLiberation(BattleCard sender)
     {
         targetEnemy.Hit(13, player);
     }
 
     // ¹æ¾î¸·
-    public void barrier()
+    public void barrier(BattleCard sender)
     {
         player.PlayerStat.Shield += (5 /*+ agility*/);
+    }
+
+    public void GrowthAttackDamage(BattleCard sender)
+    {
+        targetEnemy.Hit(sender.EffectValues[0], player);
+        sender.EffectValues[0]++;
     }
 }

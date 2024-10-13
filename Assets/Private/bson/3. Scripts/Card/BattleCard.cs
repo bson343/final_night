@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -22,7 +24,9 @@ public class BattleCard : MonoBehaviour
     public string cardName;
     //Deprecated end
 
-    public int CardId;
+    //public int CardId;
+
+    public ObservableArray<int> EffectValues;
 
     // 온클릭 함수
     public Action onClickAction;
@@ -46,7 +50,7 @@ public class BattleCard : MonoBehaviour
     //Deprecated
     public void Init(BattleCardHolder cardHolder, BattleCardData cardData, int generateNumber)
     {
-        Assert.IsTrue(false, "Deprecated Func, Use \'public void Init(BattleCardHolder cardHolder, int cardId)\'");
+        Assert.IsTrue(false, "Used Deprecated Func, Use \'public void Init(BattleCardHolder cardHolder, int cardId)\'");
         _CardStateFactory = new BattleCardStateFactory(this);
 
         _cardHolder = cardHolder;
@@ -61,17 +65,16 @@ public class BattleCard : MonoBehaviour
         cardName = _currentCardData.cardName;
         cardID = _currentCardData.id;
 
-        Image cardImage = GetComponent<Image>();
-        cardImage.sprite = _currentCardData.cardImage;
+        //Image cardImage = GetComponent<Image>();
+        //cardImage.sprite = _currentCardData.cardImage;
     }
 
     public void Init(BattleCardHolder cardHolder, int cardId)
     {
+        updateCardResource(cardId);
+
         _CardStateFactory = new BattleCardStateFactory(this);
         _cardHolder = cardHolder;
-
-        //_currentCardData = ResourceManager.Instance.CardDataMap[cardId];
-        updateCardResource(cardId);
 
         _cardController.Init(_currentCardData.isBezierCurve, this);
 
@@ -80,6 +83,7 @@ public class BattleCard : MonoBehaviour
         cardType = _currentCardData.cardType;
         cost = _currentCardData.cost;
         cardName = _currentCardData.cardName;
+
     }
 
     public void ChangeState(ECardUsage cardUsage)
@@ -94,7 +98,7 @@ public class BattleCard : MonoBehaviour
             //_cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
             foreach (var useCard in _currentCardData.effects)
             {
-                battleManager.CardEffectTable[useCard]?.Invoke();
+                battleManager.CardEffectTable[useCard]?.Invoke(this);
             }
 
             if(_currentCardData.isExtinction)
@@ -109,7 +113,13 @@ public class BattleCard : MonoBehaviour
             }
         }
     }
-    
+
+    public void Discard()
+    {
+        // 내 카드에서 제거함
+        battleManager.Player.CardDeck.Remove(this);
+    }
+
     private bool TryUseCard()
     {
         if (battleManager.Player.PlayerStat.CurrentOrb >= _currentCardData.cost)
@@ -124,10 +134,24 @@ public class BattleCard : MonoBehaviour
         }
     }
     
-    public void Discard()
+    public void UpdateTextCardInfo()
     {
-        // 내 카드에서 제거함
-        battleManager.Player.CardDeck.Remove(this);
+        SetTextCardInfo(_currentCardData.cardExplanation, EffectValues.ToArrayString());
+    }
+
+    private void SetTextCardInfo(string format, params object[] args)
+    {
+        Transform goInfor = transform.Find("infor");
+        TMP_Text tmp = goInfor.GetChild(1).GetComponent<TMP_Text>();
+        
+        if (Regex.IsMatch(format, @"\{[0-9]+\}"))
+        {
+            tmp.text = string.Format(format, args); // string.Format() 사용
+        }
+        else
+        {
+            tmp.text = format; // 포맷 지정자가 없으면 그대로 반환 (보간된 문자열)
+        }
     }
 
     private void updateCardResource(int cardId)
@@ -149,6 +173,31 @@ public class BattleCard : MonoBehaviour
         Transform goInfor = transform.Find("infor");
         goInfor.GetComponent<Image>().sprite = CardSpriteMap[_currentCardData.getSpritePath("infor")];
         goInfor.GetChild(0).GetComponent<TMP_Text>().text = _currentCardData.cardTypeString;
-        goInfor.GetChild(1).GetComponent<TMP_Text>().text = _currentCardData.cardExplanation;
+
+        EffectValues = ConvertToEffectValues(_currentCardData.constants);
+        EffectValues.OnValueChanged -= UpdateTextCardInfo;
+        EffectValues.OnValueChanged += UpdateTextCardInfo;
+
+        UpdateTextCardInfo();
+    }
+
+    private ObservableArray<int> ConvertToEffectValues(string[] constants)
+    {
+        int[] effectValues = new int[constants.Length];
+
+        for (int i = 0; i < constants.Length; i++)
+        {
+            // TryParse를 사용하여 변환 실패를 방지
+            if (int.TryParse(constants[i], out int result))
+            {
+                effectValues[i] = result;
+            }
+            else
+            {
+                Assert.IsTrue(false, "Constants는 int형태만 가능");
+            }
+        }
+
+        return new ObservableArray<int>(effectValues);
     }
 }

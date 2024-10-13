@@ -36,7 +36,7 @@ public class BattleCardData : ScriptableObject
 {
     [Header("카드 정보")]
     public int id;
-    public Sprite cardImage;
+    //public Sprite cardImage;
     public string cardName;
     public int cost;
     public string[] constants;
@@ -49,8 +49,9 @@ public class BattleCardData : ScriptableObject
     public bool isExtinction;  // true면 소멸, false면 소멸 안 함 
     //public ECardFrameData cardFrameData;
 
-    [Header("사용효과")]
-    public List<UnityEvent> useEffect;
+    //[Header("사용효과")]
+    //public List<UnityEvent> useEffect;
+
     public string[] effects;
 
     private Dictionary<string, string> SpritePaths;
