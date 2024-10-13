@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -102,7 +103,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
         _enemies = new List<Enemy>();
         for (int i = 0; i < battleData.Enemies.Count; i++)
         {
-            Enemy enemy = Object.Instantiate(battleData.Enemies[i], battleData.SpawnPos[i], Quaternion.identity);
+            Enemy enemy = Instantiate(battleData.Enemies[i], battleData.SpawnPos[i], Quaternion.identity);
             _enemies.Add(enemy);
         }
 
@@ -159,7 +160,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
         BattleCardEffect battleCardEffect = new BattleCardEffect();
 
         // 현재 객체의 모든 public 메소드를 가져옵니다
-        MethodInfo[] methods = battleCardEffect.GetType().GetMethods(BindingFlags.Public | BindingFlags.Instance);
+        MethodInfo[] methods = battleCardEffect.GetType().GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
 
         foreach (MethodInfo method in methods)
         {
@@ -167,7 +168,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
             if (method.GetParameters().Length == 0)
             {
                 // 메소드를 Action으로 변환하여 Dictionary에 추가합니다
-                CardEffectTable.Add(method.Name, () => method.Invoke(this, null));
+                Action action = (Action)Delegate.CreateDelegate(typeof(Action), battleCardEffect, method);
+                CardEffectTable.Add(method.Name, action);
             }
         }
     }

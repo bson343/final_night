@@ -12,12 +12,12 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     [SerializeField] private BattleCardHolder _cardHolder;
 
     [SerializeField] private BattleCard _baseBattleCard;
-    [SerializeField] private List<BattleCardData> _MydeckList = new List<BattleCardData>();
+    [SerializeField] private List<BattleCardData> _MyDeckList = new List<BattleCardData>();
     [SerializeField] BattleCard _defaultDummyCard;
     [SerializeField] private List<BattleCardData> _cardDatas;
 
-    Dictionary<decimal, BattleCardData> CardDataMap => CardMap.Instance.CardDataMap;
-    Dictionary<string, Sprite> CardSpriteMap => CardMap.Instance.CardSpriteMap;
+    Dictionary<decimal, BattleCardData> CardDataMap => ResourceManager.Instance.CardDataMap;
+    Dictionary<string, Sprite> CardSpriteMap => ResourceManager.Instance.CardSpriteMap;
 
     public void Init()
     {
@@ -54,13 +54,13 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     //Deprecated
     public BattleCard GeneratorRandomCard()
     {
-        return GenerateBattleCard(Random.Range(0, _MydeckList.Count));
+        return GenerateBattleCard(Random.Range(0, _MyDeckList.Count));
     }
 
     // 모든 덱 카드를 생성
     public void GenerateAllCards()
     {
-        for (int i = 0; i < _MydeckList.Count; i++)
+        for (int i = 0; i < _MyDeckList.Count; i++)
         {
             GenerateBattleCard(i);
         }
@@ -78,24 +78,24 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     //Deprecated
     public BattleCard GenerateBattleCard(int cardIdx)
     {
-        if (_MydeckList.Count <= cardIdx)
+        if (_MyDeckList.Count <= cardIdx)
         {
             Debug.LogError("Invalid card index for battle card generation.");
             Assert.IsTrue(false);
         }
 
-        return GenerateBattleCardFromData(_MydeckList[cardIdx]);
+        return GenerateBattleCardFromData(_MyDeckList[cardIdx]);
     }
 
     public BattleCard GenBatCard(int cardId)
     {
         if (
-            !(CardMap.Instance.AttackCardIdList.Contains(cardId) 
-            || CardMap.Instance.SkillCardIdList.Contains(cardId)
-            || CardMap.Instance.HeroCardIdList.Contains(cardId))
+            !(ResourceManager.Instance.AttackCardIdList.Contains(cardId) 
+            || ResourceManager.Instance.SkillCardIdList.Contains(cardId)
+            || ResourceManager.Instance.HeroCardIdList.Contains(cardId))
             )
         {
-            Assert.IsTrue(false);
+            Assert.IsTrue(false, "카드를 생성하는데 필요한 리소스가 로드되지 않음");
         }
 
         BattleCard genCard = Instantiate(_defaultDummyCard, _cardParent);

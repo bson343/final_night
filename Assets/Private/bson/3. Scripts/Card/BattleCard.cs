@@ -63,7 +63,7 @@ public class BattleCard : MonoBehaviour
     {
         _CardStateFactory = new BattleCardStateFactory(this);
         _cardHolder = cardHolder;
-        _cardData = CardMap.Instance.CardDataMap[cardId];
+        _cardData = ResourceManager.Instance.CardDataMap[cardId];
 
         _cardController.Init(_cardData.isBezierCurve, this);
 
@@ -86,7 +86,7 @@ public class BattleCard : MonoBehaviour
             //_cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
             foreach (var useCard in _cardData.effects)
             {
-                //battleManager.CardEffectTable[useCard]?.Invoke();
+                battleManager.CardEffectTable[useCard]?.Invoke();
             }
 
             if(_cardData.isExtinction)
