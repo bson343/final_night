@@ -54,12 +54,12 @@ public class CSVReader
         return list;
     }
 
-    public static List<Dictionary<string, object>> Parse(string RowData)
+    public static List<Dictionary<string, object>> Parse(string RawData)
     {
         var list = new List<Dictionary<string, object>>();
 
 
-        var lines = Regex.Split(RowData, LINE_SPLIT_RE);
+        var lines = Regex.Split(RawData, LINE_SPLIT_RE);
 
         if (lines.Length <= 1) return list;
 

@@ -6,23 +6,29 @@ using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
+//에디터에서만 가능, 릴리즈 빌드에서는 패치서버를 구축할 것
 public class GoogleSheetManager : MonoBehaviour
 {
     const string URL = "https://docs.google.com/spreadsheets/d/1xl-m1CtQxmsX2f-sevtRFEfX0mbiXM_MiLSNBNXqdyg/export?format=csv";
 
-    public void init(Action<string> callback)
+    public string RawDataCSV { get; private set; }
+
+    public void Init(Action completeCallback)
     {
-        StartCoroutine(loadGoogleSheet(callback));
+        StartCoroutine(loadGoogleSheet(completeCallback));
     }
 
-    IEnumerator loadGoogleSheet(Action<string> callback)
+    
+
+    IEnumerator loadGoogleSheet(Action completeCallback)
     {
         UnityWebRequest www = UnityWebRequest.Get(URL);
         yield return www.SendWebRequest();
 
-        string csvData = www.downloadHandler.text;
+        RawDataCSV = www.downloadHandler.text;
 
-        callback?.Invoke(csvData);
+        completeCallback?.Invoke();
 
 #if UNITY_EDITOR
         const string CSV_FOLDER_PATH = "CSV";
@@ -72,7 +78,7 @@ public class GoogleSheetManager : MonoBehaviour
         }
 
         // 새로운 CardInfo.csv 파일 생성 및 데이터 작성
-        File.WriteAllText(oldFilePath, csvData);
+        File.WriteAllText(oldFilePath, RawDataCSV);
         Debug.Log("Created new CardInfo.csv with updated data");
         UnityEditor.AssetDatabase.Refresh();
 #endif

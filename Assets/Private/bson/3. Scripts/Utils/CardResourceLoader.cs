@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 public class CardResourceLoader
@@ -18,9 +20,28 @@ public class CardResourceLoader
 
     public void Init(string csvPathOrRowData)
     {
-        CSV_Data = isFilePath(csvPathOrRowData) 
-            ?  CSVReader.Read(csvPathOrRowData)
-            : CSVReader.Parse(csvPathOrRowData);
+        if (isFilePath(csvPathOrRowData))
+        {
+            Assert.IsTrue(checkResourcePaths(csvPathOrRowData));
+
+            CSV_Data = CSVReader.Read(csvPathOrRowData);
+        }
+        else
+        {
+            CSV_Data = CSVReader.Parse(csvPathOrRowData);
+
+            Assert.IsTrue(CSV_Data.Count != 0);
+        }
+
+    }
+
+    private bool checkResourcePaths(string path)
+    {
+        if (!File.Exists(path))
+        {
+            return false;
+        }
+        return true;
     }
 
     public bool LoadCardSpriteMap()
@@ -108,9 +129,10 @@ public class CardResourceLoader
 
             temp.cardExplanation = txtInfo;
 
-            bool.TryParse(element["bBezier"].ToString(), out temp.isBezierCurve);
-
-            bool.TryParse(element["bExtinction"].ToString(), out temp.isExtinction);
+            //bool.TryParse(element["bBezier"].ToString(), out temp.isBezierCurve);
+            temp.isBezierCurve = element["bBezier"].ToString() == "1" ? true : false;
+            //bool.TryParse(element["bExtinction"].ToString(), out temp.isExtinction);
+            temp.isExtinction = element["bExtinction"].ToString() == "1" ? true : false;
 
             temp.effects = (element["Effects"].ToString()).Split(';');
 
