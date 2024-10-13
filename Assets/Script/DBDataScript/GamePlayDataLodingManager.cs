@@ -16,6 +16,15 @@ public class GamePlayDataLodingManager : MonoBehaviour
     private List<int> BasicHeroCardDeck = new List<int> { 1 };
     private const string BaseUrl = "http://localhost:8080/gamesavedata/user/";
     //private const string BaseUrl = "http://10.30.1.110:8080/gamesavedata/user/";
+
+    string Url
+    {
+        get
+        {
+            return "http://" + ResourceManager.Instance.Config.DB_IP + ":8080" + "/gamesavedata/user/";
+        }
+    }
+
     public long userNumber;
 
     private bool isDataInitialized = false;
@@ -87,7 +96,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
 
     private IEnumerator GetGameData(long userNumber)
     {
-        string url = BaseUrl + userNumber;
+        string url = Url + userNumber;
         Debug.Log($"Fetching game data from URL: {url}");
         UnityWebRequest request = UnityWebRequest.Get(url);
         yield return request.SendWebRequest();

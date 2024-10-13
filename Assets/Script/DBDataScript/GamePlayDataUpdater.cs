@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 
 public class GamePlayDataUpdater : MonoBehaviour
 {
-    private string baseUrl = "http://localhost:8080/gamesavedata";
+    //private string baseUrl = "http://localhost:8080/gamesavedata";
     
-    //private string baseUrl = "http://10.30.1.110:8080/gamesavedata";
+    private string baseUrl = "http://" + ResourceManager.Instance.Config.DB_IP + ":8080" + "/gamesavedata";
 
     private static GamePlayDataUpdater instance;
     public static GamePlayDataUpdater Instance => instance;
@@ -38,7 +38,7 @@ public class GamePlayDataUpdater : MonoBehaviour
             HeroCardDeckIndex = UserManager.Instance.HeroCardDeckIndex,
             Map = UserManager.Instance.Map,
         };
-
+        
         string url = $"{baseUrl}/{gameId}/gamedata";
 
         string jsonGameData = JsonConvert.SerializeObject(newGameData);

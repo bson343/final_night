@@ -14,8 +14,24 @@ public class TimerManager : MonoBehaviour
     //private const string updatePlayTimeUrl = "http://10.30.1.110/gamesavedata/{id}/playtime";
     private static TimerManager instance;
     public static TimerManager Instance => instance;
-    
-    
+
+    string GetPlayTimeUrl
+    {
+        get
+        {
+            return "http://" + ResourceManager.Instance.Config.DB_IP + ":8080" + "{id}/playtime";
+        }
+    }
+
+    string UpdatePlayTimeUrl
+    {
+        get
+        {
+            return "http://" + ResourceManager.Instance.Config.DB_IP + ":8080" + "{id}/playtime";
+        }
+    }
+
+
 
     void Start()
     {   
