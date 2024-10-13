@@ -174,7 +174,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
             }
         }
 
-        if (CardEffectTable.Count == 0)
+        if (CardEffectTable.Count != methods.Length)
         {
             Assert.IsTrue(false, "Effect함수 로드 실패");
         }
