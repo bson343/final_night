@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public enum ECardUsage
@@ -30,48 +32,54 @@ public class BattleCard : MonoBehaviour
 
     private BattleCardStateFactory _CardStateFactory;
     private BattleCardHolder _cardHolder;
-    private BattleCardData _cardData;
+    private BattleCardData _currentCardData;
 
-    public BattleCardData CardData => _cardData;
+    //public BattleCardData CardData => _currentCardData;
     public BattleCardState CurrentState => _CardStateFactory.CurrentState;
     public BattleCardHolder CardHolder => _cardHolder;
     public BattleCardController CardController => _cardController;
     
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+    Dictionary<decimal, BattleCardData> CardDataMap => ResourceManager.Instance.CardDataMap;
+    Dictionary<string, Sprite> CardSpriteMap => ResourceManager.Instance.CardSpriteMap;
 
+    //Deprecated
     public void Init(BattleCardHolder cardHolder, BattleCardData cardData, int generateNumber)
     {
+        Assert.IsTrue(false, "Deprecated Func, Use \'public void Init(BattleCardHolder cardHolder, int cardId)\'");
         _CardStateFactory = new BattleCardStateFactory(this);
 
         _cardHolder = cardHolder;
-        _cardData = cardData;
+        _currentCardData = cardData;
 
-        _cardController.Init(_cardData.isBezierCurve, this);
+        _cardController.Init(_currentCardData.isBezierCurve, this);
 
         // 정렬 데이터
         this.generateNumber = generateNumber;
-        cardType = _cardData.cardType;
-        cost = _cardData.cost;
-        cardName = _cardData.cardName;
-        cardID = _cardData.id;
+        cardType = _currentCardData.cardType;
+        cost = _currentCardData.cost;
+        cardName = _currentCardData.cardName;
+        cardID = _currentCardData.id;
 
         Image cardImage = GetComponent<Image>();
-        cardImage.sprite = _cardData.cardImage;
+        cardImage.sprite = _currentCardData.cardImage;
     }
 
     public void Init(BattleCardHolder cardHolder, int cardId)
     {
         _CardStateFactory = new BattleCardStateFactory(this);
         _cardHolder = cardHolder;
-        _cardData = ResourceManager.Instance.CardDataMap[cardId];
 
-        _cardController.Init(_cardData.isBezierCurve, this);
+        //_currentCardData = ResourceManager.Instance.CardDataMap[cardId];
+        updateCardResource(cardId);
+
+        _cardController.Init(_currentCardData.isBezierCurve, this);
 
         // 정렬 데이터
         this.generateNumber = -1;
-        cardType = _cardData.cardType;
-        cost = _cardData.cost;
-        cardName = _cardData.cardName;
+        cardType = _currentCardData.cardType;
+        cost = _currentCardData.cost;
+        cardName = _currentCardData.cardName;
     }
 
     public void ChangeState(ECardUsage cardUsage)
@@ -84,12 +92,12 @@ public class BattleCard : MonoBehaviour
         if (TryUseCard())
         {
             //_cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
-            foreach (var useCard in _cardData.effects)
+            foreach (var useCard in _currentCardData.effects)
             {
                 battleManager.CardEffectTable[useCard]?.Invoke();
             }
 
-            if(_cardData.isExtinction)
+            if(_currentCardData.isExtinction)
             {
                 // 소멸 카드면 소멸
                 _cardHolder.Extinction(this);
@@ -104,9 +112,9 @@ public class BattleCard : MonoBehaviour
     
     private bool TryUseCard()
     {
-        if (battleManager.Player.PlayerStat.CurrentOrb >= _cardData.cost)
+        if (battleManager.Player.PlayerStat.CurrentOrb >= _currentCardData.cost)
         {
-            battleManager.Player.PlayerStat.CurrentOrb -= _cardData.cost;
+            battleManager.Player.PlayerStat.CurrentOrb -= _currentCardData.cost;
             return true;
         }
         else
@@ -120,5 +128,27 @@ public class BattleCard : MonoBehaviour
     {
         // 내 카드에서 제거함
         battleManager.Player.CardDeck.Remove(this);
+    }
+
+    private void updateCardResource(int cardId)
+    {
+        this._currentCardData = CardDataMap[cardId];
+
+        transform.Find("background").GetComponent<Image>().sprite = CardSpriteMap[_currentCardData.getSpritePath("background")];
+
+        transform.Find("icon").GetComponent<Image>().sprite = CardSpriteMap[_currentCardData.getSpritePath("icon")];
+
+        Transform goName = transform.Find("name");
+        goName.GetComponent<Image>().sprite = CardSpriteMap[_currentCardData.getSpritePath("name")];
+        goName.GetChild(0).GetComponent<TMP_Text>().text = _currentCardData.cardName;
+
+        Transform goCost = transform.Find("cost");
+        goCost.GetComponent<Image>().sprite = CardSpriteMap[_currentCardData.getSpritePath("cost")];
+        goCost.GetChild(0).GetComponent<TMP_Text>().text = _currentCardData.cost.ToString();
+
+        Transform goInfor = transform.Find("infor");
+        goInfor.GetComponent<Image>().sprite = CardSpriteMap[_currentCardData.getSpritePath("infor")];
+        goInfor.GetChild(0).GetComponent<TMP_Text>().text = _currentCardData.cardTypeString;
+        goInfor.GetChild(1).GetComponent<TMP_Text>().text = _currentCardData.cardExplanation;
     }
 }
