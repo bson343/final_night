@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class CardResourceMappedManager : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class CardResourceMappedManager : MonoBehaviour
 
     public void Start()
     {
+        Assert.IsFalse(true); //사용하지 않는 클래스; 삭제 예정
         GoogleSheetManager m = GetComponent<GoogleSheetManager>();
 
-        m.init(init);
     }
 
     public void init(string RowData)
     {
+        Assert.IsFalse(true); //사용하지 않는 클래스; 삭제 예정
         CardResourceLoader loader = new CardResourceLoader();
 
         //loader.Init("CSV/CardInfo");
@@ -23,7 +25,7 @@ public class CardResourceMappedManager : MonoBehaviour
         loader.LoadCardDataMap();
         loader.LoadCardSpriteMap();
 
-        CardMap.Instance.Init(loader);
+        //ResourceManager.Instance.Init(loader);
     }
 
 }

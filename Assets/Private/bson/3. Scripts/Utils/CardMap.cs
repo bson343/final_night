@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardMap : GlobalSingleton<CardMap>
+public class CardMap
 {
     bool firstInit = false;
 
