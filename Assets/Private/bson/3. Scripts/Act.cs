@@ -23,29 +23,17 @@ public class Act : MonoBehaviour
 
     private void Start()
     {
-        battleManager.testMode = true;
-
-        if (battleManager.testMode == true)
-        {
-            startTestMode();
-        }
-        {
-
-        }
-    }
-
-    private void startTestMode()
-    {
-        randomNumber = random.Next(0, Act1BattleDataList.Count-1);
+        randomNumber = random.Next(0, Act1BattleDataList.Count - 1);
         _player.init();
-        
-        for (int i = 0; i < 6; i++)
+
+        foreach (int i in ResourceManager.Instance.Config.InitDeck)
         {
-            _player.AddCard(CardGenerator.GenBatCard(i + 1));
+            _player.AddCard(CardGenerator.GenBatCard(i));
         }
 
         battleManager.defeatCommonEnemy = 100;
 
         battleManager.StartBattle(Act1BattleDataList[randomNumber]);
     }
+
 }

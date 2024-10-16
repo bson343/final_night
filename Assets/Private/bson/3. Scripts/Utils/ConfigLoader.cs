@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Windows;
 
 public class ConfigLoader : MonoBehaviour 
 {
@@ -12,6 +14,7 @@ public class ConfigLoader : MonoBehaviour
     private string configPath;
 
     public string DB_IP { get; private set; }
+    public List<int> InitDeck {  get; private set; }
 
     public void Awake()
     {
@@ -25,7 +28,15 @@ public class ConfigLoader : MonoBehaviour
         ini.Open(configPath);
 
         DB_IP = ini.ReadValue("DB", "IP", "localhost");
-        Debug.Log($"Config : DB_IP = {DB_IP}");
+        Debug.Log($"Config : DB.IP = {DB_IP}");
+
+        string temp = ini.ReadValue("Player", "Deck", "1 1 1 1 1");
+        Debug.Log($"Config : Player.Deck = {temp}");
+
+        InitDeck = temp.Split(' ')
+                        .Select(int.Parse)
+                        .ToList();
+
         ini.Close();
     }
 }
