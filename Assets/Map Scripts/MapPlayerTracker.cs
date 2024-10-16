@@ -81,7 +81,7 @@ namespace Map
                     break;
                 case NodeType.RestSite: // 회복?
                     MapPlayerTracker.Instance.SetActiveNav();
-                    NightSceneManager.Instance.GameLoadScene("shop");
+                    NightSceneManager.Instance.GameLoadScene("Rest");
                     break;
                 case NodeType.Treasure: // 마찬가지
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Treasure);
@@ -91,7 +91,7 @@ namespace Map
                 case NodeType.Store: // 상점
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Shop);
                     MapPlayerTracker.Instance.SetActiveNav();
-                    NightSceneManager.Instance.GameLoadScene("shop");
+                    NightSceneManager.Instance.GameLoadScene("chapter1shop");
                     break;
                 case NodeType.Boss: // 보스
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Boss);
