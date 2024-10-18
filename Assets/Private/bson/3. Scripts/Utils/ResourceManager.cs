@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -35,32 +32,34 @@ public class ResourceManager : MonoBehaviour
         Assert.IsNotNull(btnLogin, "Need Object: Login Button");
         Assert.IsNotNull(txtShowState, "Need Object: LogResourceManager");
 
-
         btnLogin.GetComponent<Button>().interactable = false;
         txtShowState.GetChild(0).GetComponent<TMP_Text>().text = string.Empty;
 
+        //Init();
+    }
+
+    private void Start()
+    {
         Init();
     }
 
     void Init()
     {
-        Assert.IsNotNull(Config = GetComponent<ConfigLoader>(), "Need Component: ConfigLoader");
+        Config = GetComponent<ConfigLoader>();
         _loader = new CardResourceLoader();
+        _csvSync = GetComponent<GoogleSheetManager>();
+
+        Assert.IsNotNull(Config, "Need Component: ConfigLoader");
+        Assert.IsNotNull(_csvSync, "Need Component: GoogleSheetManager");
+
+        Debug.Log($"Config : {Config.ToString()}");
 
         Config.Init();
+        _csvSync.Init(completeCSV);
 
-
-#if UNITY_EDITOR
-        Assert.IsNotNull(_csvSync = GetComponent<GoogleSheetManager>(), "Need Component: GoogleSheetManager");
-
-        _csvSync.Init(completeCSV_EDITOR);
-
-#else
-
-#endif
     }
 
-    void completeCSV_EDITOR()
+    void completeCSV()
     {
         _loader.Init(_csvSync.RawDataCSV);
 
@@ -74,12 +73,15 @@ public class ResourceManager : MonoBehaviour
         this.HeroCardIdList = _loader.HeroCardIdList;
 
         btnLogin.GetComponent<Button>().interactable = true;
+
+#if UNITY_EDITOR
         txtShowState.GetChild(0).GetComponent<TMP_Text>().text = "Resource Completed";
+#else
+        txtShowState.GetChild(0).GetComponent<TMP_Text>().text = "";
+#endif
 
         Instance = this;
         IsInit = true;
         DontDestroyOnLoad(this);
     }
-
-
 }

@@ -24,6 +24,8 @@ public class GoogleSheetManager : MonoBehaviour
     IEnumerator loadGoogleSheet(Action completeCallback)
     {
         UnityWebRequest www = UnityWebRequest.Get(URL);
+
+        //TODO: 해당 로직이 문제 없는지 학습
         yield return www.SendWebRequest();
 
         RawDataCSV = www.downloadHandler.text;

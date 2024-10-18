@@ -7,8 +7,8 @@ using Newtonsoft.Json;
 public class GamePlayDataUpdater : MonoBehaviour
 {
     //private string baseUrl = "http://localhost:8080/gamesavedata";
-    
-    private string baseUrl = "http://" + ResourceManager.Instance.Config.DB_IP + ":8080" + "/gamesavedata";
+
+    private string baseUrl;
 
     private static GamePlayDataUpdater instance;
     public static GamePlayDataUpdater Instance => instance;
@@ -24,6 +24,11 @@ public class GamePlayDataUpdater : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        baseUrl = "http://" + ResourceManager.Instance.Config.DB_IP + ":8080" + "/gamesavedata";
     }
 
     public void SaveGameDataSync()
