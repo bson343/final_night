@@ -9,7 +9,6 @@ public class TypingEffect : MonoBehaviour
     private string m_Text = "석상이 말을 건다... 무슨 말을 하려는 걸까...";
     private string s_Text = "휴식을 취하면 체력을 회복시켜주지... 필요없다면 그냥 가도 좋다...";
     public GameObject Statue;
-    public GameObject Player;
     public GameObject NextBtn;
     public GameObject Rest;
     public GameObject Out;
@@ -65,7 +64,6 @@ public class TypingEffect : MonoBehaviour
     {
         Debug.Log("NextBtn 클릭");
         NextBtn.SetActive(false); // 다음 버튼 비활성화
-        Player.SetActive(false);
         Statue.SetActive(true);
         StartCoroutine(s_typing()); // s_typing 코루틴 실행
     }
