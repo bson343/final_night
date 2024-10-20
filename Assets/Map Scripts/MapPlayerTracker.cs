@@ -72,8 +72,8 @@ namespace Map
                 case NodeType.MinorEnemy: //일반몹
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Act1);
                     MapPlayerTracker.Instance.SetActiveNav();
-                    //  NightSceneManager.Instance.GameLoadScene("TestBattleScene");
-                    NightSceneManager.Instance.GameLoadScene("shop 1");
+                    NightSceneManager.Instance.GameLoadScene("TestBattleScene");
+                    //NightSceneManager.Instance.GameLoadScene("shop 1");
                     break;
                 case NodeType.EliteEnemy: // 엘리트 몹
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Elite);
@@ -92,7 +92,7 @@ namespace Map
                 case NodeType.Store: // 상점
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Shop);
                     MapPlayerTracker.Instance.SetActiveNav();
-                    NightSceneManager.Instance.GameLoadScene("chapter1shop");
+                    NightSceneManager.Instance.GameLoadScene("shop 1");
                     break;
                 case NodeType.Boss: // 보스
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Boss);
