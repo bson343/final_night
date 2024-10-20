@@ -39,6 +39,7 @@ public class GamePlayDataUpdater : MonoBehaviour
             MaxHP = UserManager.Instance.MaxHP,
             CurrentHP = UserManager.Instance.CurrentHP,
             Gold = UserManager.Instance.Gold,
+            NewGamePlay = UserManager.Instance.NewGamePlay,
             CardDeckIndex = UserManager.Instance.CardDeckIndex,
             HeroCardDeckIndex = UserManager.Instance.HeroCardDeckIndex,
             Map = UserManager.Instance.Map,

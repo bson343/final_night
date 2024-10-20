@@ -23,6 +23,7 @@ public class GameDataContent
     public int CurrentHP;
     public int CurrentSP;
     public int Gold;
+    public int NewGamePlay;
     public List<int> CardDeckIndex;
     public List<int> HeroCardDeckIndex;
     public string Map;

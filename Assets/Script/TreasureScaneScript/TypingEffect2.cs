@@ -74,6 +74,8 @@ public class TypingEffect2 : MonoBehaviour
         }
         else
         {
+            UserManager.Instance.SetNewGamePlay(1);
+            Debug.Log(UserManager.Instance.NewGamePlay);
             NightSceneManager.Instance.LoadScene("NodeMap Test");
         }
     }

@@ -20,6 +20,8 @@ public class UserManager : MonoBehaviour
     public int MaxHP { get; private set; } // 최대 HP
     public int CurrentHP { get; private set; } // 현재 HP
 
+    public int NewGamePlay { get; private set; } // 처음 시작하나 안하나.
+
     public int CurrentSP { get; private set; } // 현재 SP
 
 
@@ -97,8 +99,11 @@ public class UserManager : MonoBehaviour
         HeroCardDeckIndex = herocardDeck;
     }
 
+    public void SetNewGamePlay(int newgameplay)
+    {
+        NewGamePlay = newgameplay;
+    }
 
-   
     public void SetMap(string map)
     {
         Map = map;

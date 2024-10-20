@@ -12,6 +12,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
     private int BasicHP = 50;
     private int BasicSP = 0;
     private int BasicGold = 99;
+    private int BasicNewGamePaly = 0;
     private List<int> BasicCardDeck = new List<int> { 1, 1, 1, 1, 1, 2, 2, 2, 2, 3 };
     private List<int> BasicHeroCardDeck = new List<int> { 1 };
     private const string BaseUrl = "http://localhost:8080/gamesavedata/user/";
@@ -83,6 +84,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         UserManager.Instance.SetCurrentHP(BasicHP);
         UserManager.Instance.SetCurrentSP(BasicSP);
         UserManager.Instance.SetGold(BasicGold);
+        UserManager.Instance.SetNewGamePlay(BasicNewGamePaly);
         UserManager.Instance.SetMap(null);
         UserManager.Instance.SetCardDeckindex(BasicCardDeck);
         UserManager.Instance.SetHeroCardDeckindex(BasicHeroCardDeck);
@@ -144,6 +146,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         UserManager.Instance.SetMaxHP(BasicHP);
         UserManager.Instance.SetCurrentHP(BasicHP);
         UserManager.Instance.SetCurrentSP(BasicSP);
+        UserManager.Instance.SetNewGamePlay(BasicNewGamePaly);
         UserManager.Instance.SetGold(BasicGold);
         UserManager.Instance.SetMap(null);
         UserManager.Instance.SetCardDeckindex(BasicCardDeck);
@@ -161,6 +164,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
         UserManager.Instance.SetMaxHP(gameData.MaxHP);
         UserManager.Instance.SetCurrentHP(gameData.CurrentHP);
         UserManager.Instance.SetCurrentSP(gameData.CurrentSP);
+        UserManager.Instance.SetNewGamePlay(gameData.NewGamePlay);
         UserManager.Instance.SetGold(gameData.Gold);
         UserManager.Instance.SetCardDeckindex(gameData.CardDeckIndex);
         UserManager.Instance.SetHeroCardDeckindex(gameData.HeroCardDeckIndex);

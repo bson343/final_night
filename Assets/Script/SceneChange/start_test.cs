@@ -10,7 +10,14 @@ public class start_test : MonoBehaviour
     {
         Debug.Log("게임시작");
         GlobalSoundManager.Instance.PlaySE(ESE.ShowMap);
-        NightSceneManager.Instance.LoadScene("chapter0");
+        if (UserManager.Instance.NewGamePlay == 0)
+        {
+            NightSceneManager.Instance.LoadScene("chapter0");
+        }
+        else
+        {
+            NightSceneManager.Instance.LoadScene("NodeMap Test");
+        }
     }
     public void OnClickOption()
     {
