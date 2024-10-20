@@ -23,13 +23,18 @@ public class RewardManager : MonoBehaviour, IRegisterable
     [SerializeField]
     Button cardRewardButton;
 
-    
+    [SerializeField]
+    private TMP_Text[] shopCardPriceTexts;
+  
+
 
     [SerializeField]
     private Button passRewardButton;
     [SerializeField]
     private Button moveRewardButton;
-    
+
+    private int[] shopCardPrices = new int[3];
+    private BattleCard[] shopCards = new BattleCard[3];
 
     private BattleCardGenerator cardGenerator => ServiceLocator.Instance.GetService<BattleCardGenerator>();
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
@@ -104,6 +109,66 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
        
     }
+
+    public void GetshopCard()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            BattleCard card = cardGenerator.GetRandomCard();
+            int index = i;  // 클로저 문제 해결을 위해 로컬 변수로 캡처
+
+            shopCardPrices[index] = Random.Range(50, 101);
+            shopCards[index] = card;
+
+            card.ChangeState(ECardUsage.Gain);
+            card.onClickAction = null;
+            card.onClickAction += (() => OnClickBuyCard(card, index));
+
+            card.transform.SetParent(cardRewardParent);
+            card.transform.localScale = Vector3.one;
+
+            // 가격표 설정
+            shopCardPriceTexts[index].text = shopCardPrices[index] + " 골드";
+        }
+    }
+
+    private void OnClickBuyCard(BattleCard clickedCard, int index)
+    {
+        if (clickedCard == null)
+        {
+            Debug.LogWarning("clickedCard가 null입니다. 올바르게 초기화되었는지 확인하세요.");
+            return;
+        }
+
+        if (UserManager.Instance.Gold >= shopCardPrices[index])
+        {
+            UserManager.Instance.UpdateGold(UserManager.Instance.Gold - shopCardPrices[index]);
+            UserManager.Instance.CardDeckIndex.Add(clickedCard.cardID);
+            Debug.Log("카드를 구매했습니다: " + clickedCard.cardID);
+
+            clickedCard.onClickAction = null; // 카드 클릭 이벤트 제거
+
+            // 카드 UI를 흐리게 처리
+            Image cardImage = clickedCard.transform.GetComponent<Image>();
+            if (cardImage != null)
+            {
+                cardImage.color = new Color(cardImage.color.r, cardImage.color.g, cardImage.color.b, 0.5f); // 반투명하게 처리
+            }
+            else
+            {
+                Debug.LogWarning("Image 컴포넌트가 없습니다. 카드 UI를 업데이트할 수 없습니다.");
+            }
+
+            // 가격표에 구매 완료 표시
+            shopCardPriceTexts[index].text = "구매 완료";
+        }
+        else
+        {
+            Debug.LogWarning("골드가 부족합니다.");
+        }
+    }
+
+
 
     // 보상 카드를 눌렀을 때 실행될 함수
     private void OnClickGainCard(BattleCard clickedCard)

@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 7927638439648243361}
   - component: {fileID: 1942049735635938910}
   - component: {fileID: 8364972676437331372}
+  - component: {fileID: 7016995096935085744}
   m_Layer: 5
   m_Name: DummyCard
   m_TagString: Untagged
@@ -359,6 +360,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveTime: 0.2
+--- !u!222 &7016995096935085744
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593745316337388024}
+  m_CullTransparentMesh: 1
 --- !u!1 &4848043258753203889
 GameObject:
   m_ObjectHideFlags: 0

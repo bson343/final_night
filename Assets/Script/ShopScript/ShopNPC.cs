@@ -41,7 +41,7 @@ public class ShopNPC : MonoBehaviour
     {
         if (rewardManager != null)
         {
-            rewardManager.GetCard();
+            rewardManager.GetshopCard();
         }
         else
         {
