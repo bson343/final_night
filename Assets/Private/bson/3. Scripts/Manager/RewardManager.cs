@@ -72,9 +72,9 @@ public class RewardManager : MonoBehaviour, IRegisterable
     // 카드 3장 생성
     private void GetCard()
     {
-        BattleCard card1 = cardGenerator.GeneratorRandomCard();
-        BattleCard card2 = cardGenerator.GeneratorRandomCard();
-        BattleCard card3 = cardGenerator.GeneratorRandomCard();
+        BattleCard card1 = cardGenerator.GetRandomCard();
+        BattleCard card2 = cardGenerator.GetRandomCard();
+        BattleCard card3 = cardGenerator.GetRandomCard();
 
         card1.ChangeState(ECardUsage.Gain);
         card2.ChangeState(ECardUsage.Gain);
