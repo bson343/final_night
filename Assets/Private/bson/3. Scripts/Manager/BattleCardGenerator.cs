@@ -26,12 +26,15 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
 
     public BattleCard GetRandomCard()
     {
-        int randomIndex = Random.Range(1, 16); // 리스트 내에서 랜덤 인덱스 선택
-        
-        return GenBatCard(randomIndex); // 랜덤으로 선택된 카드 반환
+        GenerateRandomCard randomCardIdGenerator = FindObjectOfType<GenerateRandomCard>();
+
+        int cardId = randomCardIdGenerator.GetUniqueRandomCardId();
+
+
+        return GenBatCard(cardId); // 랜덤으로 선택된 카드 반환
     }
 
-    public BattleCard GenBatCard(int cardId)
+        public BattleCard GenBatCard(int cardId)
     {
         if (
             !(ResourceManager.Instance.AttackCardIdList.Contains(cardId) 

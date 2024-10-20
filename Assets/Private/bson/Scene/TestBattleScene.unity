@@ -311,7 +311,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5678387520092996963, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
   m_PrefabInstance: {fileID: 1654052714}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1542192946}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b73062ec34dee64c9dfeb24179ec4b0, type: 3}
@@ -1572,6 +1572,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bba4e84afd1dd64e95c2d4a04a02051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1542192946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 737045216526215259, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+  m_PrefabInstance: {fileID: 1654052714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1616271302 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1349878450242329829, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}
@@ -1794,6 +1799,9 @@ PrefabInstance:
     - {fileID: 7916494356721740103, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 737045216526215259, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1654052720}
     - targetCorrespondingSourceObject: {fileID: 3253845219902108880, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1654052718}
@@ -1848,6 +1856,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1654052720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542192946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9681ec13bc378674b9802f59e44f95ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1699946125
