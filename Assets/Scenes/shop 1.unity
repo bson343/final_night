@@ -359,8 +359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79f7bf127793744298b5c00899b2781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopPopup: {fileID: 0}
+  shopPopup: {fileID: 1542192946}
   exitBtn: {fileID: 1998952302}
+  rewardManager: {fileID: 512870340}
 --- !u!114 &53724307 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1349878449856060411, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}
@@ -455,7 +456,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1542192946}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -466,18 +467,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &77355596
 MonoBehaviour:
@@ -2692,10 +2681,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737045216526215259, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209469318731302916, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209469318731302916, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c5b265d9efe6394783166841ebe1738, type: 3}
+    - target: {fileID: 3209469318731302916, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3209469318731302916, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
-      propertyPath: m_Color.a
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209469318731302916, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209469318731302916, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3253845219902108880, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
@@ -2711,20 +2720,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4121925896617980735, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121925896617980735, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c5b265d9efe6394783166841ebe1738, type: 3}
+    - target: {fileID: 4121925896617980735, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4121925896617980735, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4121925896617980735, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4121925896617980735, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5072570781951455729, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_IsActive
@@ -2795,7 +2812,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5945176032153229716, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c5b265d9efe6394783166841ebe1738, type: 3}
+    - target: {fileID: 5945176032153229716, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945176032153229716, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945176032153229716, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945176032153229716, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6292247362933641744, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
@@ -2877,6 +2910,14 @@ PrefabInstance:
     - target: {fileID: 6292247362933641744, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804711278871982423, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1160.3254
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804711278871982423, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20.1398
       objectReference: {fileID: 0}
     - target: {fileID: 8339203506013367853, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_IsActive
@@ -3222,7 +3263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1389190103}
         m_TargetAssemblyTypeName: ClearFloor, Assembly-CSharp
         m_MethodName: ClearFloorPlus
         m_Mode: 1
@@ -3234,7 +3275,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1389190104}
         m_TargetAssemblyTypeName: EventManager, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1

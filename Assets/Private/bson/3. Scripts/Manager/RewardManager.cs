@@ -23,6 +23,8 @@ public class RewardManager : MonoBehaviour, IRegisterable
     [SerializeField]
     Button cardRewardButton;
 
+    
+
     [SerializeField]
     private Button passRewardButton;
     [SerializeField]
@@ -34,10 +36,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
     private UIManager UIManager => ServiceLocator.Instance.GetService<UIManager>();
 
 
-    private void Start()
-    {
-        GetCard();
-    }
+
 
     public void Init()
     {
@@ -75,7 +74,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
     }
 
     // 카드 3장 생성
-    private void GetCard()
+    public void GetCard()
     {
 
 

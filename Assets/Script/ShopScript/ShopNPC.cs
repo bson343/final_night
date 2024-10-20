@@ -4,6 +4,9 @@ public class ShopNPC : MonoBehaviour
 {
     public GameObject shopPopup;
     public GameObject exitBtn;
+    [SerializeField] private RewardManager rewardManager;
+
+    private bool hasGeneratedCard = false;
 
     private void Update()
     {
@@ -15,6 +18,11 @@ public class ShopNPC : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 ToggleShopPopup();
+                if (!hasGeneratedCard)
+                {
+                    GetCardReward();
+                    hasGeneratedCard = true;
+                }
             }
         }
     }
@@ -26,6 +34,18 @@ public class ShopNPC : MonoBehaviour
             bool isActive = shopPopup.activeSelf;
             shopPopup.SetActive(!isActive);
             exitBtn.SetActive(false);
+        }
+    }
+
+    private void GetCardReward()
+    {
+        if (rewardManager != null)
+        {
+            rewardManager.GetCard();
+        }
+        else
+        {
+            Debug.LogWarning("RewardManager가 할당되지 않았습니다.");
         }
     }
 }
