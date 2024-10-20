@@ -59,7 +59,7 @@ public class TimerManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             secondsElapsed++;
-            Debug.Log("Seconds elapsed: " + secondsElapsed);
+          //  Debug.Log("Seconds elapsed: " + secondsElapsed);
         }
     }
 

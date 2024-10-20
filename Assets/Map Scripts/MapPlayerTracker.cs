@@ -73,7 +73,7 @@ namespace Map
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Act1);
                     MapPlayerTracker.Instance.SetActiveNav();
                     //  NightSceneManager.Instance.GameLoadScene("TestBattleScene");
-                    NightSceneManager.Instance.GameLoadScene("chapter1shop");
+                    NightSceneManager.Instance.GameLoadScene("shop");
                     break;
                 case NodeType.EliteEnemy: // 엘리트 몹
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Elite);

@@ -10,11 +10,7 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
     public int GeneratNumber = 0;
     [SerializeField] private Transform _cardParent;
     [SerializeField] private BattleCardHolder _cardHolder;
-
-    [SerializeField] private BattleCard _baseBattleCard;
-    [SerializeField] private List<BattleCardData> _MyDeckList = new List<BattleCardData>();
     [SerializeField] BattleCard _defaultDummyCard;
-    [SerializeField] private List<BattleCardData> _cardDatas;
 
     Dictionary<decimal, BattleCardData> CardDataMap => ResourceManager.Instance.CardDataMap;
     Dictionary<string, Sprite> CardSpriteMap => ResourceManager.Instance.CardSpriteMap;

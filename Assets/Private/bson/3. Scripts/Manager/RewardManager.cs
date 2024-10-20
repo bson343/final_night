@@ -34,6 +34,11 @@ public class RewardManager : MonoBehaviour, IRegisterable
     private UIManager UIManager => ServiceLocator.Instance.GetService<UIManager>();
 
 
+    private void Start()
+    {
+        GetCard();
+    }
+
     public void Init()
     {
         moveRewardButton.onClick.AddListener(() => {
