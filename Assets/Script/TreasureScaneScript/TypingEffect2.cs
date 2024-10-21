@@ -7,9 +7,9 @@ public class TypingEffect2 : MonoBehaviour
 {
     public TextMeshProUGUI Tx;
     private string[] texts = {
-        "도대체... 왜..? 우린 아무에게도 해를 끼치지 않았어요..",
-        "하나님의 명으로 우리는 재앙을 불러올 사악한 마녀들은 모두 척결해야한다.",
-        "그렇군요. 이건 그대들이 불러온 재앙입니다."
+        "......",
+        "마녀들은 모두 처리.",
+        "복수해야."
     };
     public GameObject Player;
     public GameObject Paladin;

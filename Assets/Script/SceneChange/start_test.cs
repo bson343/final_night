@@ -12,8 +12,8 @@ public class start_test : MonoBehaviour
         GlobalSoundManager.Instance.PlaySE(ESE.ShowMap);
         if (UserManager.Instance.NewGamePlay == 0)
         {
-            // NightSceneManager.Instance.LoadScene("chapter0");
-            NightSceneManager.Instance.LoadScene("NodeMap Test");
+            NightSceneManager.Instance.LoadScene("chapter0");
+           // NightSceneManager.Instance.LoadScene("NodeMap Test");
         }
         else
         {

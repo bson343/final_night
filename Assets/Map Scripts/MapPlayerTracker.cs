@@ -78,7 +78,7 @@ namespace Map
                 case NodeType.EliteEnemy: // 엘리트 몹
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Elite);
                     MapPlayerTracker.Instance.SetActiveNav();
-                    NightSceneManager.Instance.GameLoadScene("EliteBattleScene");
+                    NightSceneManager.Instance.GameLoadScene("Elite");
                     break;
                 case NodeType.RestSite: // 회복?
                     MapPlayerTracker.Instance.SetActiveNav();
@@ -87,7 +87,7 @@ namespace Map
                 case NodeType.Treasure: // 마찬가지
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Treasure);
                     MapPlayerTracker.Instance.SetActiveNav();
-                    NightSceneManager.Instance.GameLoadScene("Treasure");
+                    NightSceneManager.Instance.GameLoadScene("shop 1");
                     break;
                 case NodeType.Store: // 상점
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Shop);
@@ -97,7 +97,7 @@ namespace Map
                 case NodeType.Boss: // 보스
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Boss);
                     MapPlayerTracker.Instance.SetActiveNav();
-                    NightSceneManager.Instance.GameLoadScene("BossBattleScene");
+                    NightSceneManager.Instance.GameLoadScene("Boss");
                     break;
                 case NodeType.Mystery: // 이벤트 씬
                     GlobalSoundManager.Instance.FadeBGM(EBGM.EventScene, 0.2f);
