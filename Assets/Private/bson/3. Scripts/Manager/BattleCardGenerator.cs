@@ -20,17 +20,17 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
         // 필요한 초기화 작업이 있으면 여기에서 처리
     }
 
-    public BattleCard GetRandomCard()
+    public BattleCard CreateAndSetupCard(GenerateRandomCard randomCardIdGenerator)
     {
-        GenerateRandomCard randomCardIdGenerator = FindObjectOfType<GenerateRandomCard>();
-
         int cardId = randomCardIdGenerator.GetUniqueRandomCardId();
-
-
-        return GenBatCard(cardId); // 랜덤으로 선택된 카드 반환
+        BattleCard card = GenBatCard(cardId);
+        card.cardID = cardId;
+        card.ChangeState(ECardUsage.Gain);
+        card.onClickAction = null;
+        return card;
     }
 
-        public BattleCard GenBatCard(int cardId)
+    public BattleCard GenBatCard(int cardId)
     {
         if (
             !(ResourceManager.Instance.AttackCardIdList.Contains(cardId) 

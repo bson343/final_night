@@ -81,40 +81,35 @@ public class RewardManager : MonoBehaviour, IRegisterable
     // 카드 3장 생성
     public void GetCard()
     {
+        GenerateRandomCard randomCardIdGenerator = FindObjectOfType<GenerateRandomCard>();
 
+        BattleCard card1 = cardGenerator.CreateAndSetupCard(randomCardIdGenerator);
+        BattleCard card2 = cardGenerator.CreateAndSetupCard(randomCardIdGenerator);
+        BattleCard card3 = cardGenerator.CreateAndSetupCard(randomCardIdGenerator);
 
-        BattleCard card1 = cardGenerator.GetRandomCard();
-        BattleCard card2 = cardGenerator.GetRandomCard();
-        BattleCard card3 = cardGenerator.GetRandomCard();
+        card1.onClickAction += () => OnClickGainCard(card1);
+        card2.onClickAction += () => OnClickGainCard(card2);
+        card3.onClickAction += () => OnClickGainCard(card3);
 
-        card1.ChangeState(ECardUsage.Gain);
-        card2.ChangeState(ECardUsage.Gain);
-        card3.ChangeState(ECardUsage.Gain);
-
-        card1.onClickAction = null;
-        card2.onClickAction = null;
-        card3.onClickAction = null;
-
-        card1.onClickAction += (() => OnClickGainCard(card1));
-        card2.onClickAction += (() => OnClickGainCard(card2));
-        card3.onClickAction += (() => OnClickGainCard(card3));
-
-        card1.transform.SetParent(cardRewardParent);
-        card2.transform.SetParent(cardRewardParent);
-        card3.transform.SetParent(cardRewardParent);
-
-        card1.transform.localScale = Vector3.one;
-        card2.transform.localScale = Vector3.one;
-        card3.transform.localScale = Vector3.one;
-
-       
+        SetCardParentAndScale(card1);
+        SetCardParentAndScale(card2);
+        SetCardParentAndScale(card3);
     }
+
+    private void SetCardParentAndScale(BattleCard card)
+    {
+        card.transform.SetParent(cardRewardParent);
+        card.transform.localScale = Vector3.one;
+    }
+
 
     public void GetshopCard()
     {
+        GenerateRandomCard randomCardIdGenerator = FindObjectOfType<GenerateRandomCard>();
+
         for (int i = 0; i < 3; i++)
         {
-            BattleCard card = cardGenerator.GetRandomCard();
+            BattleCard card = cardGenerator.CreateAndSetupCard(randomCardIdGenerator);
             int index = i;  // 클로저 문제 해결을 위해 로컬 변수로 캡처
 
             shopCardPrices[index] = Random.Range(50, 101);

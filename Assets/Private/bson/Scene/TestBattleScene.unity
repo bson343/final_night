@@ -425,6 +425,7 @@ MonoBehaviour:
   moneyRewardButton: {fileID: 1060800}
   moneyRewardText: {fileID: 2106260311}
   cardRewardButton: {fileID: 1024339600}
+  shopCardPriceTexts: []
   passRewardButton: {fileID: 250695176}
   moveRewardButton: {fileID: 1654052719}
 --- !u!1 &514057726
@@ -630,6 +631,7 @@ GameObject:
   - component: {fileID: 818060810}
   - component: {fileID: 818060809}
   - component: {fileID: 818060808}
+  - component: {fileID: 818060811}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -687,6 +689,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818060811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818060807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9355525418d1ce64a94f60ba643f8809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &840432195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1049,9 +1063,7 @@ MonoBehaviour:
   Act1BattleDataList:
   - {fileID: 11400000, guid: e33a72488b04b1543ae953e0a640aa22, type: 2}
   - {fileID: 11400000, guid: 116cf4767a5df3741be16a3cc4e57aef, type: 2}
-  - {fileID: 11400000, guid: 2996a6d50a0d72d4898cfe6646d5496e, type: 2}
   - {fileID: 11400000, guid: ceeeebf1cb995b044b48c49393ab6ad2, type: 2}
-  - {fileID: 11400000, guid: b420fa5aa1fdb034fa3b9e4deabb08db, type: 2}
 --- !u!1 &1172744707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,15 +1314,7 @@ MonoBehaviour:
   GeneratNumber: 0
   _cardParent: {fileID: 8613713420726461622}
   _cardHolder: {fileID: 366670768}
-  _baseBattleCard: {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
-  _MyDeckList: []
   _defaultDummyCard: {fileID: 1942049735635938910, guid: 099ed9c9980ca664e862d987672ef6cd, type: 3}
-  _cardDatas:
-  - {fileID: 11400000, guid: 6a5ec7f9340a7f64c9bcc0b557ca3e79, type: 2}
-  - {fileID: 11400000, guid: 0479d1937a3bc6247b312931222e677a, type: 2}
-  - {fileID: 11400000, guid: 1b78dfaf62cdeed42bb1b099420654ab, type: 2}
-  - {fileID: 11400000, guid: f51297f854bedba4b90888116147ab40, type: 2}
-  - {fileID: 11400000, guid: 9bfc87b175d70704db2bdee8802bf736, type: 2}
 --- !u!1 &1345403521
 GameObject:
   m_ObjectHideFlags: 0
