@@ -14,7 +14,7 @@ public class CharacterStat : MonoBehaviour
     [SerializeField] private int _maxHp;
     private int _currentHp;
     private int _shield;
-    // private int _power;
+     private int _power;
     // private int _agility;
 
     [Header("UI")]
