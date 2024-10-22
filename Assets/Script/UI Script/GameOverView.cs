@@ -11,7 +11,8 @@ public class GameOverView : MonoBehaviour
     public static int clearfloor;
     public TMP_Text clearfloorText;
     public TMP_Text PlaytimeText;
-    
+    private List<int> BasicCardDeck = new List<int> { 1, 1, 2, 2, 3, 6 };
+    private List<int> BasicHeroCardDeck = new List<int> { 1 };
     private void Start()
     {
         //clearfloor = 0;
@@ -35,6 +36,7 @@ public class GameOverView : MonoBehaviour
         if (UserManager.Instance.CurrentHP <= 0 && gameOverPopup != null)
         {
             clearfloorText.text = "클리어한 스테이지: " + clearfloor +"스테이지";
+            UserManager.Instance.SetCardDeckindex(BasicCardDeck);
             gameOverPopup.SetActive(true);
         }
         else

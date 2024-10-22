@@ -76,6 +76,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
         // 랜덤 카드 선택
         cardRewardButton.onClick.AddListener(() => cardRewardGameObject.SetActive(true));
+        cardRewardButton.onClick.AddListener(() => cardRewardButton.interactable = false);
     }
 
     // 카드 3장 생성

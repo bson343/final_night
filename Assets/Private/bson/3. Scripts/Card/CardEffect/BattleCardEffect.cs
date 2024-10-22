@@ -30,4 +30,12 @@ public class BattleCardEffect
         targetEnemy?.Hit(sender.EffectValues[0], player);
         sender.EffectValues[0]++;
     }
+
+    public void AreaAttack(BattleCard sender)
+    {
+        foreach (var enemy in enemies)
+        {
+            enemy.Hit(10, player);
+        }
+    }
 }
