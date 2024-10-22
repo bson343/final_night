@@ -26,7 +26,7 @@ public class Act : MonoBehaviour
         randomNumber = random.Next(0, Act1BattleDataList.Count - 1);
         _player.init();
 
-        foreach (int i in ResourceManager.Instance.Config.InitDeck)
+        foreach (int i in UserManager.Instance.CardDeckIndex)
         {
             _player.AddCard(CardGenerator.GenBatCard(i));
         }
