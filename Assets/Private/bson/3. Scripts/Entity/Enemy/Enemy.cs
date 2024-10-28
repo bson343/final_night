@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 {
+
+   
     protected enum EEnemyGrade
     {
         common,
@@ -22,6 +24,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
+
         CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         EnemyPattern = GetComponent<EnemyPattern>();
@@ -125,10 +128,17 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         Debug.Log("맞았당");
         CharacterStat.Hit(damage);
-        
+
         if (!CharacterStat.IsDead)
+        {
+            
             CharacterAnimation.SetTrigger("isHitted");
-    }
+            CharacterAnimation.SetTrigger("back");
+            Debug.Log("살아있음");
+        }
+        
+
+     }
 
     public override void Act()
     {

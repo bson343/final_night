@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterAnimation : MonoBehaviour
 {
+    
     private Character _character;
     private Animator _animator;
     public void Init(Character character)

@@ -63,9 +63,14 @@ public class BattlePlayer : Character
     {
         Debug.Log("맞았당");
         PlayerStat.Hit(damage);
-        
+
         if (!PlayerStat.IsDead)
+        {
             CharacterAnimation.SetTrigger("isHitted");
+            CharacterAnimation.SetTrigger("back");
+
+        }
+            
     }
 
     public override void Act()
