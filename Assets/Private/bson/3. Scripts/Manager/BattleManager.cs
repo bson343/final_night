@@ -46,6 +46,9 @@ public class BattleManager : MonoBehaviour, IRegisterable
     
     [SerializeField]
     private BattlePlayer _player;
+
+    [SerializeField]
+    private Transform SpawnEnemiesHierarchy;
     
     private BattleData _currentBattleData;
     
@@ -104,7 +107,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
         _enemies = new List<Enemy>();
         for (int i = 0; i < battleData.Enemies.Count; i++)
         {
-            Enemy enemy = Instantiate(battleData.Enemies[i], battleData.SpawnPos[i], Quaternion.identity);
+            Enemy enemy = Instantiate(battleData.Enemies[i], battleData.SpawnPos[i], Quaternion.identity, SpawnEnemiesHierarchy);
             _enemies.Add(enemy);
         }
 
