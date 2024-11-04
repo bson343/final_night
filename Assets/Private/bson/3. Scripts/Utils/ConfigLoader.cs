@@ -14,7 +14,6 @@ public class ConfigLoader : MonoBehaviour
     private string configPath;
 
     public string DB_IP { get; private set; }
-    public List<int> InitDeck {  get; private set; }
 
     public void Awake()
     {
@@ -29,13 +28,6 @@ public class ConfigLoader : MonoBehaviour
 
         DB_IP = ini.ReadValue("DB", "IP", "localhost");
         Debug.Log($"Config : DB.IP = {DB_IP}");
-
-        string temp = ini.ReadValue("Player", "Deck", "1 1 1 1 1");
-        Debug.Log($"Config : Player.Deck = {temp}");
-
-        InitDeck = temp.Split(' ')
-                        .Select(int.Parse)
-                        .ToList();
 
         ini.Close();
     }
