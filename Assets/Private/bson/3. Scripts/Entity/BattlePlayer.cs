@@ -66,7 +66,7 @@ public class BattlePlayer : Character
 
         if (!PlayerStat.IsDead)
         {
-            CharacterAnimation.SetTrigger("isHitted");
+            CharacterAnimation.SetTrigger("isHitted_P");
             CharacterAnimation.SetTrigger("back");
 
         }

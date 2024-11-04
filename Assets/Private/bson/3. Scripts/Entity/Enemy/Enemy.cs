@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 {
-
-   
+   /* public bool isFadeIn; // true=FadeIn, false=FadeOut
+    public GameObject a;*/
     protected enum EEnemyGrade
     {
         common,
@@ -104,12 +104,31 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         battleManager.TargetEnemy = null;
     }
+   /* IEnumerator CoFadeOut()
+    {
+        float elapsedTime = 0f; // 누적 경과 시간
+        float fadedTime = 2f; // 총 소요 시간
+        Debug.Log("받음");
+        while (elapsedTime <= fadedTime)
+        {
+            a.GetComponent<CanvasRenderer>().SetAlpha(Mathf.Lerp(0f, 1f, elapsedTime / fadedTime));
 
+            elapsedTime += Time.deltaTime;
+            Debug.Log("Fade Out 중...");
+            yield return null;
+        }
+
+        Debug.Log("Fade Out 끝");
+
+        yield break;
+    }*/
     public override void Dead()
     {
+        ;
         Debug.Log("주겄당");
-        CharacterAnimation.SetTrigger("isDead");
+       CharacterAnimation.SetTrigger("isDead");
         
+       
         switch (_enemyGrade)
         {
             case EEnemyGrade.common:
