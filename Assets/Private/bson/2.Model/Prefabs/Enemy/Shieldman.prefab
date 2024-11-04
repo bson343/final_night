@@ -102,12 +102,16 @@ MonoBehaviour:
     amount: 0
     secondAmount: 0
   enemyFirstPattern:
-    patternData: {fileID: 0}
+    patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
     indentData: {fileID: 0}
     amount: 0
     secondAmount: 0
   enemyPatterns:
   - patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
+    indentData: {fileID: 0}
+    amount: 5
+    secondAmount: 0
+  - patternData: {fileID: 11400000, guid: 21d9687e7694faf4db1dedbce2caeea9, type: 2}
     indentData: {fileID: 0}
     amount: 5
     secondAmount: 0

@@ -108,7 +108,10 @@ public class EnemyPattern : MonoBehaviour
         switch (_currentPattern.patternData.patternType)
         {
             case EPatternType.Attack:
-                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy);
+                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy); // 일반공격
+                break;
+            case EPatternType.Defense:
+                _enemy.CharacterStat.Shield += _currentPattern.amount; // 방어력 증가
                 break;
             default:
                 Assert.IsTrue(false, "Non PatternType");

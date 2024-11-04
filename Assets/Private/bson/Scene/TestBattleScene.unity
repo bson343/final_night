@@ -1061,9 +1061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1699946128}
   Act1BattleDataList:
-  - {fileID: 11400000, guid: e33a72488b04b1543ae953e0a640aa22, type: 2}
   - {fileID: 11400000, guid: 116cf4767a5df3741be16a3cc4e57aef, type: 2}
-  - {fileID: 11400000, guid: ceeeebf1cb995b044b48c49393ab6ad2, type: 2}
 --- !u!1 &1172744707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,6 +1934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2e11c2162af2547a9ff9bedaa2c19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indent: 00000000000000000000
   CardDeck: []
   CardHolder: {fileID: 366670768}
 --- !u!114 &1699946130
