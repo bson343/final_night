@@ -43,12 +43,12 @@ public class IndentObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // 왼쪽으로 보이게
+        // 마우스 올리면 왼쪽으로 보이게
         if(eventData.position.x > Screen.width / 2)
         {
-           // GameManager.UI.ShowTipUI(indentData.indentName, indentData.indentExplanation, eventData.position, ETipPos.Left);
+           // GameManager.UI.ShowTipUI(indentData.indentName, indentData.indentExplanation, eventData.position, ETipPos.Left); 
         }
-        // 오른쪽으로 보이게
+        // 마우스 올리면 오른쪽으로 보이게
         else
         {
             //GameManager.UI.ShowTipUI(indentData.indentName, indentData.indentExplanation, eventData.position, ETipPos.Right);

@@ -22,15 +22,20 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     public CharacterAnimation CharacterAnimation { get; private set; }
     public EnemyPattern EnemyPattern { get; private set; }
 
+   // public CharacterIndent CharacterIndent { get; private set; }
+
+
     private void Awake()
     {
 
         CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         EnemyPattern = GetComponent<EnemyPattern>();
+       // CharacterIndent = GetComponent<CharacterIndent>();
 
         CharacterStat.Init(this);
         CharacterAnimation.Init(this);
+     //   CharacterIndent.Init(this);
         EnemyPattern.Init(this);
 
         battleManager.onStartMyTurn += OnStartMyTurn;
@@ -44,7 +49,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnStartBattle()
     {
-        
+     //   CharacterIndent.Visualize();
     }
     
     protected virtual void OnEndBattle()
@@ -59,7 +64,12 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnEndEnemyTurn()
     {
-        
+      //  CharacterIndent.UpdateIndents();
+        // 의식이면 내 턴이 시작될 때 파워가 3 상승
+        if (indent[(int)EIndent.Consciousness])
+        {
+            CharacterStat.Power += 3;
+        }
     }
     
     protected virtual void OnEndMyTurn()
@@ -162,7 +172,9 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     public override void Act()
     {
         Debug.Log("행동한당");
+
         EnemyPattern.Act();
         StartCoroutine(CharacterAnimation.CoAct(false));
+       // CharacterIndent.Visualize();
     }
 }
