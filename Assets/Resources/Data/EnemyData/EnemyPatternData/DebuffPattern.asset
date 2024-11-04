@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f8dde747f0c04341a76e3d548c96cda, type: 3}
-  m_Name: BuffPattern
+  m_Name: DebuffPattern
   m_EditorClassIdentifier: 
   patternType: 0
   patternIcon: {fileID: 8335706812776939420, guid: 81fb499104cffc34aa37921f38ba9aef, type: 3}
