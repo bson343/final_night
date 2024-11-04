@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -113,11 +114,26 @@ public class EnemyPattern : MonoBehaviour
             case EPatternType.Defense:
                 _enemy.CharacterStat.Shield += _currentPattern.amount; // 방어력 증가
                 break;
+            //case EPatternType.Buff:
+                //GameManager.Sound.PlaySE(ESE.Buff);
+               // GetIndent();
+                //break;
             default:
                 Assert.IsTrue(false, "Non PatternType");
                 break;
         }
     }
+  /*  private void GetIndent()
+    {
+
+        switch (_currentPattern.indentData.indent)
+        {
+            case EIndent.Consciousness: // 의식
+                _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
+                break;
+        }
+    }*/
+
 
     private string GetPatternAmount()
     {
