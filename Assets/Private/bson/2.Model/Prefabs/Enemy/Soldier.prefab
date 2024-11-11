@@ -260,7 +260,7 @@ SpriteShapeRenderer:
   m_Sprites: []
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1048576, y: 1048576, z: 1048576}
+    m_Extent: {x: 1.0000001, y: 1.0000001, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &2177044012062679908
 MonoBehaviour:
@@ -1006,6 +1006,14 @@ PrefabInstance:
     - target: {fileID: 5609703274025977492, guid: f23ea0f210688364ea03c98a59676cee, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132435431253445771, guid: f23ea0f210688364ea03c98a59676cee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132435431253445771, guid: f23ea0f210688364ea03c98a59676cee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

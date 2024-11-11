@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 5465405177701037325, guid: f81d14aae68de604db52260e67fcb90f, type: 3}
   - {fileID: 5465405177701037325, guid: f81d14aae68de604db52260e67fcb90f, type: 3}
   spawnPos:
-  - {x: 4.31, y: -2.5, z: 0}
-  - {x: 8.31, y: -2.5, z: 0}
+  - {x: 4.31, y: -2, z: 0}
+  - {x: 8.31, y: -2, z: 0}
   maxMoney: 35
   minMoney: 20

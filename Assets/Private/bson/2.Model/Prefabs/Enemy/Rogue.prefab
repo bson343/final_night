@@ -748,6 +748,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7132435431253445771, guid: f23ea0f210688364ea03c98a59676cee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132435431253445771, guid: f23ea0f210688364ea03c98a59676cee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6219503900003527422, guid: f23ea0f210688364ea03c98a59676cee, type: 3}

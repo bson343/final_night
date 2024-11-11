@@ -370,6 +370,7 @@ MonoBehaviour:
   myTurnCount: 1
   myTurn: 0
   _player: {fileID: 1699946128}
+  SpawnEnemiesHierarchy: {fileID: 0}
 --- !u!1 &491964983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1349878449418620405, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}
@@ -425,6 +426,7 @@ MonoBehaviour:
   moneyRewardButton: {fileID: 1060800}
   moneyRewardText: {fileID: 2106260311}
   cardRewardButton: {fileID: 1024339600}
+  shopCardPriceTexts: []
   passRewardButton: {fileID: 250695176}
   moveRewardButton: {fileID: 1654052719}
 --- !u!1 &514057726
@@ -1001,8 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1699946128}
-  BattleMockData: {fileID: 11400000, guid: e33a72488b04b1543ae953e0a640aa22, type: 2}
-  stages: []
+  Act1BattleDataList: []
 --- !u!1 &1172744707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,13 +1254,7 @@ MonoBehaviour:
   GeneratNumber: 0
   _cardParent: {fileID: 8613713420726461622}
   _cardHolder: {fileID: 366670768}
-  _baseBattleCard: {fileID: 4137155985711525485, guid: f0c92cf09eec88c4fbf545810215cecc, type: 3}
-  _cardDatas:
-  - {fileID: 11400000, guid: 6a5ec7f9340a7f64c9bcc0b557ca3e79, type: 2}
-  - {fileID: 11400000, guid: 0479d1937a3bc6247b312931222e677a, type: 2}
-  - {fileID: 11400000, guid: 1b78dfaf62cdeed42bb1b099420654ab, type: 2}
-  - {fileID: 11400000, guid: f51297f854bedba4b90888116147ab40, type: 2}
-  - {fileID: 11400000, guid: 9bfc87b175d70704db2bdee8802bf736, type: 2}
+  _defaultDummyCard: {fileID: 0}
 --- !u!1 &1345403521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1786,7 @@ Transform:
   m_GameObject: {fileID: 1699946125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.19, y: -0.27, z: 0}
+  m_LocalPosition: {x: -5.19, y: -2, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1823,6 +1818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2e11c2162af2547a9ff9bedaa2c19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indent: 00000000000000000000
   CardDeck: []
   CardHolder: {fileID: 366670768}
 --- !u!114 &1699946130
