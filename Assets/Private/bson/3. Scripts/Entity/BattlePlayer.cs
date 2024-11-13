@@ -7,13 +7,17 @@ using UnityEngine.Serialization;
 public class BattlePlayer : Character
 {
     public Action onDead;
-    
+
     public PlayerStat PlayerStat { get; private set; }
-    
-    
+
+
     public List<BattleCard> CardDeck;
 
     public BattleCardHolder CardHolder;
+
+    // 플레이어의 CharacterIndent 참조
+    public CharacterIndent CharacterIndent { get; private set; }
+
 
     private BattleCardGenerator _cardGenerator => ServiceLocator.instance.GetService<BattleCardGenerator>();
     public CharacterAnimation CharacterAnimation { get; private set; }
@@ -22,15 +26,29 @@ public class BattlePlayer : Character
     {
         PlayerStat = GetComponent<PlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
-
         PlayerStat.Init(this);
         CharacterAnimation.Init(this);
-        
+
         battleManager.onStartMyTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);
         battleManager.onStartBattle += (() => OnStartBattle());
         battleManager.onEndBattle += (() => OnEndBattle());
     }
-    
+
+    private void Awake()
+    {
+        // CharacterIndent 컴포넌트 초기화
+        CharacterIndent = GetComponent<CharacterIndent>();
+
+        if (CharacterIndent != null)
+        {
+            CharacterIndent.Init(this);  // Init() 메서드를 호출해 초기화
+        }
+        else
+        {
+            Debug.LogError("CharacterIndent 컴포넌트를 찾을 수 없습니다!");
+        }
+    }
+
     public void OnStartBattle()
     {
         CardHolder.StartBattle(CardDeck);

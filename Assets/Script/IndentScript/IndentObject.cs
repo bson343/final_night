@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class IndentObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class IndentObject : MonoBehaviour
 {
     [SerializeField] private Image indentImage;
     [SerializeField] private Text indentText;
@@ -41,22 +41,4 @@ public class IndentObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        // 마우스 올리면 왼쪽으로 보이게
-        if(eventData.position.x > Screen.width / 2)
-        {
-           // GameManager.UI.ShowTipUI(indentData.indentName, indentData.indentExplanation, eventData.position, ETipPos.Left); 
-        }
-        // 마우스 올리면 오른쪽으로 보이게
-        else
-        {
-            //GameManager.UI.ShowTipUI(indentData.indentName, indentData.indentExplanation, eventData.position, ETipPos.Right);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-       // GameManager.UI.HideTipUI();
-    }
 }

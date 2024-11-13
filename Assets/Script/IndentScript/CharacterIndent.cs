@@ -13,6 +13,8 @@ public class CharacterIndent : MonoBehaviour
 
     private List<IndentObject> indentList = new List<IndentObject>();
 
+    [SerializeField]
+    private IndentData[] indentData;
 
     public void Init(Character character)
     {
@@ -31,10 +33,22 @@ public class CharacterIndent : MonoBehaviour
 
     public void AddIndent(IndentData indentData, int value)
     {
+        if (_character == null)
+        {
+            Debug.LogError("_character가 초기화되지 않았습니다. Init() 메서드가 호출되었는지 확인하세요.");
+            return;
+        }
+
+        if (indentData == null)
+        {
+            Debug.LogError("indentData가 null입니다. 올바른 IndentData를 전달했는지 확인하세요.");
+            return;
+        }
+
         _character.indent[(int)indentData.indent] = true;
 
         // 이미 있는 Indent라면 turn만 증가
-        for(int i = 0; i < indentList.Count; i++)
+        for (int i = 0; i < indentList.Count; i++)
         {
             if (indentList[i].indentData == indentData)
             {
@@ -103,5 +117,18 @@ public class CharacterIndent : MonoBehaviour
                 Destroy(temp.gameObject);
             }
         }
+    }
+
+    // 특정 EIndent 타입에 맞는 IndentData를 반환하는 메서드
+    public IndentData GetIndentData(EIndent indentType)
+    {
+        foreach (var indent in indentData)
+        {
+            if (indent.indent == indentType)
+            {
+                return indent;
+            }
+        }
+        return null; // 원하는 타입이 없으면 null 반환
     }
 }

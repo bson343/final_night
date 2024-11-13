@@ -51,6 +51,20 @@ public class BattleCardEffect
     //마안
     public void EvilEye(BattleCard sender)
     {
+        // 플레이어의 파워 증가
         player.PlayerStat.Power += 2;
+
+        // Strength 인덴트 데이터 가져오기
+        IndentData powerIndentData = player.CharacterIndent.GetIndentData(EIndent.Strength);
+
+        if (powerIndentData == null)
+        {
+            Debug.LogError("powerIndentData가 null입니다. IndentData 배열에 해당 타입이 있는지 확인하세요.");
+            return;
+        }
+
+        // 인덴트 추가
+        player.CharacterIndent.AddIndent(powerIndentData, 2);
     }
-}
+ }
+
