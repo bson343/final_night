@@ -11,10 +11,10 @@ public class CharacterIndent : MonoBehaviour
     [SerializeField] private Transform indentParent;
     [SerializeField] private IndentObject indentPrefab;
 
-    private List<IndentObject> indentList = new List<IndentObject>();
+    public List<IndentObject> indentList = new List<IndentObject>();
 
     [SerializeField]
-    private IndentData[] indentData;
+    public IndentData[] indentData;
 
     public void Init(Character character)
     {

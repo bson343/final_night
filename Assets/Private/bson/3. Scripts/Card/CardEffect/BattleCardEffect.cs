@@ -57,14 +57,20 @@ public class BattleCardEffect
         // Strength 인덴트 데이터 가져오기
         IndentData powerIndentData = player.CharacterIndent.GetIndentData(EIndent.Strength);
 
-        if (powerIndentData == null)
+
+        foreach (var indent in player.CharacterIndent.indentList)
         {
-            Debug.LogError("powerIndentData가 null입니다. IndentData 배열에 해당 타입이 있는지 확인하세요.");
-            return;
+            if (indent.indentData.indent == EIndent.Strength)
+            {
+                // 인덴트가 이미 존재하는 경우 텍스트 업데이트
+                indent.UpdateIndent();
+                return;
+            }
         }
 
         // 인덴트 추가
         player.CharacterIndent.AddIndent(powerIndentData, 2);
+        player.CharacterIndent.Visualize();
     }
  }
 

@@ -10,6 +10,7 @@ public class IndentObject : MonoBehaviour
     [SerializeField] private Image indentImage;
     [SerializeField] private Text indentText;
 
+    protected BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     public IndentData indentData { get; private set; }
     public int turn;
 
@@ -31,8 +32,14 @@ public class IndentObject : MonoBehaviour
 
     public void UpdateIndent()
     {
-        if (indentData.isShowTurn)
+        if (indentData.indent == EIndent.Strength)
         {
+            // 힘 버프일 경우 플레이어의 현재 파워를 표시
+            indentText.text = $"{battleManager.Player.PlayerStat.Power}";
+        }
+        else if (indentData.isShowTurn)
+        {
+            // 일반적인 경우 턴 수를 표시
             indentText.text = turn.ToString();
         }
         else
