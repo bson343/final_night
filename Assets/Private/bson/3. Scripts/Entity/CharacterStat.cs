@@ -104,6 +104,11 @@ public class CharacterStat : MonoBehaviour
             vfxGenerator.CreateVFX(EVFX.PlayerAttack, transform.position);
         }
 
+        if (_character.indent[(int)EIndent.Weak])
+        {
+            damage = Mathf.RoundToInt((float)damage * 1.5f);
+        }
+
         if (_shield > 0)
         {
             if (_shield >= damage)
