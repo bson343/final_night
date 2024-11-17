@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5663028468261192798}
   - component: {fileID: 8440619302978764793}
   - component: {fileID: 6723141176133593542}
+  - component: {fileID: 8484601891146291125}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -183,6 +184,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8484601891146291125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307742086623123882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f34c451ac0359479fd484ecbcf10a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indentParent: {fileID: 3157554131209180931}
+  indentPrefab: {fileID: 4458917741466922349, guid: 890487ec412bc424bbabd5c77dead2b6, type: 3}
+  indentList: []
+  indentData:
+  - {fileID: 11400000, guid: 3f91bb24c0c62094c9fcad53dc1b7f3f, type: 2}
+  - {fileID: 11400000, guid: 46142053831b7454db6edd7e4224eefa, type: 2}
 --- !u!1 &708417971695924761
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +600,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}
+--- !u!224 &3157554131209180931 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 926742044215523478, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}
+  m_PrefabInstance: {fileID: 2814063921397821333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3870328716142158432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1349878449418620405, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}

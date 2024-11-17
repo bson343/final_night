@@ -22,7 +22,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     public CharacterAnimation CharacterAnimation { get; private set; }
     public EnemyPattern EnemyPattern { get; private set; }
 
-   // public CharacterIndent CharacterIndent { get; private set; }
+    public CharacterIndent CharacterIndent { get; private set; }
 
 
     private void Awake()
@@ -31,11 +31,11 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         EnemyPattern = GetComponent<EnemyPattern>();
-       // CharacterIndent = GetComponent<CharacterIndent>();
+        CharacterIndent = GetComponent<CharacterIndent>();
 
         CharacterStat.Init(this);
         CharacterAnimation.Init(this);
-     //   CharacterIndent.Init(this);
+        CharacterIndent.Init(this);
         EnemyPattern.Init(this);
 
         battleManager.onStartMyTurn += OnStartMyTurn;
@@ -49,7 +49,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnStartBattle()
     {
-     //   CharacterIndent.Visualize();
+        CharacterIndent.Visualize();
     }
     
     protected virtual void OnEndBattle()
@@ -175,6 +175,6 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
         EnemyPattern.Act();
         StartCoroutine(CharacterAnimation.CoAct(false));
-       // CharacterIndent.Visualize();
+        CharacterIndent.Visualize();
     }
 }
