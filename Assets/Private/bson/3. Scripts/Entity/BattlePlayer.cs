@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 public class BattlePlayer : Character
 {
     public Action onDead;
+    public GameObject parentObject;
 
     public PlayerStat PlayerStat { get; private set; }
 
@@ -63,7 +64,7 @@ public class BattlePlayer : Character
     {
         CardHolder.ResumeBattle(CardDeck);
     }
-    
+
     public void AddCard(BattleCard card)
     {
         CardDeck.Add(card);
@@ -74,7 +75,48 @@ public class BattlePlayer : Character
         Debug.Log("주겄당");
 
         onDead?.Invoke();
-        CharacterAnimation.SetTrigger("isDead");
+        Transform childTransform = parentObject.transform.Find("UnitRoot"); // "B"는 자식 오브젝트 이름
+
+        if (childTransform != null)
+        {
+            Animator childAnimator = childTransform.GetComponent<Animator>();
+            if (childAnimator != null)
+            {
+                // Animator의 트리거 활성화
+                childAnimator.SetTrigger("isDead"); // Animator의 파라미터 이름
+            }
+            else
+            {
+                Debug.LogWarning("Animator 컴포넌트가 B 오브젝트에 없습니다.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("B 오브젝트를 찾을 수 없습니다.");
+        }
+
+    }
+    public void attack()
+    {
+        Transform childTransform = parentObject.transform.Find("UnitRoot"); // "B"는 자식 오브젝트 이름
+
+        if (childTransform != null)
+        {
+            Animator childAnimator = childTransform.GetComponent<Animator>();
+            if (childAnimator != null)
+            {
+                // Animator의 트리거 활성화
+                childAnimator.SetTrigger("attack"); // Animator의 파라미터 이름
+            }
+            else
+            {
+                Debug.LogWarning("Animator 컴포넌트가 B 오브젝트에 없습니다.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("B 오브젝트를 찾을 수 없습니다.");
+        }
     }
 
     public override void Hit(int damage, Character attacker)
@@ -84,15 +126,33 @@ public class BattlePlayer : Character
 
         if (!PlayerStat.IsDead)
         {
-            CharacterAnimation.SetTrigger("isHitted_P");
-            CharacterAnimation.SetTrigger("back");
+            Transform childTransform = parentObject.transform.Find("UnitRoot"); // "B"는 자식 오브젝트 이름
+
+            if (childTransform != null)
+            {
+                Animator childAnimator = childTransform.GetComponent<Animator>();
+                if (childAnimator != null)
+                {
+                    // Animator의 트리거 활성화
+                    childAnimator.SetTrigger("isHitted"); // Animator의 파라미터 이름
+                }
+                else
+                {
+                    Debug.LogWarning("Animator 컴포넌트가 B 오브젝트에 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("B 오브젝트를 찾을 수 없습니다.");
+            }
+
 
         }
-            
+
     }
 
     public override void Act()
     {
-        
+
     }
 }
