@@ -39,7 +39,7 @@ public class BattleCardEffect
             }
         }
         targetEnemy.CharacterIndent.AddIndent(weakIndentData, 2);
-        targetEnemy.CharacterIndent.Visualize();
+        
 
     }
 
@@ -92,7 +92,7 @@ public class BattleCardEffect
 
         // ¿Œµß∆Æ √ﬂ∞°
         player.CharacterIndent.AddIndent(powerIndentData, 2);
-        player.CharacterIndent.Visualize();
+       
     }
  }
 

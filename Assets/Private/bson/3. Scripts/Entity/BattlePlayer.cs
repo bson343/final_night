@@ -124,7 +124,7 @@ public class BattlePlayer : Character
         Debug.Log("맞았당");
         PlayerStat.Hit(damage);
 
-        if (!PlayerStat.IsDead)
+        /*if (!PlayerStat.IsDead)
         {
             Transform childTransform = parentObject.transform.Find("UnitRoot"); // "B"는 자식 오브젝트 이름
 
@@ -147,7 +147,7 @@ public class BattlePlayer : Character
             }
 
 
-        }
+        }*/
 
     }
 
