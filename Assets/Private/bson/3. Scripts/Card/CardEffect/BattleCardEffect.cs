@@ -21,26 +21,14 @@ public class BattleCardEffect
     // 영혼 해방
     public void SoulLiberation(BattleCard sender)
     {
-        // 적이 존재하는지 확인
-        if (targetEnemy == null)
-        {
-            Debug.LogWarning("Target enemy is null in SoulLiberation. Make sure to set TargetEnemy before using the card.");
-            return;
-        }
+        
 
         // 공격을 수행
         targetEnemy.Hit(8 + player.PlayerStat.Power, player);
 
         // Weak 인덴트 데이터 가져오기
-        IndentData weakIndentData = indentData[(int)EIndent.Weak];
+        IndentData weakIndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Weak);
 
-        if (weakIndentData == null)
-        {
-            Debug.LogWarning("Weak indent data is null. Please ensure indentData is properly initialized.");
-            return;
-        }
-
-        // 적의 인덴트 리스트에서 Weak 인덴트를 찾기
         foreach (var indent in targetEnemy.CharacterIndent.indentList)
         {
             if (indent.indentData.indent == EIndent.Weak)
@@ -50,14 +38,13 @@ public class BattleCardEffect
                 return;
             }
         }
-
-        // 인덴트가 존재하지 않는 경우 새로운 인덴트 추가
         targetEnemy.CharacterIndent.AddIndent(weakIndentData, 2);
-        targetEnemy.CharacterIndent.Visualize(); // 시각적 업데이트가 필요하다면 추가
+        targetEnemy.CharacterIndent.Visualize();
+
     }
 
-    // 마나 방어막
-    public void barrier(BattleCard sender)
+        // 마나 방어막
+        public void barrier(BattleCard sender)
     {
         player.PlayerStat.Shield += (5 /*+ agility*/);
     }
