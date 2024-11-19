@@ -43,8 +43,33 @@ public class BattleCardEffect
 
     }
 
-        // 마나 방어막
-        public void barrier(BattleCard sender)
+    // 깎아내기 (적 공격력 약화)
+    public void AttackDown(BattleCard sender)
+    {
+
+
+        // 공격을 수행
+        targetEnemy.Hit(5 + player.PlayerStat.Power, player);
+
+        // Weak 인덴트 데이터 가져오기
+        IndentData weakeningIndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Weakening);
+
+        foreach (var indent in targetEnemy.CharacterIndent.indentList)
+        {
+            if (indent.indentData.indent == EIndent.Weakening)
+            {
+                // 인덴트가 이미 존재하는 경우 텍스트 업데이트
+                indent.UpdateIndent();
+                return;
+            }
+        }
+        targetEnemy.CharacterIndent.AddIndent(weakeningIndentData, 2);
+
+
+    }
+
+    // 마나 방어막
+    public void barrier(BattleCard sender)
     {
         player.PlayerStat.Shield += (5 /*+ agility*/);
     }
