@@ -1985,6 +1985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 00000000000000000000
+  parentObject: {fileID: 0}
   CardDeck: []
   CardHolder: {fileID: 366670768}
 --- !u!114 &1699946130
