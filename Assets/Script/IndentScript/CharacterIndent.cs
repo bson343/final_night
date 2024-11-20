@@ -31,7 +31,7 @@ public class CharacterIndent : MonoBehaviour
         indentList = new List<IndentObject>();
     }
 
-    public void AddIndent(IndentData indentData, int value)
+    public void AddIndent(IndentData indentData, int value) //왜인지 이코드 전체가 잘 적용안됨
     {
         if (_character == null)
         {
