@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStat : CharacterStat
+public class TestAniPlayerStat : CharacterStat
 {
     [SerializeField] private Text hpText;
     [SerializeField] private Text energyText;
@@ -63,8 +63,8 @@ public class PlayerStat : CharacterStat
 
         if (testMode)
         {
-            MaxHp = 10;
-            CurrentHp = 10;
+            MaxHp = 80;
+            CurrentHp = 80;
         }
         else
         {
@@ -91,6 +91,6 @@ public class PlayerStat : CharacterStat
         MaxOrb = 3;
         CurrentOrb = MaxOrb;
         onChangeHp += (() => hpText.text = CurrentHp + "/" + MaxHp);
-        onChangeHp += (() => UserManager.Instance.UpdateCurrentHP(CurrentHp));
+        onChangeHp += (() => hpText.text = CurrentHp + "/" + MaxHp);
     }
 }

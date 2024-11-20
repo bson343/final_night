@@ -13,6 +13,9 @@ public class BattlePlayer : Character
     public PlayerStat PlayerStat { get; private set; }
     
 
+    public TestAniPlayerStat PlayerStat { get; private set; }
+
+
     public List<BattleCard> CardDeck;
 
     public BattleCardHolder CardHolder;
@@ -49,7 +52,7 @@ public class BattlePlayer : Character
     }
     public void init()
     {
-        PlayerStat = GetComponent<PlayerStat>();
+        PlayerStat = GetComponent<TestAniPlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         PlayerStat.Init(this);
         CharacterAnimation.Init(this);
