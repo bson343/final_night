@@ -9,7 +9,7 @@ public class BattlePlayer : Character
     public Action onDead;
     public GameObject parentObject;
 
-    public PlayerStat PlayerStat { get; private set; }
+    public TestAniPlayerStat PlayerStat { get; private set; }
 
 
     public List<BattleCard> CardDeck;
@@ -25,7 +25,7 @@ public class BattlePlayer : Character
 
     public void init()
     {
-        PlayerStat = GetComponent<PlayerStat>();
+        PlayerStat = GetComponent<TestAniPlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         PlayerStat.Init(this);
         CharacterAnimation.Init(this);
