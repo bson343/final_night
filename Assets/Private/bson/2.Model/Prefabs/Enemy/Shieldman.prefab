@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87cbcfaaf24171e44a5bc841a6d16e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 10
+  _maxHp: 100
   _hpCanvas: {fileID: 3870328716142158432}
   _hpBar: {fileID: 4385927141202728341}
   _isPlayer: 0

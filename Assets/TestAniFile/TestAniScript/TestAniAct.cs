@@ -26,9 +26,16 @@ public class TestAniAct : MonoBehaviour
         randomNumber = random.Next(0, Act1BattleDataList.Count - 1);
         _player.init();
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 1; i < 6; i++)
         {
-            _player.AddCard(CardGenerator.GenBatCard(1));
+            if (i<5)
+            {
+              _player.AddCard(CardGenerator.GenBatCard(i));
+            }else {
+                _player.AddCard(CardGenerator.GenBatCard(13)); // 깎아내기 생성 (이자리에 카드 테스트해볼꺼 넣으면 될듯?)
+            }
+            
+            
         }
 
         battleManager.defeatCommonEnemy = 100;
