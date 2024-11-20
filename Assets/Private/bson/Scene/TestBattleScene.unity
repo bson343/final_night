@@ -863,6 +863,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adfce031c39f83a44aa1b7f71e185e88, type: 3}
+--- !u!1 &840432196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7088731874531362156, guid: adfce031c39f83a44aa1b7f71e185e88, type: 3}
+  m_PrefabInstance: {fileID: 840432195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &966781209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,7 +1990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 00000000000000000000
-  parentObject: {fileID: 0}
+  parentObject: {fileID: 840432196}
+  ani: {fileID: 1699946128}
   CardDeck: []
   CardHolder: {fileID: 366670768}
 --- !u!114 &1699946130

@@ -5,8 +5,27 @@ using UnityEngine.EventSystems;
 
 public class BattleCardBattleState : BattleCardState
 {
+    public static BattlePlayer Instance;
     private bool _isDrag = false;
+    private BattlePlayer ani;
+    public GameObject a;
 
+    void Awake()
+    {
+        GameObject parentObject = BattlePlayer.Instance.parentObject;
+       
+        ani = BattlePlayer.Instance; // 싱글턴을 통해 BattlePlayer 인스턴스 가져오기
+        if (ani == null)
+        {
+            Debug.LogError("BattlePlayer 인스턴스가 null입니다. BattlePlayer가 초기화되었는지 확인하세요.");
+        }
+        Debug.LogWarning(ani.parentObject.name);
+        if (ani.parentObject == null)
+        {
+            Debug.LogWarning("부모object = null");
+        }
+        
+    }
     public BattleCardBattleState(BattleCard battleCard, BattleCardStateFactory stateFactory) : base(battleCard, stateFactory)
     {
         cardUsage = ECardUsage.Battle;
@@ -14,6 +33,7 @@ public class BattleCardBattleState : BattleCardState
 
     public override void Enter()
     {
+        
         _isDrag = false;
     }
 
@@ -64,6 +84,10 @@ public class BattleCardBattleState : BattleCardState
             {
                 _battleCard.CardController.SetActiveRaycast(false);
                 _battleCard.UseCard();
+                
+                    BattlePlayer.Instance.attack();
+                    Debug.Log("Attack animation triggered.");
+                
             }
             
             battleManager.TargetEnemy = null;

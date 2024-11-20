@@ -6,11 +6,12 @@ using UnityEngine.Serialization;
 
 public class BattlePlayer : Character
 {
+    
     public Action onDead;
     public GameObject parentObject;
-
+    public BattlePlayer ani;
     public PlayerStat PlayerStat { get; private set; }
-
+    
 
     public List<BattleCard> CardDeck;
 
@@ -22,7 +23,30 @@ public class BattlePlayer : Character
 
     private BattleCardGenerator _cardGenerator => ServiceLocator.instance.GetService<BattleCardGenerator>();
     public CharacterAnimation CharacterAnimation { get; private set; }
+    public static BattlePlayer Instance { get; private set; }
 
+
+   
+        void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    
+        if (parentObject == null)
+        {
+            Debug.LogError("parentObject가 할당되지 않았습니다.");
+        }
+        else
+        {
+            Debug.Log("parentObject가 정상적으로 할당되었습니다: " + parentObject.name);
+        }
+    }
     public void init()
     {
         PlayerStat = GetComponent<PlayerStat>();
@@ -96,26 +120,38 @@ public class BattlePlayer : Character
         }
 
     }
-    public void attack()
+    public void test()
     {
-        Transform childTransform = parentObject.transform.Find("UnitRoot"); // "B"는 자식 오브젝트 이름
+        Debug.Log("fd");
+    }
+    public override void attack()
+    {
 
-        if (childTransform != null)
+        Debug.Log("Attack method called");
+        
+        if (parentObject == null)
         {
-            Animator childAnimator = childTransform.GetComponent<Animator>();
-            if (childAnimator != null)
-            {
-                // Animator의 트리거 활성화
-                childAnimator.SetTrigger("attack"); // Animator의 파라미터 이름
-            }
-            else
-            {
-                Debug.LogWarning("Animator 컴포넌트가 B 오브젝트에 없습니다.");
-            }
+            Debug.LogError("parentObject is null!");
+            return;
+        }
+
+        Transform childTransform = parentObject.transform.Find("UnitRoot");
+        if (childTransform == null)
+        {
+            Debug.LogError("UnitRoot not found");
+            return;
+        }
+
+        Animator childAnimator = childTransform.GetComponent<Animator>();
+        if (childAnimator != null)
+        {
+            childAnimator.SetTrigger("attack");
+            childAnimator.SetTrigger("back");
+
         }
         else
         {
-            Debug.LogWarning("B 오브젝트를 찾을 수 없습니다.");
+            Debug.LogWarning("Animator not found");
         }
     }
 
@@ -129,7 +165,7 @@ public class BattlePlayer : Character
         Debug.Log("맞았당");
         PlayerStat.Hit(damage);
 
-        /*if (!PlayerStat.IsDead)
+        if (!PlayerStat.IsDead)
         {
             Transform childTransform = parentObject.transform.Find("UnitRoot"); // "B"는 자식 오브젝트 이름
 
@@ -140,6 +176,7 @@ public class BattlePlayer : Character
                 {
                     // Animator의 트리거 활성화
                     childAnimator.SetTrigger("isHitted"); // Animator의 파라미터 이름
+                    childAnimator.SetTrigger("back");
                 }
                 else
                 {
@@ -152,7 +189,7 @@ public class BattlePlayer : Character
             }
 
 
-        }*/
+        }
 
     }
 

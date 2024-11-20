@@ -15,6 +15,11 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         Boss
     }
 
+    public override void attack()
+    {
+        
+    }
+
     [SerializeField] protected EEnemyGrade _enemyGrade;
     [SerializeField] private GameObject _reticle;
     
