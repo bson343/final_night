@@ -36,4 +36,13 @@ public class Act : MonoBehaviour
         battleManager.StartBattle(Act1BattleDataList[randomNumber]);
     }
 
+    private void OnEnable()
+    {
+        RemoteDeckBTN.Instance.setInteractable(true);
+    }
+
+    private void OnDisable()
+    {
+        RemoteDeckBTN.Instance.setInteractable(false);
+    }
 }
