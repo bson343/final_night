@@ -13,6 +13,8 @@ public enum ECardUsage
     Battle,   // 배틀
     DisCard,  // 제거
     Gain,     // 얻기
+    Check,    // 확인
+    Size,
 }
 public class BattleCard : MonoBehaviour
 {
@@ -31,6 +33,8 @@ public class BattleCard : MonoBehaviour
     // 온클릭 함수
     public Action onClickAction;
 
+    private static int s_generationNumber = 0;
+
     [SerializeField]
     private BattleCardController _cardController;
 
@@ -48,7 +52,7 @@ public class BattleCard : MonoBehaviour
     Dictionary<string, Sprite> CardSpriteMap => ResourceManager.Instance.CardSpriteMap;
 
     //Deprecated
-    public void Init(BattleCardHolder cardHolder, BattleCardData cardData, int generateNumber)
+    /*public void Init(BattleCardHolder cardHolder, BattleCardData cardData, int generateNumber)
     {
         Assert.IsTrue(false, "Used Deprecated Func, Use \'public void Init(BattleCardHolder cardHolder, int cardId)\'");
         _CardStateFactory = new BattleCardStateFactory(this);
@@ -59,7 +63,7 @@ public class BattleCard : MonoBehaviour
         _cardController.Init(_currentCardData.isBezierCurve, this);
 
         // 정렬 데이터
-        this.generateNumber = generateNumber;
+        this.generateNumber = s_generationNumber++;
         cardType = _currentCardData.cardType;
         cost = _currentCardData.cost;
         cardName = _currentCardData.cardName;
@@ -67,7 +71,7 @@ public class BattleCard : MonoBehaviour
 
         //Image cardImage = GetComponent<Image>();
         //cardImage.sprite = _currentCardData.cardImage;
-    }
+    }*/
 
     public void Init(BattleCardHolder cardHolder, int cardId)
     {
@@ -79,7 +83,7 @@ public class BattleCard : MonoBehaviour
         _cardController.Init(_currentCardData.isBezierCurve, this);
 
         // 정렬 데이터
-        this.generateNumber = -1;
+        this.generateNumber = s_generationNumber++;
         cardType = _currentCardData.cardType;
         cost = _currentCardData.cost;
         cardName = _currentCardData.cardName;
@@ -117,7 +121,7 @@ public class BattleCard : MonoBehaviour
     public void Discard()
     {
         // 내 카드에서 제거함
-        battleManager.Player.CardDeck.Remove(this);
+        battleManager.Player.CardList.Remove(this);
     }
 
     private bool TryUseCard()
