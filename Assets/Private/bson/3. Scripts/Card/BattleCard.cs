@@ -18,15 +18,12 @@ public enum ECardUsage
 }
 public class BattleCard : MonoBehaviour
 {
-    //Deprecated start
-    public int generateNumber;
+    
     public ECardType cardType;
     public int cost;
     public int cardID;
     public string cardName;
-    //Deprecated end
-
-    //public int CardId;
+    public int generateNumber;
 
     public ObservableArray<int> EffectValues;
 
@@ -37,12 +34,11 @@ public class BattleCard : MonoBehaviour
 
     [SerializeField]
     private BattleCardController _cardController;
-
+    
+    private BattleCardData _currentCardData;
     private BattleCardStateFactory _CardStateFactory;
     private BattleCardHolder _cardHolder;
-    private BattleCardData _currentCardData;
 
-    //public BattleCardData CardData => _currentCardData;
     public BattleCardState CurrentState => _CardStateFactory.CurrentState;
     public BattleCardHolder CardHolder => _cardHolder;
     public BattleCardController CardController => _cardController;
@@ -50,28 +46,6 @@ public class BattleCard : MonoBehaviour
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     Dictionary<decimal, BattleCardData> CardDataMap => ResourceManager.Instance.CardDataMap;
     Dictionary<string, Sprite> CardSpriteMap => ResourceManager.Instance.CardSpriteMap;
-
-    //Deprecated
-    /*public void Init(BattleCardHolder cardHolder, BattleCardData cardData, int generateNumber)
-    {
-        Assert.IsTrue(false, "Used Deprecated Func, Use \'public void Init(BattleCardHolder cardHolder, int cardId)\'");
-        _CardStateFactory = new BattleCardStateFactory(this);
-
-        _cardHolder = cardHolder;
-        _currentCardData = cardData;
-
-        _cardController.Init(_currentCardData.isBezierCurve, this);
-
-        // 정렬 데이터
-        this.generateNumber = s_generationNumber++;
-        cardType = _currentCardData.cardType;
-        cost = _currentCardData.cost;
-        cardName = _currentCardData.cardName;
-        cardID = _currentCardData.id;
-
-        //Image cardImage = GetComponent<Image>();
-        //cardImage.sprite = _currentCardData.cardImage;
-    }*/
 
     public void Init(BattleCardHolder cardHolder, int cardId)
     {
@@ -84,10 +58,12 @@ public class BattleCard : MonoBehaviour
 
         // 정렬 데이터
         this.generateNumber = s_generationNumber++;
+
+        this._currentCardData = CardDataMap[cardId];
         cardType = _currentCardData.cardType;
         cost = _currentCardData.cost;
         cardName = _currentCardData.cardName;
-
+        cardID = cardId;
     }
 
     public void ChangeState(ECardUsage cardUsage)
