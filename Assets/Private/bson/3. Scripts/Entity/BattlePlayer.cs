@@ -10,13 +10,13 @@ public class BattlePlayer : Character
     public Action onDead;
     public GameObject parentObject;
     public BattlePlayer ani;
-    
+
 
     //public PlayerStat PlayerStat { get; private set; }
     public TestAniPlayerStat PlayerStat { get; private set; }
-    
 
-    public List<BattleCard> CardDeck;
+
+    public List<BattleCard> CardList;
 
     public BattleCardHolder CardHolder;
 
@@ -80,22 +80,22 @@ public class BattlePlayer : Character
 
     public void OnStartBattle()
     {
-        CardHolder.StartBattle(CardDeck);
+        CardHolder.StartBattle(CardList);
     }
 
     public void OnEndBattle()
     {
-        CardHolder.EndBattle(CardDeck);
+        CardHolder.EndBattle(CardList);
     }
 
     public void ResumeBattle()
     {
-        CardHolder.ResumeBattle(CardDeck);
+        CardHolder.ResumeBattle(CardList);
     }
 
     public void AddCard(BattleCard card)
     {
-        CardDeck.Add(card);
+        CardList.Add(card);
     }
 
     public override void Dead()
