@@ -12,8 +12,8 @@ public class BattlePlayer : Character
     public BattlePlayer ani;
 
 
-    //public PlayerStat PlayerStat { get; private set; }
-    public TestAniPlayerStat PlayerStat { get; private set; }
+    public PlayerStat PlayerStat { get; private set; }
+    //public TestAniPlayerStat PlayerStat { get; private set; }
 
 
     public List<BattleCard> CardList;
@@ -52,8 +52,8 @@ public class BattlePlayer : Character
     }
     public void init()
     {
-        PlayerStat = GetComponent<TestAniPlayerStat>();
-        //PlayerStat = GetComponent<PlayerStat>();
+       // PlayerStat = GetComponent<TestAniPlayerStat>();
+        PlayerStat = GetComponent<PlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         PlayerStat.Init(this);
         CharacterAnimation.Init(this);
@@ -124,27 +124,26 @@ public class BattlePlayer : Character
         }
 
     }
-    public void test()
+    public override void magic()
     {
-        Debug.Log("fd");
+        Transform childTransform = parentObject.transform.Find("UnitRoot");
+
+        Animator childAnimator = childTransform.GetComponent<Animator>();
+        if (childAnimator != null)
+        {
+            childAnimator.SetTrigger("magic");
+            childAnimator.SetTrigger("back");
+
+        }
+        
     }
+    
     public override void attack()
     {
-
-        Debug.Log("Attack method called");
-        
-        if (parentObject == null)
-        {
-            Debug.LogError("parentObject is null!");
-            return;
-        }
+       
 
         Transform childTransform = parentObject.transform.Find("UnitRoot");
-        if (childTransform == null)
-        {
-            Debug.LogError("UnitRoot not found");
-            return;
-        }
+       
 
         Animator childAnimator = childTransform.GetComponent<Animator>();
         if (childAnimator != null)
@@ -153,10 +152,7 @@ public class BattlePlayer : Character
             childAnimator.SetTrigger("back");
 
         }
-        else
-        {
-            Debug.LogWarning("Animator not found");
-        }
+       
     }
 
     public override void Hit(int damage, Character attacker)

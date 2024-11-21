@@ -19,6 +19,10 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         
     }
+    public override void magic()
+    {
+
+    }
 
     [SerializeField] protected EEnemyGrade _enemyGrade;
     [SerializeField] private GameObject _reticle;
@@ -99,7 +103,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         battleManager.Enemies.Remove(this);
         Destroy(gameObject);
     }
-
+    
     public void LockOn()
     {
         _reticle.SetActive(true);

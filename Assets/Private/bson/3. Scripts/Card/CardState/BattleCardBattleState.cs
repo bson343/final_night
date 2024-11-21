@@ -101,6 +101,7 @@ public class BattleCardBattleState : BattleCardState
             {
                 _battleCard.CardController.SetActiveRaycast(false);
                 _battleCard.UseCard();
+                BattlePlayer.Instance.magic();
             }
         }
 
