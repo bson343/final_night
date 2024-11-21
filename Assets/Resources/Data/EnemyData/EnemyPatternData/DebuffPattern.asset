@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8dde747f0c04341a76e3d548c96cda, type: 3}
   m_Name: DebuffPattern
   m_EditorClassIdentifier: 
-  patternType: 0
-  patternIcon: {fileID: 8335706812776939420, guid: 81fb499104cffc34aa37921f38ba9aef, type: 3}
-  patternName: attack
-  patternExplanation: 
+  patternType: 2
+  patternIcon: {fileID: 21300000, guid: 88fb83be1c789d045bc35679d35b5233, type: 3}
+  patternName: "\uB514\uBC84\uD504"
+  patternExplanation: "\uACF5\uACA9\uB825 \uAC10\uC18C \uAC78\uB824\uACE0"

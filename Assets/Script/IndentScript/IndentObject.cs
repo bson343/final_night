@@ -27,6 +27,7 @@ public class IndentObject : MonoBehaviour
     {
         Debug.Log("Áõ°¡ ¾å");
         this.turn += turn;
+        UpdateIndent();
     }
 
 
