@@ -35,6 +35,8 @@ public class EnemyPattern : MonoBehaviour
     private int _patternTurn = 1;
     private Pattern _currentPattern;
 
+    private IndentData[] indentData; // 상태이상 걸꺼
+
     private bool isActFirst = true;
 
     private VFXGenerator vfxGenerator => ServiceLocator.Instance.GetService<VFXGenerator>();
@@ -114,10 +116,14 @@ public class EnemyPattern : MonoBehaviour
             case EPatternType.Defense:
                 _enemy.CharacterStat.Shield += _currentPattern.amount; // 방어력 증가
                 break;
+            case EPatternType.Debuff:
+                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy); //  디버프거는거 (정보에 따라 달라지는듯?)
+                battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
+                break;
             //case EPatternType.Buff:
-                //GameManager.Sound.PlaySE(ESE.Buff);
-               // GetIndent();
-                //break;
+            //GameManager.Sound.PlaySE(ESE.Buff);
+            // GetIndent();
+            //break;
             default:
                 Assert.IsTrue(false, "Non PatternType");
                 break;

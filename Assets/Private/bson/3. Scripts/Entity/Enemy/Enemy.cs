@@ -30,7 +30,8 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     public CharacterStat CharacterStat { get; private set; }
     public CharacterAnimation CharacterAnimation { get; private set; }
     public EnemyPattern EnemyPattern { get; private set; }
-
+    protected BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+    protected BattlePlayer player => battleManager.Player;
     public CharacterIndent CharacterIndent { get; private set; }
 
 
@@ -73,7 +74,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnEndEnemyTurn()
     {
-      //  CharacterIndent.UpdateIndents();
+        CharacterIndent.UpdateIndents();
         // 의식이면 내 턴이 시작될 때 파워가 3 상승
         if (indent[(int)EIndent.Consciousness])
         {
@@ -83,7 +84,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnEndMyTurn()
     {
-
+        player.CharacterIndent.UpdateIndents();
     }
     
     protected virtual void OnStartMyTurn()
