@@ -10,7 +10,7 @@ public class BattlePlayer : Character
     public Action onDead;
     public GameObject parentObject;
     public BattlePlayer ani;
-
+    
 
     //public PlayerStat PlayerStat { get; private set; }
     public TestAniPlayerStat PlayerStat { get; private set; }

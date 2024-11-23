@@ -34,6 +34,8 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     protected BattlePlayer player => battleManager.Player;
     public CharacterIndent CharacterIndent { get; private set; }
 
+    private static bool isSubscribedToEndMyTurn = false;
+
 
     private void Awake()
     {
@@ -70,6 +72,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     protected virtual void OnStartEnemyTurn()
     {
         CharacterIndent.BurnDamageUpDate(); // 화상데미지
+        isSubscribedToEndMyTurn = false; // 적의 턴이 시작되면 다시 초기화
     }
     
     protected virtual void OnEndEnemyTurn()
@@ -84,8 +87,10 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnEndMyTurn()
     {
+        if (isSubscribedToEndMyTurn) return; // 이미 처리된 경우 중복 실행 방지
+        isSubscribedToEndMyTurn = true;
+
         player.CharacterIndent.UpdateIndents();
-        Debug.Log("에너지");
     }
     
     protected virtual void OnStartMyTurn()

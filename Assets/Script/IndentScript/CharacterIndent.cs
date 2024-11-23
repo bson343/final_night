@@ -138,6 +138,7 @@ public class CharacterIndent : MonoBehaviour
         }
     }
 
+    
     // 특정 EIndent 타입에 맞는 IndentData를 반환하는 메서드
     public IndentData GetIndentData(EIndent indentType)
     {
