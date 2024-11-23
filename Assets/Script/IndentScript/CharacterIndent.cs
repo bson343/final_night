@@ -73,6 +73,25 @@ public class CharacterIndent : MonoBehaviour
         }
     }
 
+    public void BurnDamageUpDate() //  화상데미지    
+    {
+        List<IndentObject> list = new List<IndentObject>();
+
+        for (int i = 0; i < indentList.Count; i++)
+        {
+            if (indentList[i].indentData.isTurn)
+            {
+                       
+                if (indentList[i].indentData.indent == EIndent.Burn)
+                {
+                    int damage = indentList[i].turn;     
+                    Debug.Log(damage);
+                    _character.Hit(damage, _character);
+                }
+            }
+        }
+    }
+
     public void UpdateIndents()
     {
         // 0이 되면 그 indent destroy와

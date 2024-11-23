@@ -69,17 +69,17 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnStartEnemyTurn()
     {
-        
+        CharacterIndent.BurnDamageUpDate(); // 화상데미지
     }
     
     protected virtual void OnEndEnemyTurn()
     {
         CharacterIndent.UpdateIndents();
         // 의식이면 내 턴이 시작될 때 파워가 3 상승
-        if (indent[(int)EIndent.Consciousness])
+        /*if (indent[(int)EIndent.Consciousness])
         {
             CharacterStat.Power += 3;
-        }
+        }*/
     }
     
     protected virtual void OnEndMyTurn()

@@ -95,6 +95,32 @@ public class BattleCardEffect
         player.PlayerStat.CurrentOrb += 2;
     }
 
+    // 화상 포션
+    public void BurnPotion(BattleCard sender)
+    {
+
+
+        // 공격을 수행
+        targetEnemy.Hit(5 + player.PlayerStat.Power, player);
+
+        // Weak 인덴트 데이터 가져오기
+        IndentData BurndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Burn);
+
+        foreach (var indent in targetEnemy.CharacterIndent.indentList)
+        {
+            if (indent.indentData.indent == EIndent.Burn)
+            {
+                Debug.Log("이미 화상이 존재");
+                // 인덴트가 이미 존재하는 경우 텍스트 업데이트
+                targetEnemy.CharacterIndent.AddIndent(BurndentData, 2);
+                return;
+            }
+        }
+        targetEnemy.CharacterIndent.AddIndent(BurndentData, 2);
+
+
+    }
+
     //마안
     public void EvilEye(BattleCard sender)
     {
