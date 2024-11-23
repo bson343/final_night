@@ -18,6 +18,12 @@ public class BattleCardEffect
         targetEnemy?.Hit(5+ player.PlayerStat.Power, player);
     }
 
+    // 암흑 정령
+    public void DarkSpirit(BattleCard sender)
+    {
+        targetEnemy?.Hit(5 + player.PlayerStat.Power, player);
+    }
+
     // 착취의 손아귀
     public void GraspOftheUndying(BattleCard sender)
     {
@@ -100,8 +106,24 @@ public class BattleCardEffect
         }
     }
 
+
+    // 대폭발
+    public void BigExplosion(BattleCard sender)
+    {
+        foreach (var enemy in enemies)
+        {
+            enemy.Hit(10 + player.PlayerStat.Power, player);
+        }
+    }
+
     // 마나 순환
     public void ManaCirculation(BattleCard sender)
+    {
+        player.PlayerStat.CurrentOrb += 2;
+    }
+
+    // 폭주마법진
+    public void MagicalMeltdown(BattleCard sender)
     {
         player.PlayerStat.CurrentOrb += 2;
     }
@@ -134,6 +156,31 @@ public class BattleCardEffect
 
     // 점화 (미완)
     public void Ignite(BattleCard sender)
+    {
+
+
+        // 공격을 수행
+        targetEnemy.Hit(5 + player.PlayerStat.Power, player);
+
+        // Weak 인덴트 데이터 가져오기
+        IndentData BurndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Burn);
+
+        foreach (var indent in targetEnemy.CharacterIndent.indentList)
+        {
+            if (indent.indentData.indent == EIndent.Burn)
+            {
+                Debug.Log("이미 화상이 존재");
+                // 인덴트가 이미 존재하는 경우 텍스트 업데이트
+                targetEnemy.CharacterIndent.AddIndent(BurndentData, 2);
+                return;
+            }
+        }
+        targetEnemy.CharacterIndent.AddIndent(BurndentData, 2);
+
+    }
+
+    // 저주의 손길 (미완)
+    public void TouchOfCurse(BattleCard sender)
     {
 
 
