@@ -18,11 +18,21 @@ public class BattleCardEffect
         targetEnemy?.Hit(5+ player.PlayerStat.Power, player);
     }
 
+    // 착취의 손아귀
+    public void GraspOftheUndying(BattleCard sender)
+    {
+        targetEnemy?.Hit(5 + player.PlayerStat.Power, player);
+    }
+
+    // 암흑 마력탄 
+    public void DarkMagicBullet(BattleCard sender)
+    {
+        targetEnemy?.Hit(5 + (player.PlayerStat.Power*4), player);
+    }
+
     // 영혼 해방
     public void SoulLiberation(BattleCard sender)
     {
-        
-
         // 공격을 수행
         targetEnemy.Hit(8 + player.PlayerStat.Power, player);
 
@@ -46,7 +56,6 @@ public class BattleCardEffect
     // 깎아내기 (적 공격력 약화)
     public void AttackDown(BattleCard sender)
     {
-
 
         // 공격을 수행
         targetEnemy.Hit(5 + player.PlayerStat.Power, player);
@@ -85,7 +94,9 @@ public class BattleCardEffect
     {
         foreach (var enemy in enemies)
         {
-            enemy.Hit(10 + player.PlayerStat.Power, player);
+            enemy.Hit(6 + player.PlayerStat.Power, player);
+            enemy.Hit(6 + player.PlayerStat.Power, player);
+            enemy.Hit(6 + player.PlayerStat.Power, player);
         }
     }
 
@@ -121,6 +132,31 @@ public class BattleCardEffect
 
     }
 
+    // 점화 (미완)
+    public void Ignite(BattleCard sender)
+    {
+
+
+        // 공격을 수행
+        targetEnemy.Hit(5 + player.PlayerStat.Power, player);
+
+        // Weak 인덴트 데이터 가져오기
+        IndentData BurndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Burn);
+
+        foreach (var indent in targetEnemy.CharacterIndent.indentList)
+        {
+            if (indent.indentData.indent == EIndent.Burn)
+            {
+                Debug.Log("이미 화상이 존재");
+                // 인덴트가 이미 존재하는 경우 텍스트 업데이트
+                targetEnemy.CharacterIndent.AddIndent(BurndentData, 2);
+                return;
+            }
+        }
+        targetEnemy.CharacterIndent.AddIndent(BurndentData, 2);
+
+    }
+
     //마안
     public void EvilEye(BattleCard sender)
     {
@@ -145,5 +181,30 @@ public class BattleCardEffect
         player.CharacterIndent.AddIndent(powerIndentData, 2);
        
     }
- }
+
+    // 현신 
+    public void Incarnates(BattleCard sender)
+    {
+        // 플레이어의 파워 증가
+        player.PlayerStat.Power += 20;
+
+        // Strength 인덴트 데이터 가져오기
+        IndentData powerIndentData = player.CharacterIndent.GetIndentData(EIndent.Strength);
+
+
+        foreach (var indent in player.CharacterIndent.indentList)
+        {
+            if (indent.indentData.indent == EIndent.Strength)
+            {
+                // 인덴트가 이미 존재하는 경우 텍스트 업데이트
+                player.CharacterIndent.AddIndent(powerIndentData, 20);
+                return;
+            }
+        }
+
+        // 인덴트 추가
+        player.CharacterIndent.AddIndent(powerIndentData, 20);
+
+    }
+}
 
