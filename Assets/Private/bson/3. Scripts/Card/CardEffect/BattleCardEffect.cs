@@ -34,7 +34,7 @@ public class BattleCardEffect
             if (indent.indentData.indent == EIndent.Weak)
             {
                 // 인덴트가 이미 존재하는 경우 텍스트 업데이트
-                indent.UpdateIndent();
+                targetEnemy.CharacterIndent.AddIndent(weakIndentData, 2);
                 return;
             }
         }
@@ -59,7 +59,7 @@ public class BattleCardEffect
             if (indent.indentData.indent == EIndent.Weakening)
             {
                 // 인덴트가 이미 존재하는 경우 텍스트 업데이트
-                indent.UpdateIndent();
+                targetEnemy.CharacterIndent.AddIndent(weakeningIndentData, 2);
                 return;
             }
         }
@@ -110,7 +110,7 @@ public class BattleCardEffect
             if (indent.indentData.indent == EIndent.Strength)
             {
                 // 인덴트가 이미 존재하는 경우 텍스트 업데이트
-                indent.UpdateIndent();
+                player.CharacterIndent.AddIndent(powerIndentData, 2);
                 return;
             }
         }
