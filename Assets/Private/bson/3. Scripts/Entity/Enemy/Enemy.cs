@@ -85,6 +85,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     protected virtual void OnEndMyTurn()
     {
         player.CharacterIndent.UpdateIndents();
+        Debug.Log("에너지");
     }
     
     protected virtual void OnStartMyTurn()
