@@ -13,7 +13,7 @@ public class BattlePlayer : Character
     
 
     public PlayerStat PlayerStat { get; private set; }
-   // public TestAniPlayerStat PlayerStat { get; private set; }
+    //public TestAniPlayerStat PlayerStat { get; private set; }
 
 
     public List<BattleCard> CardList;
@@ -52,8 +52,8 @@ public class BattlePlayer : Character
     }
     public void init()
     {
-        //PlayerStat = GetComponent<TestAniPlayerStat>();
-       PlayerStat = GetComponent<PlayerStat>();
+       // PlayerStat = GetComponent<TestAniPlayerStat>();
+        PlayerStat = GetComponent<PlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         PlayerStat.Init(this);
         CharacterAnimation.Init(this);

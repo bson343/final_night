@@ -109,7 +109,7 @@ namespace Map
             }
         }
         
-        void SetActiveNav()
+        public void SetActiveNav()
         {
             if (MapPlayerTracker.Instance.navObject != null)
             {
