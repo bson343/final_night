@@ -39,24 +39,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Treasure.unity
     guid: e00f5bb0516bdfc4fa92b13429bffc2f
   - enabled: 1
-    path: Assets/Private/bson/Scene/BossBattleScene.unity
-    guid: 8689ee19fb6adc24ab165fd7e5451973
-  - enabled: 1
     path: Assets/Scenes/chapter0.unity
     guid: 78564fa6cb842ff4c81877adaf9fed0f
   - enabled: 1
     path: Assets/Scenes/shop 1.unity
     guid: 375d71a278bc5ac4881915c5f2cc6034
   - enabled: 1
-    path: Assets/Scenes/Boss.unity
-    guid: ad555167c1946af4fb25f0d68e7e90d7
-  - enabled: 1
-    path: Assets/Scenes/Elite.unity
-    guid: d1d2b8e2fbe8ee7469d025aeeaf93a30
-  - enabled: 1
     path: Assets/TestAniFile/TestStart.unity
     guid: 5c8d058cb25137b4fb3248fe8e878bd7
   - enabled: 1
     path: Assets/TestAniFile/TestAniBattleScene.unity
     guid: 18c1e2edecfcf0041bd3a28fcb715f65
+  - enabled: 1
+    path: Assets/Scenes/Boss.unity
+    guid: 3547113df71beb54fa5dd9bff03121d8
+  - enabled: 1
+    path: Assets/Scenes/Elite.unity
+    guid: 249cd2601b91cac4fa9fef1399036aa1
   m_configObjects: {}
