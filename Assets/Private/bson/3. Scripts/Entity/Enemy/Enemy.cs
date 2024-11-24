@@ -87,7 +87,10 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     
     protected virtual void OnEndMyTurn()
     {
-        if (isSubscribedToEndMyTurn) return; // 이미 처리된 경우 중복 실행 방지
+        if (isSubscribedToEndMyTurn)
+        {
+            return; // 이미 처리된 경우 중복 실행 방지
+        }
         isSubscribedToEndMyTurn = true;
 
         player.CharacterIndent.UpdateIndents();

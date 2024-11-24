@@ -10,6 +10,7 @@ public enum EIndent
     Consciousness, // 의식
     Frenzy, // 격분
     Burn, //화상
+    DeathCount , // 죽음선고
     Strength, // 힘 얻기
     Roll, // 몸 말기  -> 공벌레
     SporeCloud,  // 포자 구름

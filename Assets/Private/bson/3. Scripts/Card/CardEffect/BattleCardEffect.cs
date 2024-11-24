@@ -110,9 +110,12 @@ public class BattleCardEffect
     // 대폭발
     public void BigExplosion(BattleCard sender)
     {
+        IndentData BurndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Burn);
+
         foreach (var enemy in enemies)
         {
             enemy.Hit(10 + player.PlayerStat.Power, player);
+
         }
     }
 
@@ -232,12 +235,11 @@ public class BattleCardEffect
     // 현신 
     public void Incarnates(BattleCard sender)
     {
+
         // 플레이어의 파워 증가
         player.PlayerStat.Power += 20;
-
         // Strength 인덴트 데이터 가져오기
         IndentData powerIndentData = player.CharacterIndent.GetIndentData(EIndent.Strength);
-
 
         foreach (var indent in player.CharacterIndent.indentList)
         {
@@ -248,9 +250,9 @@ public class BattleCardEffect
                 return;
             }
         }
-
-        // 인덴트 추가
         player.CharacterIndent.AddIndent(powerIndentData, 20);
+        IndentData deathIndentData = player.CharacterIndent.GetIndentData(EIndent.DeathCount);
+        player.CharacterIndent.AddIndent(deathIndentData, 1);
 
     }
 }

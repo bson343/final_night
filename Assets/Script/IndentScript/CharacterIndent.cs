@@ -10,7 +10,6 @@ public class CharacterIndent : MonoBehaviour
 
     [SerializeField] private Transform indentParent;
     [SerializeField] private IndentObject indentPrefab;
-
     public List<IndentObject> indentList = new List<IndentObject>();
 
     [SerializeField]
@@ -127,10 +126,11 @@ public class CharacterIndent : MonoBehaviour
 
     public void RemoveIndent(EIndent indentType)
     {
-        for (int i = 0; i < indentList.Count; i++)
+        for (int i = indentList.Count - 1; i >= 0; i--) // 역순으로 순회
         {
             if (indentList[i].indentData.indent == indentType)
             {
+               
                 IndentObject temp = indentList[i];
                 indentList.Remove(temp);
                 Destroy(temp.gameObject);
@@ -138,7 +138,7 @@ public class CharacterIndent : MonoBehaviour
         }
     }
 
-    
+
     // 특정 EIndent 타입에 맞는 IndentData를 반환하는 메서드
     public IndentData GetIndentData(EIndent indentType)
     {

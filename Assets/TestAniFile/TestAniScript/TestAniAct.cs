@@ -30,9 +30,9 @@ public class TestAniAct : MonoBehaviour
         {
             if (i<5)
             {
-              _player.AddCard(CardGenerator.GenBatCard(i));
+              _player.AddCard(CardGenerator.GenBatCard(7));
             }else {
-                _player.AddCard(CardGenerator.GenBatCard(10)); // 깎아내기 생성 (이자리에 카드 테스트해볼꺼 넣으면 될듯?)
+                _player.AddCard(CardGenerator.GenBatCard(5)); // 깎아내기 생성 (이자리에 카드 테스트해볼꺼 넣으면 될듯?)
             }
             
             
