@@ -6,8 +6,8 @@ using TMPro;
 public class TypingEffect : MonoBehaviour
 {
     public TextMeshProUGUI Tx;
-    private string m_Text = "석상이 말을 건다... 무슨 말을 하려는 걸까...";
-    private string s_Text = "휴식을 취하면 체력을 회복시켜주지... 필요없다면 그냥 가도 좋다...";
+    private string m_Text = "석상쪽에 신성한 기운이 느껴진다.. 그앞에 누군가가 두고간듯한 재물도 존재한다..";
+    private string s_Text = "둘중에 하나만 선택가능한 듯 하다. 어떻게 할까?..";
     public GameObject Statue;
     public GameObject NextBtn;
     public GameObject Rest;

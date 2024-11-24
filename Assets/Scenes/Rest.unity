@@ -261,7 +261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB5A0\uB09C\uB2E4"
+  m_text: "\uB3C8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 242da59f0df88f545b8cac2f729ce2ab, type: 2}
   m_sharedMaterial: {fileID: -989459250303530459, guid: 242da59f0df88f545b8cac2f729ce2ab, type: 2}
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD734\uC2DD"
+  m_text: "\uCD95\uBCF5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 242da59f0df88f545b8cac2f729ce2ab, type: 2}
   m_sharedMaterial: {fileID: -989459250303530459, guid: 242da59f0df88f545b8cac2f729ce2ab, type: 2}
@@ -3659,6 +3659,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1270688100}
         m_TargetAssemblyTypeName: ClearFloor, Assembly-CSharp
         m_MethodName: ClearFloorPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1270688101}
+        m_TargetAssemblyTypeName: EventChoiseScript, Assembly-CSharp
+        m_MethodName: Event_Open_BOX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
