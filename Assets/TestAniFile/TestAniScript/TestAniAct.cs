@@ -26,13 +26,13 @@ public class TestAniAct : MonoBehaviour
         randomNumber = random.Next(0, Act1BattleDataList.Count - 1);
         _player.init();
 
-        for (int i = 1; i < 6; i++)
+        for (int i = 1; i < 9; i++)
         {
-            if (i<5)
+            if (i<8)
             {
-              _player.AddCard(CardGenerator.GenBatCard(7));
+              _player.AddCard(CardGenerator.GenBatCard(i));
             }else {
-                _player.AddCard(CardGenerator.GenBatCard(5)); // 깎아내기 생성 (이자리에 카드 테스트해볼꺼 넣으면 될듯?)
+                _player.AddCard(CardGenerator.GenBatCard(14)); // 깎아내기 생성 (이자리에 카드 테스트해볼꺼 넣으면 될듯?)
             }
             
             

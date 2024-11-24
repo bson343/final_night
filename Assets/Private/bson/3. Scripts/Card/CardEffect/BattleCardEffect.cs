@@ -9,6 +9,9 @@ public class BattleCardEffect
     protected List<Enemy> enemies => battleManager.Enemies;
     protected Enemy targetEnemy => battleManager.TargetEnemy;
 
+    BattleCardHolder cardHolder => battleManager.Player.CardHolder;
+
+
     [SerializeField]
     private IndentData[] indentData;
 
@@ -128,7 +131,12 @@ public class BattleCardEffect
     // 폭주마법진
     public void MagicalMeltdown(BattleCard sender)
     {
+        for (int i = 0; i < 3; i++)
+        {
+            cardHolder.DrawCard();
+        }
         player.PlayerStat.CurrentOrb += 2;
+        player.PlayerStat.CurrentHp -= 6;
     }
 
     // 화상 포션

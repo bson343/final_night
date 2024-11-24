@@ -3566,7 +3566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 00000000000000000000
-  CardDeck: []
+  parentObject: {fileID: 0}
+  ani: {fileID: 0}
+  CardList: []
   CardHolder: {fileID: 366670768}
 --- !u!114 &1699946130
 MonoBehaviour:
@@ -3587,6 +3589,7 @@ MonoBehaviour:
   hpText: {fileID: 53724307}
   energyText: {fileID: 8613713420675057387}
   moneyText: {fileID: 0}
+  testMode: 0
 --- !u!95 &1699946131
 Animator:
   serializedVersion: 5
