@@ -401,7 +401,7 @@ RectTransform:
   m_GameObject: {fileID: 77355593}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.25256157}
-  m_LocalScale: {x: 1.4247053, y: 1.4247053, z: 1.4247053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1273467063}
@@ -409,8 +409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -715.0698, y: -217.58252}
-  m_SizeDelta: {x: 237.4146, y: 98.5}
+  m_AnchoredPosition: {x: -554, y: -217.58252}
+  m_SizeDelta: {x: 335, y: 177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77355595
 MonoBehaviour:
@@ -2323,7 +2323,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 768, y: -292}
-  m_SizeDelta: {x: 332.5261, y: 176.3185}
+  m_SizeDelta: {x: 335, y: 177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220751716
 MonoBehaviour:
@@ -2488,7 +2488,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB9CC \uB458\uB7EC\uBCF4\uAE30"
+  m_text: "\uB098\uAC00\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 242da59f0df88f545b8cac2f729ce2ab, type: 2}
   m_sharedMaterial: {fileID: -989459250303530459, guid: 242da59f0df88f545b8cac2f729ce2ab, type: 2}
@@ -2515,8 +2515,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3197,6 +3197,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3209469318731302916, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3253845219902108880, guid: a2e1ebd7f10db514799b5b1f37ba8b8c, type: 3}
       propertyPath: m_Name
       value: CardItem
@@ -3566,7 +3570,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 00000000000000000000
-  CardDeck: []
+  parentObject: {fileID: 0}
+  ani: {fileID: 0}
+  CardList: []
   CardHolder: {fileID: 366670768}
 --- !u!114 &1699946130
 MonoBehaviour:
@@ -3587,6 +3593,7 @@ MonoBehaviour:
   hpText: {fileID: 53724307}
   energyText: {fileID: 8613713420675057387}
   moneyText: {fileID: 0}
+  testMode: 0
 --- !u!95 &1699946131
 Animator:
   serializedVersion: 5
@@ -3717,7 +3724,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 768, y: -292}
-  m_SizeDelta: {x: 332.5261, y: 176.3185}
+  m_SizeDelta: {x: 335, y: 177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998952304
 MonoBehaviour:
