@@ -8,7 +8,6 @@ public class ToolbarUserInfo : MonoBehaviour
     public TMP_Text nicknameText;
     public TMP_Text GoldText;
     public TMP_Text HPText;
-    public TMP_Text SPText;
 
     public int MaxSp = 100;
     
@@ -43,7 +42,6 @@ public class ToolbarUserInfo : MonoBehaviour
     {
         GoldText.text = UserManager.Instance.Gold.ToString();
         HPText.text = UserManager.Instance.CurrentHP.ToString()+"/" + UserManager.Instance.MaxHP.ToString();
-        SPText.text = UserManager.Instance.CurrentSP.ToString() + "/" + MaxSp;
     }
    
     public void GameExit()

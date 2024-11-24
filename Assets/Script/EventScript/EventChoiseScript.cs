@@ -24,14 +24,13 @@ public class EventChoiseScript : MonoBehaviour
 
     public void Event_Three_Two_Scene()
     {
-        UserManager.Instance.UpdateCurrentSP(UserManager.Instance.CurrentSP + 10);
+
     }
 
     public void Event_Three_Three_Scene()
     {
         UserManager.Instance.UpdateMaxHP(UserManager.Instance.MaxHP + 50);
         UserManager.Instance.UpdateCurrentHP(UserManager.Instance.CurrentHP + 50);
-        UserManager.Instance.UpdateCurrentSP(UserManager.Instance.CurrentSP + 50);
     }
 
     public void Event_Four_Scene()

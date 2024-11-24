@@ -10,7 +10,6 @@ public class GamePlayDataLodingManager : MonoBehaviour
     public static GamePlayDataLodingManager Instance { get; private set; }
 
     private int BasicHP = 50;
-    private int BasicSP = 0;
     private int BasicGold = 99;
     private int BasicNewGamePaly = 0;
     private List<int> BasicCardDeck = new List<int> {1,2,3,4,5,6,10,13,14};
@@ -82,7 +81,6 @@ public class GamePlayDataLodingManager : MonoBehaviour
         isDataInitialized = true;
         UserManager.Instance.SetMaxHP(BasicHP);
         UserManager.Instance.SetCurrentHP(BasicHP);
-        UserManager.Instance.SetCurrentSP(BasicSP);
         UserManager.Instance.SetGold(BasicGold);
         UserManager.Instance.SetNewGamePlay(BasicNewGamePaly);
         UserManager.Instance.SetMap(null);
@@ -145,7 +143,6 @@ public class GamePlayDataLodingManager : MonoBehaviour
     {
         UserManager.Instance.SetMaxHP(BasicHP);
         UserManager.Instance.SetCurrentHP(BasicHP);
-        UserManager.Instance.SetCurrentSP(BasicSP);
         UserManager.Instance.SetNewGamePlay(BasicNewGamePaly);
         UserManager.Instance.SetGold(BasicGold);
         UserManager.Instance.SetMap(null);
@@ -163,7 +160,6 @@ public class GamePlayDataLodingManager : MonoBehaviour
     {
         UserManager.Instance.SetMaxHP(gameData.MaxHP);
         UserManager.Instance.SetCurrentHP(gameData.CurrentHP);
-        UserManager.Instance.SetCurrentSP(gameData.CurrentSP);
         UserManager.Instance.SetNewGamePlay(gameData.NewGamePlay);
         UserManager.Instance.SetGold(gameData.Gold);
         UserManager.Instance.SetCardDeckindex(gameData.CardDeckIndex);

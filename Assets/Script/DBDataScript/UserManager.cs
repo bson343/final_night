@@ -22,7 +22,6 @@ public class UserManager : MonoBehaviour
 
     public int NewGamePlay { get; private set; } // 처음 시작하나 안하나.
 
-    public int CurrentSP { get; private set; } // 현재 SP
 
 
     public event Action OnDataChanged;
@@ -84,10 +83,6 @@ public class UserManager : MonoBehaviour
         CurrentHP = hp;
     }
 
-    public void SetCurrentSP(int sp)
-    {
-        CurrentSP = sp;
-    }
 
     public void SetCardDeckindex(List<int> cardDeck) // list 숫자형으로 테스트
     {
@@ -139,9 +134,4 @@ public class UserManager : MonoBehaviour
         OnDataChanged?.Invoke();
     }
 
-    public void UpdateCurrentSP(int newSP)
-    {
-        CurrentSP = newSP;
-        OnDataChanged?.Invoke();
-    }
 }
