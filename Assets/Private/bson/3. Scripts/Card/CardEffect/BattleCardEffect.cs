@@ -235,9 +235,9 @@ public class BattleCardEffect
     // 현신 
     public void Incarnates(BattleCard sender)
     {
-
         // 플레이어의 파워 증가
         player.PlayerStat.Power += 20;
+
         // Strength 인덴트 데이터 가져오기
         IndentData powerIndentData = player.CharacterIndent.GetIndentData(EIndent.Strength);
 

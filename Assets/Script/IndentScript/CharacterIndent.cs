@@ -10,6 +10,7 @@ public class CharacterIndent : MonoBehaviour
 
     [SerializeField] private Transform indentParent;
     [SerializeField] private IndentObject indentPrefab;
+
     public List<IndentObject> indentList = new List<IndentObject>();
 
     [SerializeField]
@@ -91,6 +92,25 @@ public class CharacterIndent : MonoBehaviour
         }
     }
 
+    public void DeathCountOver() // 헌신 디버프   
+    {
+        List<IndentObject> list = new List<IndentObject>();
+
+        for (int i = 0; i < indentList.Count; i++)
+        {
+            if (indentList[i].indentData.isTurn)
+            {
+
+                if (indentList[i].indentData.indent == EIndent.DeathCount)
+                {
+                    int damage = 30;
+                    Debug.Log(damage);
+                    _character.Hit(damage, _character);
+                }
+            }
+        }
+    }
+
     public void UpdateIndents()
     {
         // 0이 되면 그 indent destroy와
@@ -113,30 +133,35 @@ public class CharacterIndent : MonoBehaviour
             }
         }
 
-        while(list.Count > 0)
+        while (list.Count > 0)
         {
             IndentObject temp = list[0];
-            indentList.Remove(temp);
-            list.Remove(temp);
-            Destroy(temp.gameObject);
-        }
 
-        Visualize();
+            // 원래 리스트에서 temp에 대한 조건 확인
+            if (temp.indentData.indent == EIndent.DeathCount)
+            {
+                _character.Hit(4444, _character); // DeathCount일 경우 데미지 처리
+            }
+
+            // 리스트에서 제거 및 게임 오브젝트 삭제
+            indentList.Remove(temp); // 원래 리스트에서 제거
+            list.Remove(temp);       // 복사 리스트에서 제거
+            Destroy(temp.gameObject); // 게임 오브젝트 파괴
+        }
     }
 
-    public void RemoveIndent(EIndent indentType)
+    /*public void RemoveIndent(EIndent indentType)
     {
-        for (int i = indentList.Count - 1; i >= 0; i--) // 역순으로 순회
+        for (int i = 0; i < indentList.Count; i++)
         {
             if (indentList[i].indentData.indent == indentType)
             {
-               
                 IndentObject temp = indentList[i];
                 indentList.Remove(temp);
                 Destroy(temp.gameObject);
             }
         }
-    }
+    }*/
 
 
     // 특정 EIndent 타입에 맞는 IndentData를 반환하는 메서드
