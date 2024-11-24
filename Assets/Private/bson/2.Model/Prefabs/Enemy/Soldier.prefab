@@ -345,6 +345,8 @@ MonoBehaviour:
   indentData:
   - {fileID: 11400000, guid: 3f91bb24c0c62094c9fcad53dc1b7f3f, type: 2}
   - {fileID: 11400000, guid: 46142053831b7454db6edd7e4224eefa, type: 2}
+  - {fileID: 11400000, guid: 76bbda7d8685d1347b760936d3da8f6a, type: 2}
+  - {fileID: 11400000, guid: b8b0e9a5c0a09ba4d95b68a604ff6c79, type: 2}
 --- !u!1 &708417971695924761
 GameObject:
   m_ObjectHideFlags: 0
