@@ -26,6 +26,8 @@ public class TestAniPlayerStat : CharacterStat
         }
     }
 
+   
+
     public int CurrentOrb
     {
         get { return _currentOrb; }

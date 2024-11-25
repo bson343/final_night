@@ -48,6 +48,6 @@ public class TesterSceneManager : MonoBehaviour
     public void OnClickTreasureStart()
     {
         MapPlayerTracker.Instance.SetActiveNav();
-        NightSceneManager.Instance.GameLoadScene("shop 1");
+        NightSceneManager.Instance.GameLoadScene("Treasure");
     }
 }

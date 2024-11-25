@@ -12,7 +12,7 @@ public class GamePlayDataLodingManager : MonoBehaviour
     private int BasicHP = 50;
     private int BasicGold = 99;
     private int BasicNewGamePaly = 0;
-    private List<int> BasicCardDeck = new List<int> {1,2,3,4,5,6,10,13,14};
+    private List<int> BasicCardDeck = new List<int> {1,2,3,4,5,6,10,14};
     private List<int> BasicHeroCardDeck = new List<int> { 1 };
     private const string BaseUrl = "http://localhost:8080/gamesavedata/user/";
     //private const string BaseUrl = "http://10.30.1.110:8080/gamesavedata/user/";

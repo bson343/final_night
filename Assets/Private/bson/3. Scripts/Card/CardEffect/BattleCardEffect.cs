@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerObj;
 
 public class BattleCardEffect
 {
@@ -261,6 +262,14 @@ public class BattleCardEffect
         player.CharacterIndent.AddIndent(powerIndentData, 20);
         IndentData deathIndentData = player.CharacterIndent.GetIndentData(EIndent.DeathCount);
         player.CharacterIndent.AddIndent(deathIndentData, 1);
+
+    }
+
+
+    /// 임프마법사
+    public void ImpMagician(BattleCard sender)
+    {
+        player.PlayerStat.MaxOrb += 2;
 
     }
 }
