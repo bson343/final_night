@@ -27,4 +27,27 @@ public class GenerateRandomCard : MonoBehaviour
         generatedCardIds.Add(randomCardId); // 생성된 카드 ID를 리스트에 추가
         return randomCardId;
     }
+
+    public int GetUniqueRandomHeroCardId() // 메서드를 public으로 변경
+    {
+        List<int> availableCardIds = new List<int>();
+        for (int i = 17; i <= 19; i++) // 카드 ID 범위 (1~16)
+        {
+            if (!generatedCardIds.Contains(i)) // 이미 생성된 카드 ID는 제외
+            {
+                availableCardIds.Add(i);
+            }
+        }
+
+        if (availableCardIds.Count == 0)
+        {
+            Debug.LogError("No more unique cards available to generate.");
+            return -1; // 더 이상 생성할 수 있는 카드가 없을 때
+        }
+
+        int randomIndex = Random.Range(0, availableCardIds.Count);
+        int randomCardId = availableCardIds[randomIndex];
+        generatedCardIds.Add(randomCardId); // 생성된 카드 ID를 리스트에 추가
+        return randomCardId;
+    }
 }

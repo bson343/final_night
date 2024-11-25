@@ -137,8 +137,6 @@ public class RewardManager : MonoBehaviour, IRegisterable
             BattleCard card = cardGenerator.CreateAndSetupCard(randomCardIdGenerator);
             int index = i;  // 클로저 문제 해결을 위해 로컬 변수로 캡처
 
-            shopCardPrices[index] = Random.Range(50, 101);
-            shopCards[index] = card;
 
             card.ChangeState(ECardUsage.Gain);
             card.onClickAction = null;
