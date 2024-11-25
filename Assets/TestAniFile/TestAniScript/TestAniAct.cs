@@ -32,7 +32,7 @@ public class TestAniAct : MonoBehaviour
             {
               _player.AddCard(CardGenerator.GenBatCard(i));
             }else {
-                _player.AddCard(CardGenerator.GenBatCard(17)); // 깎아내기 생성 (이자리에 카드 테스트해볼꺼 넣으면 될듯?)
+                _player.AddCard(CardGenerator.GenBatCard(19)); // 깎아내기 생성 (이자리에 카드 테스트해볼꺼 넣으면 될듯?)
             }
             
             

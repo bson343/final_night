@@ -272,5 +272,21 @@ public class BattleCardEffect
         player.PlayerStat.MaxOrb += 2;
 
     }
+
+    /// 해골장군
+    public void SkeletonGeneral(BattleCard sender)
+    {
+          player.PlayerStat.Shield += (20 /*+ agility*/);
+    }
+
+    // 고블린 보급관
+    public void GoblinQuartermaster(BattleCard sender)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            cardHolder.DrawCard();
+        }
+    }
+    
 }
 
