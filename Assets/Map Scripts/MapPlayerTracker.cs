@@ -87,7 +87,7 @@ namespace Map
                 case NodeType.Treasure: // 마찬가지
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Treasure);
                     MapPlayerTracker.Instance.SetActiveNav();
-                    NightSceneManager.Instance.GameLoadScene("Treasure");
+                    NightSceneManager.Instance.GameLoadScene("shop 1");
                     break;
                 case NodeType.Store: // 상점
                     GlobalSoundManager.Instance.FadeBGM(EBGM.Shop);
