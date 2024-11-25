@@ -9470,7 +9470,6 @@ MonoBehaviour:
   nicknameText: {fileID: 9188505615963056739}
   GoldText: {fileID: 1811429959687763067}
   HPText: {fileID: 8221047194893415074}
-  SPText: {fileID: 0}
   MaxSp: 100
 --- !u!114 &4679780827664758916
 MonoBehaviour:

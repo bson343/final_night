@@ -120,10 +120,6 @@ MonoBehaviour:
     indentData: {fileID: 0}
     amount: 10
     secondAmount: 0
-  - patternData: {fileID: 11400000, guid: 21b2edd3f5142944491df6d4bb5de1ee, type: 2}
-    indentData: {fileID: 11400000, guid: 3f91bb24c0c62094c9fcad53dc1b7f3f, type: 2}
-    amount: 10
-    secondAmount: 0
   enemyCyclePatterns: []
   isAlreadyPattern: 0
   isFirstPattern: 0
