@@ -30,6 +30,15 @@ public class BattleCardGenerator : MonoBehaviour, IRegisterable
         return card;
     }
 
+    public BattleCard CreateAndSetupHeroCard(int cardid)
+    {
+        BattleCard card = GenBatCard(cardid);
+        card.cardID = cardid;
+        card.ChangeState(ECardUsage.Gain);
+        card.onClickAction = null;
+        return card;
+    }
+
     public BattleCard GenBatCard(int cardId)
     {
         if (

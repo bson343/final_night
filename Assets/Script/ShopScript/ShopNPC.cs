@@ -25,7 +25,7 @@ public class ShopNPC : MonoBehaviour
                 }
             }
         }
-    }
+    } 
 
     private void ToggleShopPopup()
     {

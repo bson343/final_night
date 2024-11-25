@@ -130,33 +130,25 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
     public void GetTreasureCard()
     {
-        GenerateRandomCard randomCardIdGenerator = FindObjectOfType<GenerateRandomCard>();
-
         for (int i = 0; i < 3; i++)
         {
-            int cardId = 17 + i; // 카드 ID를 17, 18, 19로 설정
-            BattleCard card = cardGenerator.CreateAndSetupCard(randomCardIdGenerator);
+            int index = i; // 클로저 문제 해결을 위해 지역 변수로 캡처
+            int cardId = 17 + i; // 카드 ID 설정
+            BattleCard card = cardGenerator.CreateAndSetupHeroCard(cardId);
 
-            shopCardPrices[i] = Random.Range(0, 1) == 0 ? 0 : Random.Range(50, 101); // 보물 카드는 0골드 또는 랜덤 골드
-            shopCards[i] = card;
+            shopCardPrices[index] = Random.Range(50, 101);
+            shopCards[index] = card;
 
             card.ChangeState(ECardUsage.Gain);
             card.onClickAction = null;
-            card.onClickAction += (() => OnClickTreasureGetCard(card, i));
+            card.onClickAction += (() => OnClickTreasureGetCard(card, index));
 
             card.transform.SetParent(cardRewardParent);
             card.transform.localScale = Vector3.one;
 
-            // 가격표 설정
-            if (shopCardPrices[i] == 0)
-            {
-                shopCardPriceTexts[i].text = "무료";
-            }
-            else
-            {
-                shopCardPriceTexts[i].text = shopCardPrices[i] + " 골드";
-            }
+            shopCardPriceTexts[index].text = shopCardPrices[index] + " 골드";
         }
+
     }
 
     private void OnClickBuyCard(BattleCard clickedCard, int index)
