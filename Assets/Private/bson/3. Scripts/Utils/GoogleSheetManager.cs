@@ -10,8 +10,7 @@ using UnityEngine.Networking;
 //에디터에서만 가능, 릴리즈 빌드에서는 패치서버를 구축할 것
 public class GoogleSheetManager : MonoBehaviour
 {
-    const string URL = "https://docs.google.com/spreadsheets/d/1xl-m1CtQxmsX2f-sevtRFEfX0mbiXM_MiLSNBNXqdyg/export?format=csv";
-
+    const string URL = "https://docs.google.com/spreadsheets/d/10kOEcZANw9pYBE6ju4jobe9-vZLg1cqpljTt5gepUqk/export?format=csv";
     public string RawDataCSV { get; private set; }
 
     public void Init(Action completeCallback)
