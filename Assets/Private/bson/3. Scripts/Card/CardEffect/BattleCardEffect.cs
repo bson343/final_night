@@ -19,32 +19,37 @@ public class BattleCardEffect
     // 꿰뚫는 손
     public void Strike(BattleCard sender)
     {
-        targetEnemy?.Hit(5+ player.PlayerStat.Power, player);
+        int damage = sender.EffectValues[0];
+        targetEnemy?.Hit(damage + player.PlayerStat.Power, player);
     }
 
     // 암흑 정령
     public void DarkSpirit(BattleCard sender)
     {
-        targetEnemy?.Hit(5 + player.PlayerStat.Power, player);
+        int damage = sender.EffectValues[0];
+        targetEnemy?.Hit(damage + player.PlayerStat.Power, player);
     }
 
     // 착취의 손아귀
     public void GraspOftheUndying(BattleCard sender)
     {
-        targetEnemy?.Hit(5 + player.PlayerStat.Power, player);
+        int damage = sender.EffectValues[0];
+        targetEnemy?.Hit(damage + player.PlayerStat.Power, player);
     }
 
     // 암흑 마력탄 
     public void DarkMagicBullet(BattleCard sender)
     {
-        targetEnemy?.Hit(5 + (player.PlayerStat.Power*4), player);
+        int damage = sender.EffectValues[0];
+        targetEnemy?.Hit(damage + (player.PlayerStat.Power*4), player);
     }
 
     // 영혼 해방
     public void SoulLiberation(BattleCard sender)
     {
+        int damage = sender.EffectValues[0];
         // 공격을 수행
-        targetEnemy.Hit(8 + player.PlayerStat.Power, player);
+        targetEnemy.Hit(damage + player.PlayerStat.Power, player);
 
         // Weak 인덴트 데이터 가져오기
         IndentData weakIndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Weak);
@@ -66,9 +71,10 @@ public class BattleCardEffect
     // 깎아내기 (적 공격력 약화)
     public void AttackDown(BattleCard sender)
     {
+        int damage = sender.EffectValues[0];
 
         // 공격을 수행
-        targetEnemy.Hit(5 + player.PlayerStat.Power, player);
+        targetEnemy.Hit(damage + player.PlayerStat.Power, player);
 
         // Weak 인덴트 데이터 가져오기
         IndentData weakeningIndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Weakening);
@@ -90,7 +96,8 @@ public class BattleCardEffect
     // 마나 방어막
     public void barrier(BattleCard sender)
     {
-        player.PlayerStat.Shield += (5 /*+ agility*/);
+        int shield = sender.EffectValues[0];
+        player.PlayerStat.Shield += (shield /*+ agility*/);
     }
 
     public void GrowthAttackDamage(BattleCard sender)
@@ -102,11 +109,12 @@ public class BattleCardEffect
     // 유성우
     public void AreaAttack(BattleCard sender)
     {
+        int damage = sender.EffectValues[0];
         foreach (var enemy in enemies)
         {
-            enemy.Hit(6 + player.PlayerStat.Power, player);
-            enemy.Hit(6 + player.PlayerStat.Power, player);
-            enemy.Hit(6 + player.PlayerStat.Power, player);
+            enemy.Hit(damage + player.PlayerStat.Power, player);
+            enemy.Hit(damage + player.PlayerStat.Power, player);
+            enemy.Hit(damage + player.PlayerStat.Power, player);
         }
     }
 
@@ -114,11 +122,12 @@ public class BattleCardEffect
     // 대폭발
     public void BigExplosion(BattleCard sender)
     {
+        int damage = sender.EffectValues[0];
         IndentData BurndentData = targetEnemy.CharacterIndent.GetIndentData(EIndent.Burn);
 
         foreach (var enemy in enemies)
         {
-            enemy.Hit(10 + player.PlayerStat.Power, player);
+            enemy.Hit(damage + player.PlayerStat.Power, player);
 
         }
     }
@@ -126,18 +135,23 @@ public class BattleCardEffect
     // 마나 순환
     public void ManaCirculation(BattleCard sender)
     {
-        player.PlayerStat.CurrentOrb += 2;
+        int value = sender.EffectValues[0];
+        player.PlayerStat.CurrentOrb += value;
     }
 
     // 폭주마법진
     public void MagicalMeltdown(BattleCard sender)
     {
-        for (int i = 0; i < 3; i++)
+        int damege = sender.EffectValues[0];
+        int energy = sender.EffectValues[1];
+        int drawCount = sender.EffectValues[2];
+
+        for (int i = 0; i < drawCount; i++)
         {
             cardHolder.DrawCard();
         }
-        player.PlayerStat.CurrentOrb += 2;
-        player.PlayerStat.CurrentHp -= 6;
+        player.PlayerStat.CurrentOrb += energy;
+        player.PlayerStat.CurrentHp -= damege;
     }
 
     // 화상 포션
@@ -169,7 +183,6 @@ public class BattleCardEffect
     // 점화 (미완)
     public void Ignite(BattleCard sender)
     {
-
 
         // 공격을 수행
         targetEnemy.Hit(5 + player.PlayerStat.Power, player);
@@ -269,20 +282,24 @@ public class BattleCardEffect
     /// 임프마법사
     public void ImpMagician(BattleCard sender)
     {
-        player.PlayerStat.MaxOrb += 2;
+        int energy = sender.EffectValues[0];
+        player.PlayerStat.MaxOrb += energy;
 
     }
 
     /// 해골장군
     public void SkeletonGeneral(BattleCard sender)
     {
-          player.PlayerStat.Shield += (20 /*+ agility*/);
+        int shield = sender.EffectValues[0];
+        player.PlayerStat.Shield += (shield /*+ agility*/);
     }
 
     // 고블린 보급관
     public void GoblinQuartermaster(BattleCard sender)
     {
-        for (int i = 0; i < 2; i++)
+        int drawCount = sender.EffectValues[0];
+
+        for (int i = 0; i < drawCount; i++)
         {
             cardHolder.DrawCard();
         }
