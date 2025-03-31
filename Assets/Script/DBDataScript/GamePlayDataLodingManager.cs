@@ -59,6 +59,21 @@ public class GamePlayDataLodingManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        //web서버 없을 시
+        {
+            if (isDataInitialized)
+            {
+                Debug.Log("Initial data detected. Skipping data load.");
+                return;
+            }
+            else
+            {
+                InitializeData();
+            }
+
+            return;
+        }
+
         if (scene.name == "Main") // 메인 씬 이름이 "Main"이라고 가정
         {
             Debug.Log("Main scene loaded.");
