@@ -56,6 +56,7 @@ public class ResourceManager : MonoBehaviour
 
         Config.Init();
         _csvSync.Init(completeCSV);
+        //_csvSync.Init(completeCSV, Config.API_CARD_INFO);
 
     }
 

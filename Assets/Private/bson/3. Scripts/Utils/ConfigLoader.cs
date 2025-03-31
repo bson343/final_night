@@ -14,6 +14,7 @@ public class ConfigLoader : MonoBehaviour
     private string configPath;
 
     public string DB_IP { get; private set; }
+    public string API_CARD_INFO { get; private set; }
 
     public void Awake()
     {
@@ -28,6 +29,9 @@ public class ConfigLoader : MonoBehaviour
 
         DB_IP = ini.ReadValue("DB", "IP", "localhost");
         Debug.Log($"Config : DB.IP = {DB_IP}");
+
+        API_CARD_INFO = ini.ReadValue("API_CARD_INFO", "URI", "http://localhost:3000/card-info");
+        Debug.Log($"Config : API_CARD_INFO.URI = {DB_IP}");
 
         ini.Close();
     }
